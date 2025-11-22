@@ -3,12 +3,35 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --accenture-purple: #A100FF;
+    --accenture-purple-dark: #7000B8;
+    --accenture-purple-light: #C866FF;
+    --accenture-black: #000000;
+    --accenture-white: #FFFFFF;
+    --accenture-gray: #F3F2F1;
+    --accenture-text: #323232;
+  }
+
   body {
-    @apply bg-canvas-default text-fg-default antialiased;
+    @apply bg-white text-[#323232] antialiased;
+    font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    letter-spacing: -0.01em;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-bold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl;
+    line-height: 1.15;
   }
 
   code {
@@ -18,14 +41,43 @@
 
 @layer utilities {
   .btn-primary {
-    @apply bg-success-emphasis text-white px-4 py-2 rounded-md font-medium hover:bg-[#2ea043] transition-colors border border-[rgba(240,246,252,0.1)];
+    @apply bg-[#A100FF] text-white px-6 py-3 rounded-none font-semibold hover:bg-[#7000B8] transition-all duration-300 border-none uppercase tracking-wide text-sm;
+    box-shadow: 0 2px 8px rgba(161, 0, 255, 0.3);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(161, 0, 255, 0.4);
   }
   
   .btn-secondary {
-    @apply bg-canvas-subtle text-fg-default px-4 py-2 rounded-md font-medium hover:bg-[#30363d] transition-colors border border-border-default;
+    @apply bg-white text-[#323232] px-6 py-3 rounded-none font-semibold hover:bg-[#F3F2F1] transition-all duration-300 border-2 border-[#323232] uppercase tracking-wide text-sm;
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px);
   }
 
   .card {
-    @apply bg-canvas-default border border-border-default rounded-md overflow-hidden;
+    @apply bg-white border-none rounded-none overflow-hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .accenture-gradient {
+    background: linear-gradient(135deg, #A100FF 0%, #7000B8 100%);
+  }
+
+  .accenture-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+
+  .section-spacing {
+    @apply py-24 lg:py-32;
   }
 }

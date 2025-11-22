@@ -13,23 +13,24 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({ title, items, type }) =
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`card p-6 ${isCustom ? 'bg-accent-subtle border-accent-muted' : 'bg-canvas-subtle border-border-default'}`}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            className={`p-8 ${isCustom ? 'bg-[#A100FF] text-white' : 'bg-white text-[#323232]'} border-none shadow-lg transition-all duration-300`}
         >
-            <h3 className={`text-xl font-semibold mb-4 ${isCustom ? 'text-accent-fg' : 'text-fg-muted'}`}>
+            <h3 className={`text-2xl font-bold mb-6 uppercase tracking-tight ${isCustom ? 'text-white' : 'text-[#323232]'}`}>
                 {title}
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
                 {items.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm">
+                    <li key={index} className="flex items-start gap-3 text-base">
                         {isCustom ? (
-                            <CheckCircle2 className="w-4 h-4 text-success-fg mt-0.5 flex-shrink-0" />
+                            <CheckCircle2 className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
                         ) : (
-                            <span className="w-4 h-4 rounded-full bg-fg-muted/20 mt-0.5 flex-shrink-0" />
+                            <span className="w-5 h-5 border-2 border-[#E5E5E5] mt-0.5 flex-shrink-0" />
                         )}
-                        <span className={isCustom ? 'text-fg-default' : 'text-fg-muted'}>{item}</span>
+                        <span className={isCustom ? 'text-white font-light' : 'text-[#666666] font-light'}>{item}</span>
                     </li>
                 ))}
             </ul>
@@ -46,23 +47,26 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, color }) => {
     const colorClasses = {
-        blue: 'from-[#58a6ff]/20 to-[#58a6ff]/5 border-[#58a6ff]/30',
-        green: 'from-[#3fb950]/20 to-[#3fb950]/5 border-[#3fb950]/30',
-        purple: 'from-[#bc8cff]/20 to-[#bc8cff]/5 border-[#bc8cff]/30'
+        blue: 'bg-white border-2 border-[#E5E5E5] hover:border-[#A100FF]',
+        green: 'bg-white border-2 border-[#E5E5E5] hover:border-[#A100FF]',
+        purple: 'bg-white border-2 border-[#E5E5E5] hover:border-[#A100FF]'
     };
 
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className={`card p-6 bg-gradient-to-br ${colorClasses[color]}`}
+            whileHover={{ scale: 1.03, y: -8, transition: { duration: 0.2 } }}
+            className={`p-8 ${colorClasses[color]} cursor-default transition-all duration-300 shadow-md hover:shadow-xl`}
         >
-            <div className="flex items-center gap-3 mb-3">
-                {icon}
-                <h3 className="font-semibold text-lg">{title}</h3>
+            <div className="flex items-start gap-4 mb-4">
+                <div className="text-[#A100FF]">
+                    {icon}
+                </div>
+                <h3 className="font-bold text-xl text-[#323232] uppercase tracking-tight">{title}</h3>
             </div>
-            <p className="text-fg-muted text-sm">{description}</p>
+            <p className="text-[#666666] font-light leading-relaxed">{description}</p>
         </motion.div>
     );
 };
@@ -77,16 +81,20 @@ interface AgentCardProps {
 const AgentCard: React.FC<AgentCardProps> = ({ name, description, icon, color }) => {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="card p-6 bg-canvas-subtle hover:bg-canvas-default transition-colors"
+            whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
+            className="p-8 bg-white border-2 border-[#E5E5E5] hover:border-[#A100FF] transition-all duration-300 shadow-md hover:shadow-xl cursor-default"
         >
-            <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${color} flex items-center justify-center mb-4`}>
+            <motion.div 
+                className={`w-16 h-16 bg-gradient-to-br ${color} flex items-center justify-center mb-6`}
+                whileHover={{ rotate: [0, -5, 5, -5, 0], transition: { duration: 0.5 } }}
+            >
                 {icon}
-            </div>
-            <h4 className="font-semibold text-lg mb-2">{name}</h4>
-            <p className="text-fg-muted text-sm">{description}</p>
+            </motion.div>
+            <h4 className="font-bold text-xl mb-3 text-[#323232] uppercase tracking-tight">{name}</h4>
+            <p className="text-[#666666] font-light leading-relaxed">{description}</p>
         </motion.div>
     );
 };
@@ -104,25 +112,25 @@ interface CodeComparisonProps {
 
 const CodeComparison: React.FC<CodeComparisonProps> = ({ bad, good }) => {
     return (
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
             {/* Bad Example */}
-            <div className="card bg-[#0d1117] border-[#f85149]/30 overflow-hidden">
-                <div className="px-4 py-3 bg-[#f85149]/10 border-b border-[#f85149]/30 flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#f85149]"></div>
-                    <span className="text-xs font-medium text-[#f85149]">{bad.title}</span>
+            <div className="bg-[#1a1a1a] border-2 border-red-600 overflow-hidden">
+                <div className="px-6 py-4 bg-red-600/20 border-b-2 border-red-600 flex items-center gap-3">
+                    <div className="w-4 h-4 bg-red-600"></div>
+                    <span className="text-sm font-bold text-red-500 uppercase tracking-wide">{bad.title}</span>
                 </div>
-                <pre className="p-4 text-sm text-fg-muted font-mono overflow-x-auto">
+                <pre className="p-6 text-sm text-gray-300 font-mono overflow-x-auto">
                     <code>{bad.code}</code>
                 </pre>
             </div>
 
             {/* Good Example */}
-            <div className="card bg-[#0d1117] border-[#3fb950]/30 overflow-hidden">
-                <div className="px-4 py-3 bg-[#3fb950]/10 border-b border-[#3fb950]/30 flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#3fb950]"></div>
-                    <span className="text-xs font-medium text-[#3fb950]">{good.title}</span>
+            <div className="bg-[#1a1a1a] border-2 border-[#A100FF] overflow-hidden">
+                <div className="px-6 py-4 bg-[#A100FF]/20 border-b-2 border-[#A100FF] flex items-center gap-3">
+                    <div className="w-4 h-4 bg-[#A100FF]"></div>
+                    <span className="text-sm font-bold text-[#A100FF] uppercase tracking-wide">{good.title}</span>
                 </div>
-                <pre className="p-4 text-sm text-fg-default font-mono overflow-x-auto">
+                <pre className="p-6 text-sm text-gray-100 font-mono overflow-x-auto">
                     <code>{good.code}</code>
                 </pre>
             </div>
