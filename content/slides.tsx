@@ -310,7 +310,7 @@ const AgentsIntroSlide: React.FC<{isActive: boolean}> = () => (
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-colors">
              <IconShield className="w-12 h-12 text-bbva-aqua mx-auto mb-4" />
              <h3 className="text-xl font-bold text-white mb-2">Seguridad</h3>
-             <p className="text-sm text-gray-300">Auditor experto en OWASP Top 10, sanitización de inputs y mejores prácticas de seguridad.</p>
+             <p className="text-sm text-gray-300">Auditor experto en OWASP Top 10 2021, sanitización de inputs y mejores prácticas de seguridad.</p>
              <div className="mt-4 text-xs text-bbva-aqua font-mono">@SecurityAuditor</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-colors transform scale-110 shadow-2xl relative z-10 bg-bbva-blue">
@@ -659,7 +659,7 @@ const ConfigAgentRepoSlide: React.FC<{isActive: boolean}> = () => (
              <pre className="text-xs font-mono text-gray-300 leading-relaxed whitespace-pre-wrap">
 {`---
 name: Security Auditor
-description: Experto en OWASP Top 10 y seguridad web
+description: Experto en OWASP Top 10 2021 y seguridad web
 ---
 
 # Role
@@ -669,7 +669,7 @@ Eres un Security Engineer especializado en vulnerabilidades web.
 Auditas código TypeScript/Node.js en aplicaciones bancarias.
 
 # Skills
-- OWASP Top 10
+- OWASP Top 10 (2021)
 - SQL Injection detection
 - XSS prevention
 - Authentication flows
@@ -891,7 +891,7 @@ const IdeasSlide: React.FC<{isActive: boolean}> = () => (
           { icon: "🧹", title: "Refactor Agent", desc: "Limpia deuda técnica, moderniza sintaxis y aplica patrones de diseño.", example: "@RefactorMaster optimiza esta clase legacy" },
           { icon: "🧪", title: "Test Writer", desc: "Escribe tests unitarios siguiendo patrones AAA con alto coverage.", example: "@TestWriter crea suite completo para UserService" },
           { icon: "📝", title: "Documentation Agent", desc: "Documenta APIs en formato OpenAPI/Swagger y genera READMEs.", example: "@DocuMaster documenta esta API REST" },
-          { icon: "🔐", title: "Security Guard", desc: "Audita código contra OWASP Top 10 y valida inputs/outputs.", example: "@SecurityGuard escanea vulnerabilidades aquí" },
+          { icon: "🔐", title: "Security Guard", desc: "Audita código contra OWASP Top 10 2021 y valida inputs/outputs.", example: "@SecurityGuard escanea vulnerabilidades aquí" },
           { icon: "🏗️", title: "Migration Agent", desc: "Asiste en migraciones de versiones, frameworks o arquitecturas.", example: "@MigrationExpert migra de Angular 15 a 17" },
           { icon: "🎨", title: "UI/UX Expert", desc: "Optimiza componentes para accesibilidad y responsive design.", example: "@UIExpert mejora la accesibilidad del form" }
        ].map((item, idx) => (
