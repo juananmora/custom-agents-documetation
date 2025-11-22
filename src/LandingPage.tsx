@@ -77,7 +77,7 @@ const LandingPage: React.FC = () => {
                     </button>
 
                     <div className="hidden lg:flex items-center gap-4">
-                        <a href="https://github.com/copilot/agents" target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs">
+                        <a href="https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents" target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs">
                             Explorar Agentes
                         </a>
                         <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener noreferrer" className="btn-primary text-xs">
