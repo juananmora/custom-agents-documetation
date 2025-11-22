@@ -79,10 +79,10 @@ const LandingPage: React.FC = () => {
 
                     <div className="hidden lg:flex items-center gap-3">
                         <a href="https://github.com/copilot/agents" target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm">
-                            Ver Agentes
+                            Explorar Agentes
                         </a>
                         <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm">
-                            Obtener Copilot
+                            Documentación
                         </a>
                     </div>
                 </div>
@@ -113,26 +113,75 @@ const LandingPage: React.FC = () => {
             <main className="pt-16">
                 {/* Hero Section */}
                 <section id="inicio" className="relative py-20 lg:py-32 overflow-hidden">
-                    {/* Parallax Background */}
+                    {/* Enhanced Parallax Background with animated gradient */}
                     <motion.div
-                        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-subtle via-canvas-default to-canvas-default opacity-40"
+                        className="absolute inset-0 opacity-50"
                         style={{ y: scrollY * 0.5 }}
-                    ></motion.div>
+                    >
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent-subtle via-canvas-default to-canvas-default"></div>
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-success-subtle via-transparent to-transparent opacity-30"></div>
+                    </motion.div>
+                    
+                    {/* Floating elements for visual interest */}
+                    <motion.div
+                        className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-subtle rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+                        animate={{
+                            y: [0, 50, 0],
+                            scale: [1, 1.1, 1],
+                        }}
+                        transition={{
+                            duration: 8,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    />
+                    <motion.div
+                        className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-success-subtle rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+                        animate={{
+                            y: [0, -50, 0],
+                            scale: [1, 1.2, 1],
+                        }}
+                        transition={{
+                            duration: 10,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: 1
+                        }}
+                    />
+                    
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-canvas-subtle border border-border-default text-xs font-medium text-fg-muted mb-6">
-                                <span className="w-2 h-2 rounded-full bg-accent-fg animate-pulse"></span>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-canvas-subtle border border-border-default text-xs font-medium text-fg-muted mb-6 shadow-lg">
+                                <motion.span 
+                                    className="w-2 h-2 rounded-full bg-accent-fg"
+                                    animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
+                                    transition={{ duration: 2, repeat: Infinity }}
+                                />
                                 Más Allá de las Sugerencias
                             </div>
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-gradient-to-r from-fg-default via-accent-fg to-fg-default bg-clip-text text-transparent">
-                                Domina GitHub Copilot con<br />Agentes e Instrucciones a Medida
-                            </h1>
+                            <motion.h1 
+                                className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.3 }}
+                            >
+                                <motion.span
+                                    className="bg-gradient-to-r from-fg-default via-accent-fg to-fg-default bg-clip-text text-transparent"
+                                    animate={{
+                                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                                    }}
+                                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                                    style={{ backgroundSize: '200% auto' }}
+                                >
+                                    Domina GitHub Copilot con<br />Agentes e Instrucciones a Medida
+                                </motion.span>
+                            </motion.h1>
                             <p className="text-xl text-fg-muted max-w-3xl mx-auto mb-10 leading-relaxed">
-                                Una guía para transformar a Copilot de un asistente genérico a un miembro especializado de tu equipo
+                                Descubre cómo transformar GitHub Copilot de un asistente genérico en un equipo de expertos especializados para tu proyecto
                             </p>
                             <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
                                 <a href="#fundamentos" className="btn-primary text-base px-8 py-3 flex items-center gap-2">
@@ -143,20 +192,32 @@ const LandingPage: React.FC = () => {
                                 </a>
                             </div>
 
-                            {/* Feature Pills */}
-                            <div className="flex flex-wrap items-center justify-center gap-3">
+                            {/* Feature Pills with stagger animation */}
+                            <motion.div 
+                                className="flex flex-wrap items-center justify-center gap-3"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.8 }}
+                            >
                                 {[
                                     { icon: <FileText className="w-4 h-4" />, text: 'Instrucciones a Medida' },
                                     { icon: <Bot className="w-4 h-4" />, text: 'Agentes Personalizados' },
                                     { icon: <Zap className="w-4 h-4" />, text: 'Flujos Automatizados' },
                                     { icon: <Code2 className="w-4 h-4" />, text: 'Contexto Específico' }
                                 ].map((item, index) => (
-                                    <div key={index} className="flex items-center gap-2 px-4 py-2 rounded-full bg-canvas-subtle border border-border-default text-sm">
+                                    <motion.div 
+                                        key={index} 
+                                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-canvas-subtle border border-border-default text-sm hover:border-accent-muted hover:bg-accent-subtle/20 transition-all duration-300 cursor-default"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.8 + (index * 0.1) }}
+                                        whileHover={{ scale: 1.05, y: -2 }}
+                                    >
                                         {item.icon}
                                         <span>{item.text}</span>
-                                    </div>
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </section>
@@ -169,52 +230,56 @@ const LandingPage: React.FC = () => {
                                 De Asistente Genérico a Compañero de Equipo Experto
                             </h2>
                             <p className="text-fg-muted max-w-2xl mx-auto text-lg">
-                                La personalización convierte a Copilot en un multiplicador de fuerza para tu proyecto
+                                Descubre cómo la personalización convierte a Copilot en un verdadero multiplicador de productividad
                             </p>
                         </div>
 
                         <motion.div
                             className="grid md:grid-cols-2 gap-8 mb-12"
-                            initial={{ opacity: 0, y: 40 }}
+                            initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6 }}
+                            transition={{ duration: 0.7, staggerChildren: 0.2 }}
                         >
                             <ComparisonCard
                                 title="Copilot Estándar"
                                 type="standard"
                                 items={[
-                                    'Ofrece ayuda general sobre el código',
-                                    'Desconoce los estándares y arquitectura de tu proyecto',
-                                    'Requiere que repitas el contexto en cada prompt',
-                                    'Respuestas genéricas sin personalización'
+                                    'Ofrece asistencia general de programación',
+                                    'No conoce los estándares específicos de tu proyecto',
+                                    'Requiere contexto repetido en cada interacción',
+                                    'Genera respuestas genéricas sin personalización'
                                 ]}
                             />
                             <ComparisonCard
                                 title="Copilot Personalizado"
                                 type="custom"
                                 items={[
-                                    'Entiende la "personalidad" de tu repositorio',
-                                    'Conoce tus librerías y sigue tus guías de estilo',
-                                    'Automatiza flujos de trabajo complejos',
-                                    'Se convierte en un experto a tu servicio'
+                                    'Comprende el contexto único de tu repositorio',
+                                    'Respeta tus librerías, frameworks y guías de estilo',
+                                    'Automatiza flujos de trabajo y tareas recurrentes',
+                                    'Actúa como un equipo de especialistas a tu servicio'
                                 ]}
                             />
                         </motion.div>
 
-                        {/* Transformation Image */}
+                        {/* Transformation Image with enhanced reveal */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9, y: 50 }}
+                            initial={{ opacity: 0, scale: 0.95, y: 60 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
                             className="max-w-4xl mx-auto mb-12"
+                            whileHover={{ scale: 1.02 }}
                         >
-                            <img
-                                src={`${import.meta.env.BASE_URL}copilot-transformation.png`}
-                                alt="Transformación de Copilot de asistente genérico a compañero experto"
-                                className="w-full rounded-xl shadow-2xl border border-border-default"
-                            />
+                            <div className="relative group">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-accent-fg to-success-fg rounded-xl opacity-20 group-hover:opacity-30 blur transition duration-500"></div>
+                                <img
+                                    src={`${import.meta.env.BASE_URL}copilot-transformation.png`}
+                                    alt="Transformación de Copilot de asistente genérico a compañero experto"
+                                    className="relative w-full rounded-xl shadow-2xl border border-border-default"
+                                />
+                            </div>
                         </motion.div>
 
                         {/* Key Features */}
@@ -227,20 +292,20 @@ const LandingPage: React.FC = () => {
                         >
                             <FeatureCard
                                 icon={<Book className="w-6 h-6 text-[#58a6ff]" />}
-                                title="Librerías"
-                                description="Copilot conoce las librerías específicas de tu proyecto y genera código compatible"
+                                title="Contexto de Librerías"
+                                description="Copilot comprende las librerías y frameworks específicos de tu proyecto para generar código compatible"
                                 color="blue"
                             />
                             <FeatureCard
                                 icon={<FileText className="w-6 h-6 text-[#3fb950]" />}
-                                title="Guías de Estilo"
-                                description="Sigue automáticamente los estándares de código de tu equipo"
+                                title="Estándares de Código"
+                                description="Aplica automáticamente las convenciones de código y mejores prácticas de tu equipo"
                                 color="green"
                             />
                             <FeatureCard
                                 icon={<Zap className="w-6 h-6 text-[#bc8cff]" />}
-                                title="Flujos de Trabajo"
-                                description="Automatiza tareas repetitivas con agentes especializados"
+                                title="Automatización"
+                                description="Crea agentes especializados que ejecutan tareas complejas y repetitivas de forma consistente"
                                 color="purple"
                             />
                         </motion.div>
@@ -250,12 +315,14 @@ const LandingPage: React.FC = () => {
                 {/* Instructions Base Section */}
                 <motion.section
                     id="instrucciones"
-                    className="py-20 bg-canvas-default"
+                    className="py-20 bg-canvas-default relative overflow-hidden"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-200px" }}
-                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true, margin: "-150px" }}
+                    transition={{ duration: 1 }}
                 >
+                    {/* Subtle background gradient for section separation */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-canvas-subtle/20 to-transparent pointer-events-none"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -269,28 +336,28 @@ const LandingPage: React.FC = () => {
                         <div className="max-w-4xl mx-auto mb-16">
                             <div className="card p-8 bg-gradient-to-br from-accent-subtle/20 to-canvas-subtle">
                                 <p className="text-lg mb-6">
-                                    Las <strong className="text-accent-fg">Instrucciones Personalizadas</strong> son directivas en lenguaje natural que proveen contexto persistente a Copilot.
+                                    Las <strong className="text-accent-fg">Instrucciones Personalizadas</strong> son directivas en lenguaje natural que proporcionan contexto persistente a GitHub Copilot. Puedes definirlas a nivel personal, de repositorio o de organización.
                                 </p>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-success-fg mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">No más repetición</h4>
-                                            <p className="text-sm text-fg-muted">Evitan añadir el mismo contexto en cada prompt</p>
+                                            <h4 className="font-semibold mb-1">Contexto Permanente</h4>
+                                            <p className="text-sm text-fg-muted">Evita repetir el mismo contexto en cada interacción</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-success-fg mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">Conocimiento Integrado</h4>
-                                            <p className="text-sm text-fg-muted">Copilot conoce las reglas y arquitectura de tu proyecto</p>
+                                            <h4 className="font-semibold mb-1">Conocimiento Profundo</h4>
+                                            <p className="text-sm text-fg-muted">Copilot comprende las reglas y arquitectura de tu proyecto</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-success-fg mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">Alta Calidad</h4>
-                                            <p className="text-sm text-fg-muted">Respuestas más precisas y relevantes</p>
+                                            <h4 className="font-semibold mb-1">Mayor Precisión</h4>
+                                            <p className="text-sm text-fg-muted">Respuestas más relevantes y alineadas con tu contexto</p>
                                         </div>
                                     </div>
                                 </div>
@@ -299,18 +366,18 @@ const LandingPage: React.FC = () => {
 
                         {/* Hierarchy Section */}
                         <div className="mb-16">
-                            <h3 className="text-2xl font-bold text-center mb-8">Ámbitos de Influencia y su Jerarquía</h3>
+                            <h3 className="text-2xl font-bold text-center mb-8">Jerarquía de Instrucciones</h3>
                             <p className="text-center text-fg-muted mb-12 max-w-2xl mx-auto">
-                                Las instrucciones se aplican en diferentes niveles. Las más específicas siempre tienen prioridad sobre las más generales.
+                                Las instrucciones se aplican en diferentes ámbitos. Las más específicas tienen prioridad sobre las generales: <strong>Personal → Repositorio → Organización</strong>.
                             </p>
                             <PriorityVisualizer />
                         </div>
 
                         {/* Anatomy of Instructions */}
                         <div className="mb-16">
-                            <h3 className="text-2xl font-bold text-center mb-8">Anatomía de las Instrucciones de Repositorio</h3>
+                            <h3 className="text-2xl font-bold text-center mb-8">Tipos de Instrucciones en el Repositorio</h3>
                             <p className="text-center text-fg-muted mb-12 max-w-3xl mx-auto">
-                                Dentro de un repositorio, puedes afinar el contexto de Copilot con dos niveles de granularidad
+                                Dentro de un repositorio, puedes definir instrucciones con diferentes niveles de especificidad para optimizar el contexto que recibe Copilot
                             </p>
 
                             <div className="grid md:grid-cols-2 gap-8">
@@ -325,12 +392,12 @@ const LandingPage: React.FC = () => {
                                         </div>
                                     </div>
                                     <p className="text-sm text-fg-muted mb-3">
-                                        Definir estándares y contexto que aplican a todo el proyecto
+                                        Define estándares y contexto que aplican a todo el repositorio
                                     </p>
                                     <div className="bg-canvas-default rounded p-3 text-xs font-mono">
                                         <div className="text-success-fg mb-1"># Ejemplo</div>
-                                        <div className="text-fg-muted">Este proyecto usa React con Tailwind CSS</div>
-                                        <div className="text-fg-muted">Genera siempre pruebas unitarias con Jest</div>
+                                        <div className="text-fg-muted">Este proyecto usa React 19 con TypeScript</div>
+                                        <div className="text-fg-muted">Todos los tests deben usar Jest y React Testing Library</div>
                                     </div>
                                 </div>
 
@@ -345,12 +412,14 @@ const LandingPage: React.FC = () => {
                                         </div>
                                     </div>
                                     <p className="text-sm text-fg-muted mb-3">
-                                        Aplicar reglas solo a archivos que coincidan con un patrón (glob)
+                                        Aplica reglas específicas a archivos que coinciden con patrones (glob patterns)
                                     </p>
                                     <div className="bg-canvas-default rounded p-3 text-xs font-mono">
-                                        <div className="text-success-fg mb-1"># Ejemplo</div>
-                                        <div className="text-fg-muted">Para *.py, sigue PEP 8</div>
-                                        <div className="text-fg-muted">En src/components/**/*.tsx, usa hooks</div>
+                                        <div className="text-success-fg mb-1"># Ejemplo con frontmatter YAML</div>
+                                        <div className="text-fg-muted">---</div>
+                                        <div className="text-fg-muted">applyTo: src/components/**/*.tsx</div>
+                                        <div className="text-fg-muted">---</div>
+                                        <div className="text-fg-muted">Usa siempre React Hooks y TypeScript</div>
                                     </div>
                                 </div>
                             </div>
@@ -411,12 +480,15 @@ Evita excepciones genéricas como except Exception:`
                 {/* Custom Agents Section */}
                 <motion.section
                     id="agentes"
-                    className="py-20 bg-canvas-subtle/30 border-y border-border-default"
+                    className="py-20 bg-canvas-subtle/30 border-y border-border-default relative overflow-hidden"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-200px" }}
-                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true, margin: "-150px" }}
+                    transition={{ duration: 1 }}
                 >
+                    {/* Decorative elements */}
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-accent-subtle rounded-full mix-blend-multiply filter blur-3xl opacity-10 pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-success-subtle rounded-full mix-blend-multiply filter blur-3xl opacity-10 pointer-events-none"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -430,28 +502,28 @@ Evita excepciones genéricas como except Exception:`
                         <div className="max-w-4xl mx-auto mb-16">
                             <div className="card p-8 bg-gradient-to-br from-accent-subtle/20 to-canvas-subtle">
                                 <p className="text-lg mb-6">
-                                    Los <strong className="text-accent-fg">Agentes Personalizados</strong> son versiones especializadas y configurables del agente de codificación de Copilot, diseñados para ejecutar flujos de trabajo recurrentes y complejos.
+                                    Los <strong className="text-accent-fg">Agentes Personalizados</strong> son versiones especializadas del agente de codificación de Copilot. Se definen mediante archivos Markdown con frontmatter YAML que especifican su personalidad, herramientas disponibles y instrucciones específicas para tareas recurrentes.
                                 </p>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="flex items-start gap-3">
                                         <Bot className="w-5 h-5 text-accent-fg mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">Más allá del contexto</h4>
-                                            <p className="text-sm text-fg-muted">Tienen personalidad, habilidades y propósito definidos</p>
+                                            <h4 className="font-semibold mb-1">Especialistas Definidos</h4>
+                                            <p className="text-sm text-fg-muted">Cada agente tiene personalidad, habilidades y un propósito específico</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <Zap className="w-5 h-5 text-accent-fg mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">Expertos bajo demanda</h4>
-                                            <p className="text-sm text-fg-muted">Invoca agentes específicos para tareas concretas</p>
+                                            <h4 className="font-semibold mb-1">Invocación Bajo Demanda</h4>
+                                            <p className="text-sm text-fg-muted">Llama a agentes específicos cuando los necesites para tareas concretas</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <Layers className="w-5 h-5 text-accent-fg mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">Configurables y Reutilizables</h4>
-                                            <p className="text-sm text-fg-muted">Compartibles a nivel de repo, org o empresa</p>
+                                            <h4 className="font-semibold mb-1">Compartibles y Reutilizables</h4>
+                                            <p className="text-sm text-fg-muted">Disponibles a nivel de repositorio, organización o empresa</p>
                                         </div>
                                     </div>
                                 </div>
@@ -484,7 +556,7 @@ Evita excepciones genéricas como except Exception:`
                         <div>
                             <h3 className="text-2xl font-bold text-center mb-8">Anatomía de un Agente Personalizado</h3>
                             <p className="text-center text-fg-muted mb-12 max-w-2xl mx-auto">
-                                Los agentes se definen en simples archivos Markdown (.md). La clave está en sus instrucciones internas.
+                                Los agentes se definen con archivos Markdown que incluyen frontmatter YAML con la configuración y el prompt personalizado en el cuerpo del archivo.
                             </p>
 
                             <div className="max-w-4xl mx-auto card bg-[#0d1117] border-border-default shadow-2xl overflow-hidden">
@@ -500,20 +572,26 @@ Evita excepciones genéricas como except Exception:`
                                     <pre className="font-mono text-sm leading-relaxed text-fg-default">
                                         <code>
                                             <span className="text-accent-fg">---</span>{'\n'}
-                                            <span className="text-success-fg">name:</span> NextJS Ninja{'\n'}
-                                            <span className="text-success-fg">description:</span> Un experto en desarrollo con Next.js{'\n'}
+                                            <span className="text-success-fg">name:</span> nextjs-expert{'\n'}
+                                            <span className="text-success-fg">description:</span> Experto en Next.js y React Server Components{'\n'}
+                                            <span className="text-success-fg">tools:</span> ['read', 'search', 'edit', 'bash']{'\n'}
                                             <span className="text-accent-fg">---</span>{'\n'}
                                             {'\n'}
-                                            <span className="text-attention-fg"># CONTEXTO</span>{'\n'}
-                                            Eres un experto en Next.js con 10 años de experiencia{'\n'}
-                                            Tu especialidad es crear aplicaciones performantes y escalables{'\n'}
+                                            <span className="text-attention-fg"># Contexto</span>{'\n'}
+                                            Eres un experto senior en Next.js 15 con conocimiento profundo de{'\n'}
+                                            React Server Components, App Router y optimización de rendimiento.{'\n'}
                                             {'\n'}
-                                            <span className="text-attention-fg"># INSTRUCCIONES</span>{'\n'}
-                                            - Utiliza siempre TypeScript{'\n'}
-                                            - Prefiere Server Components sobre Client Components{'\n'}
-                                            - Para el manejo de estado, sugiere Zustand o Jotai{'\n'}
-                                            - Al crear la estructura inicial, incluye directorios para{'\n'}
-                                            {'  '}components, lib, y app{'\n'}
+                                            <span className="text-attention-fg"># Instrucciones</span>{'\n'}
+                                            - Siempre usa TypeScript con tipos estrictos{'\n'}
+                                            - Prioriza Server Components sobre Client Components{'\n'}
+                                            - Para estado cliente, sugiere Zustand o Jotai{'\n'}
+                                            - Implementa code splitting y lazy loading cuando sea apropiado{'\n'}
+                                            - Sigue las convenciones de estructura: app/, components/, lib/{'\n'}
+                                            {'\n'}
+                                            <span className="text-attention-fg"># Comandos</span>{'\n'}
+                                            - Pruebas: npm run test{'\n'}
+                                            - Build: npm run build{'\n'}
+                                            - Desarrollo: npm run dev{'\n'}
                                         </code>
                                     </pre>
                                 </div>
@@ -525,12 +603,13 @@ Evita excepciones genéricas como except Exception:`
                 {/* Synergy Section */}
                 <motion.section
                     id="sinergia"
-                    className="py-20 bg-canvas-default"
+                    className="py-20 bg-canvas-default relative overflow-hidden"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, margin: "-200px" }}
-                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true, margin: "-150px" }}
+                    transition={{ duration: 1 }}
                 >
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent-subtle/10 to-transparent pointer-events-none"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -544,7 +623,7 @@ Evita excepciones genéricas como except Exception:`
                         <div className="max-w-5xl mx-auto">
                             <div className="card p-8 bg-gradient-to-br from-accent-subtle/10 to-canvas-subtle mb-12">
                                 <p className="text-lg text-center mb-8">
-                                    Un agente no opera en el vacío. Cuando invocas a un Agente Personalizado, Copilot combina de forma inteligente su "personalidad" con el contexto relevante de las Instrucciones Personalizadas.
+                                    Cuando invocas un Agente Personalizado, GitHub Copilot combina inteligentemente su prompt específico con todas las Instrucciones Personalizadas relevantes (personal, repositorio, ruta específica y organización) para crear un contexto enriquecido y preciso.
                                 </p>
 
                                 {/* Flow Diagram */}
@@ -555,7 +634,7 @@ Evita excepciones genéricas como except Exception:`
                                         </div>
                                         <h4 className="font-semibold mb-2">Recopilación de Contexto</h4>
                                         <p className="text-sm text-fg-muted">
-                                            GitHub Copilot reúne instrucciones del agente, de ruta, de repo, personales y de organización
+                                            Copilot reúne instrucciones del agente, instrucciones específicas de ruta, del repositorio, personales y de organización
                                         </p>
                                     </div>
 
@@ -567,9 +646,9 @@ Evita excepciones genéricas como except Exception:`
                                         <div className="w-16 h-16 rounded-full bg-success-subtle border-2 border-success-muted flex items-center justify-center mx-auto mb-3">
                                             <Zap className="w-8 h-8 text-success-fg" />
                                         </div>
-                                        <h4 className="font-semibold mb-2">Prompt Compuesto</h4>
+                                        <h4 className="font-semibold mb-2">Prompt Enriquecido</h4>
                                         <p className="text-sm text-fg-muted">
-                                            Toda la información se combina en un prompt enriquecido que se envía al modelo de IA
+                                            Todo el contexto se fusiona en un prompt completo que se envía al modelo de IA con la jerarquía de prioridad correcta
                                         </p>
                                     </div>
                                 </div>
@@ -597,10 +676,10 @@ Evita excepciones genéricas como except Exception:`
                                     <div>
                                         <h4 className="font-semibold mb-2">Ejemplo de Uso</h4>
                                         <p className="text-sm text-fg-muted mb-3">
-                                            <strong>Input del Usuario:</strong> "Hey @copilot, usa el 'NextJS Ninja' para refactorizar este componente."
+                                            <strong>Input del Usuario:</strong> "Hey @nextjs-expert, refactoriza este componente para usar Server Components."
                                         </p>
                                         <p className="text-sm text-fg-muted">
-                                            Copilot combinará las instrucciones del agente NextJS Ninja con tus instrucciones personales, las del repositorio, y las de tu organización para generar una refactorización que sigue todos los estándares establecidos.
+                                            Copilot combinará las instrucciones del agente nextjs-expert con tus instrucciones personales, las del repositorio, las específicas de ruta y las de tu organización para generar una refactorización que cumple todos los estándares establecidos.
                                         </p>
                                     </div>
                                 </div>
@@ -637,7 +716,7 @@ Evita excepciones genéricas como except Exception:`
                                     <h3 className="font-semibold text-lg">Nivel Personal</h3>
                                 </div>
                                 <p className="text-fg-muted text-sm mb-4">
-                                    Aplica a todas tus interacciones en GitHub.com
+                                    Se aplican a todas tus interacciones con Copilot en cualquier proyecto
                                 </p>
                                 <div className="space-y-2 text-sm">
                                     <div className="p-3 bg-canvas-default rounded border border-border-default">
@@ -656,7 +735,7 @@ Evita excepciones genéricas como except Exception:`
                                     <h3 className="font-semibold text-lg">Nivel Repositorio</h3>
                                 </div>
                                 <p className="text-fg-muted text-sm mb-4">
-                                    Específico de un repositorio, compartido con colaboradores
+                                    Específicas del proyecto, compartidas con todos los colaboradores del repositorio
                                 </p>
                                 <div className="space-y-2 text-sm">
                                     <div className="p-3 bg-canvas-default rounded border border-border-default">
@@ -705,10 +784,10 @@ Evita excepciones genéricas como except Exception:`
                                         Nivel Repositorio
                                     </h4>
                                     <p className="text-sm text-fg-muted mb-3">
-                                        Crea especialistas para tareas únicas de tu proyecto
+                                        Define agentes especializados para tareas específicas de tu proyecto
                                     </p>
                                     <code className="block px-4 py-2 bg-canvas-default rounded text-xs">
-                                        .github/agents/NOMBRE_AGENTE.md
+                                        .github/agents/AGENTE.md
                                     </code>
                                 </div>
 
@@ -718,10 +797,10 @@ Evita excepciones genéricas como except Exception:`
                                         Nivel Organización
                                     </h4>
                                     <p className="text-sm text-fg-muted mb-3">
-                                        Disponible para todos los repositorios de la organización
+                                        Agentes compartidos entre todos los repositorios de tu organización
                                     </p>
                                     <code className="block px-4 py-2 bg-canvas-default rounded text-xs">
-                                        Repositorio .github → agents/NOMBRE_AGENTE.md
+                                        {'{org}'}/.github/agents/AGENTE.md
                                     </code>
                                 </div>
 
@@ -731,10 +810,10 @@ Evita excepciones genéricas como except Exception:`
                                         Nivel Empresa
                                     </h4>
                                     <p className="text-sm text-fg-muted mb-3">
-                                        Compartido entre todas las organizaciones de la empresa
+                                        Agentes disponibles para todas las organizaciones de tu empresa
                                     </p>
                                     <code className="block px-4 py-2 bg-canvas-default rounded text-xs">
-                                        Repositorio .github-private → agents/NOMBRE_AGENTE.md
+                                        {'{org}'}/.github-private/agents/AGENTE.md
                                     </code>
                                 </div>
                             </div>
@@ -765,10 +844,10 @@ Evita excepciones genéricas como except Exception:`
                                     Recap de Instrucciones
                                 </h3>
                                 <p className="text-fg-muted mb-4">
-                                    <strong className="text-fg-default">Función:</strong> Proveer contexto persistente. El "ADN" del proyecto.
+                                    <strong className="text-fg-default">Función:</strong> Proporcionar contexto persistente que define el "ADN" y las reglas fundamentales del proyecto.
                                 </p>
                                 <p className="text-sm text-fg-muted">
-                                    <strong className="text-fg-default">Mejor Práctica:</strong> Usa instrucciones específicas de ruta (path-specific) para mantener la relevancia y evitar sobrecargar el contexto global.
+                                    <strong className="text-fg-default">Mejor Práctica:</strong> Usa instrucciones específicas de ruta (.instructions.md) para mantener el contexto relevante y evitar sobrecargar las instrucciones globales.
                                 </p>
                             </div>
 
@@ -778,10 +857,10 @@ Evita excepciones genéricas como except Exception:`
                                     Recap de Agentes
                                 </h3>
                                 <p className="text-fg-muted mb-4">
-                                    <strong className="text-fg-default">Función:</strong> Actuar como especialistas con propósito. Los "expertos" para tareas.
+                                    <strong className="text-fg-default">Función:</strong> Actuar como especialistas virtuales con propósitos y personalidades definidas para tareas específicas.
                                 </p>
                                 <p className="text-sm text-fg-muted">
-                                    <strong className="text-fg-default">Mejor Práctica:</strong> Define agentes para flujos de trabajo recurrentes y bien definidos donde la consistencia es clave.
+                                    <strong className="text-fg-default">Mejor Práctica:</strong> Define agentes para flujos de trabajo recurrentes y bien delimitados donde la consistencia y especialización son fundamentales.
                                 </p>
                             </div>
                         </div>
@@ -790,8 +869,8 @@ Evita excepciones genéricas como except Exception:`
                             <div className="card p-8 bg-gradient-to-r from-accent-subtle/20 to-purple-500/10 border-accent-muted text-center">
                                 <Lightbulb className="w-12 h-12 text-accent-fg mx-auto mb-4" />
                                 <h3 className="text-2xl font-bold mb-3">Principio General</h3>
-                                <p className="text-lg">
-                                    <strong>Itera y Refina:</strong> Empieza con instrucciones y agentes simples. Observa los resultados y ajústalos. La personalización es un proceso continuo, no un evento único.
+                                <p className="text-lg mb-6">
+                                    <strong>Itera y Refina:</strong> Comienza con instrucciones y agentes simples. Observa los resultados, analiza su efectividad y ajústalos continuamente. La personalización es un proceso iterativo, no un evento único.
                                 </p>
                             </div>
                         </div>
@@ -873,11 +952,11 @@ Evita excepciones genéricas como except Exception:`
                             Guía Completa de GitHub Copilot Custom Agents e Instructions
                         </p>
                         <p className="text-fg-muted text-xs">
-                            <a href="https://docs.github.com/en/copilot" className="text-accent-fg hover:underline">Documentación Oficial</a>
+                            <a href="https://docs.github.com/en/copilot" className="text-accent-fg hover:underline" target="_blank" rel="noopener noreferrer">Documentación Oficial</a>
                             {' · '}
-                            <a href="https://github.com/copilot/agents" className="text-accent-fg hover:underline">Ver Agentes</a>
+                            <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents" className="text-accent-fg hover:underline" target="_blank" rel="noopener noreferrer">Custom Agents</a>
                             {' · '}
-                            <a href="https://docs.github.com/en/copilot/customizing-copilot" className="text-accent-fg hover:underline">Biblioteca de Personalización</a>
+                            <a href="https://docs.github.com/en/copilot/customizing-copilot" className="text-accent-fg hover:underline" target="_blank" rel="noopener noreferrer">Personalización</a>
                         </p>
                     </div>
                 </footer>

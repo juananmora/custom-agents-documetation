@@ -13,10 +13,11 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({ title, items, type }) =
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`card p-6 ${isCustom ? 'bg-accent-subtle border-accent-muted' : 'bg-canvas-subtle border-border-default'}`}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            className={`card p-6 ${isCustom ? 'bg-accent-subtle border-accent-muted shadow-lg shadow-accent-fg/10' : 'bg-canvas-subtle border-border-default'} transition-all duration-300`}
         >
             <h3 className={`text-xl font-semibold mb-4 ${isCustom ? 'text-accent-fg' : 'text-fg-muted'}`}>
                 {title}
@@ -53,10 +54,11 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, col
 
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className={`card p-6 bg-gradient-to-br ${colorClasses[color]}`}
+            whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
+            className={`card p-6 bg-gradient-to-br ${colorClasses[color]} cursor-default transition-shadow duration-300 hover:shadow-xl`}
         >
             <div className="flex items-center gap-3 mb-3">
                 {icon}
@@ -77,14 +79,18 @@ interface AgentCardProps {
 const AgentCard: React.FC<AgentCardProps> = ({ name, description, icon, color }) => {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="card p-6 bg-canvas-subtle hover:bg-canvas-default transition-colors"
+            whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
+            className="card p-6 bg-canvas-subtle hover:bg-canvas-default transition-all duration-300 hover:shadow-xl cursor-default"
         >
-            <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${color} flex items-center justify-center mb-4`}>
+            <motion.div 
+                className={`w-12 h-12 rounded-lg bg-gradient-to-br ${color} flex items-center justify-center mb-4 shadow-lg`}
+                whileHover={{ rotate: [0, -10, 10, -10, 0], transition: { duration: 0.5 } }}
+            >
                 {icon}
-            </div>
+            </motion.div>
             <h4 className="font-semibold text-lg mb-2">{name}</h4>
             <p className="text-fg-muted text-sm">{description}</p>
         </motion.div>
