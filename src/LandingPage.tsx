@@ -10,7 +10,6 @@ import { ComparisonCard, FeatureCard, AgentCard, CodeComparison } from './compon
 const LandingPage: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrollProgress, setScrollProgress] = useState(0);
-    const [scrollY, setScrollY] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,7 +18,6 @@ const LandingPage: React.FC = () => {
             const scrolled = window.scrollY;
             const progress = (scrolled / documentHeight) * 100;
             setScrollProgress(progress);
-            setScrollY(scrolled);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -37,34 +35,35 @@ const LandingPage: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-canvas-default text-fg-default font-sans selection:bg-accent-subtle selection:text-accent-fg scroll-smooth">
-            {/* Scroll Progress Bar */}
-            <div className="fixed top-0 left-0 w-full h-1 bg-canvas-subtle z-[100]">
+        <div className="min-h-screen bg-white text-[#323232] font-sans selection:bg-[#A100FF] selection:text-white scroll-smooth">
+            {/* Scroll Progress Bar - Accenture style */}
+            <div className="fixed top-0 left-0 w-full h-1 bg-[#F3F2F1] z-[100]">
                 <motion.div
-                    className="h-full bg-gradient-to-r from-accent-fg via-success-fg to-accent-fg"
+                    className="h-full accenture-gradient"
                     style={{ width: `${scrollProgress}%` }}
                     initial={{ width: 0 }}
                     animate={{ width: `${scrollProgress}%` }}
                     transition={{ duration: 0.1 }}
                 />
             </div>
-            {/* Header */}
-            <header className="fixed top-0 w-full z-50 bg-canvas-default/95 backdrop-blur-md border-b border-border-default">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            {/* Header - Accenture style */}
+            <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <Github className="w-8 h-8 text-fg-default" />
-                        <span className="font-semibold text-lg tracking-tight">GitHub Copilot</span>
+                        <Github className="w-8 h-8 text-[#A100FF]" />
+                        <span className="font-bold text-xl tracking-tight text-[#323232]">GitHub Copilot</span>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-fg-muted">
+                    <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#323232] uppercase tracking-wide">
                         {navItems.map((item) => (
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className="hover:text-fg-default transition-colors"
+                                className="hover:text-[#A100FF] transition-colors relative group"
                             >
                                 {item.label}
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#A100FF] group-hover:w-full transition-all duration-300"></span>
                             </a>
                         ))}
                     </nav>
@@ -72,16 +71,16 @@ const LandingPage: React.FC = () => {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="lg:hidden p-2 text-fg-muted hover:text-fg-default"
+                        className="lg:hidden p-2 text-[#323232] hover:text-[#A100FF]"
                     >
                         {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
 
-                    <div className="hidden lg:flex items-center gap-3">
-                        <a href="https://github.com/copilot/agents" target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm">
+                    <div className="hidden lg:flex items-center gap-4">
+                        <a href="https://github.com/copilot/agents" target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs">
                             Explorar Agentes
                         </a>
-                        <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm">
+                        <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener noreferrer" className="btn-primary text-xs">
                             Documentación
                         </a>
                     </div>
@@ -92,7 +91,7 @@ const LandingPage: React.FC = () => {
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="lg:hidden border-t border-border-default bg-canvas-default"
+                        className="lg:hidden border-t border-[#E5E5E5] bg-white"
                     >
                         <nav className="flex flex-col p-4 space-y-2">
                             {navItems.map((item) => (
@@ -100,7 +99,7 @@ const LandingPage: React.FC = () => {
                                     key={item.href}
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="px-3 py-2 rounded hover:bg-canvas-subtle text-fg-muted hover:text-fg-default transition-colors"
+                                    className="px-3 py-3 hover:bg-[#F3F2F1] text-[#323232] hover:text-[#A100FF] transition-colors font-semibold uppercase text-sm tracking-wide"
                                 >
                                     {item.label}
                                 </a>
@@ -110,111 +109,116 @@ const LandingPage: React.FC = () => {
                 )}
             </header>
 
-            <main className="pt-16">
-                {/* Hero Section */}
-                <section id="inicio" className="relative py-20 lg:py-32 overflow-hidden">
-                    {/* Enhanced Parallax Background with animated gradient */}
-                    <motion.div
-                        className="absolute inset-0 opacity-50"
-                        style={{ y: scrollY * 0.5 }}
-                    >
-                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent-subtle via-canvas-default to-canvas-default"></div>
-                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-success-subtle via-transparent to-transparent opacity-30"></div>
-                    </motion.div>
+            <main className="pt-20">
+                {/* Hero Section - Accenture style */}
+                <section id="inicio" className="relative section-spacing overflow-hidden bg-gradient-to-br from-white via-[#F3F2F1] to-white">
+                    {/* Accenture-style diagonal shapes */}
+                    <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
+                        <div className="absolute top-0 right-0 w-full h-64 accenture-gradient accenture-diagonal"></div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-1/3 h-48 bg-[#A100FF] opacity-5 accenture-diagonal"></div>
                     
-                    {/* Floating elements for visual interest */}
+                    {/* Subtle animated elements */}
                     <motion.div
-                        className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-subtle rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+                        className="absolute top-1/3 right-1/4 w-2 h-2 bg-[#A100FF] rounded-full"
                         animate={{
-                            y: [0, 50, 0],
-                            scale: [1, 1.1, 1],
+                            scale: [1, 1.5, 1],
+                            opacity: [0.3, 0.6, 0.3],
                         }}
                         transition={{
-                            duration: 8,
+                            duration: 4,
                             repeat: Infinity,
                             ease: "easeInOut"
                         }}
                     />
                     <motion.div
-                        className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-success-subtle rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+                        className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-[#A100FF] rounded-full"
                         animate={{
-                            y: [0, -50, 0],
-                            scale: [1, 1.2, 1],
+                            scale: [1, 1.3, 1],
+                            opacity: [0.2, 0.5, 0.2],
                         }}
                         transition={{
-                            duration: 10,
+                            duration: 5,
                             repeat: Infinity,
                             ease: "easeInOut",
                             delay: 1
                         }}
                     />
                     
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
+                            className="text-center max-w-5xl mx-auto"
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-canvas-subtle border border-border-default text-xs font-medium text-fg-muted mb-6 shadow-lg">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-[#A100FF] text-xs font-bold text-[#A100FF] mb-8 uppercase tracking-wider">
                                 <motion.span 
-                                    className="w-2 h-2 rounded-full bg-accent-fg"
+                                    className="w-2 h-2 bg-[#A100FF]"
                                     animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
                                     transition={{ duration: 2, repeat: Infinity }}
                                 />
-                                Más Allá de las Sugerencias
+                                Innovación en Desarrollo
                             </div>
                             <motion.h1 
-                                className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
+                                className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-[#323232]"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
                             >
-                                <motion.span
-                                    className="bg-gradient-to-r from-fg-default via-accent-fg to-fg-default bg-clip-text text-transparent"
-                                    animate={{
-                                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                                    }}
-                                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                                    style={{ backgroundSize: '200% auto' }}
-                                >
-                                    Domina GitHub Copilot con<br />Agentes e Instrucciones a Medida
-                                </motion.span>
+                                Domina GitHub Copilot con
+                                <br />
+                                <span className="text-[#A100FF]">Agentes e Instrucciones</span>
+                                <br />
+                                a Medida
                             </motion.h1>
-                            <p className="text-xl text-fg-muted max-w-3xl mx-auto mb-10 leading-relaxed">
+                            <p className="text-xl md:text-2xl text-[#666666] max-w-3xl mx-auto mb-12 leading-relaxed font-light">
                                 Descubre cómo transformar GitHub Copilot de un asistente genérico en un equipo de expertos especializados para tu proyecto
                             </p>
-                            <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-                                <a href="#fundamentos" className="btn-primary text-base px-8 py-3 flex items-center gap-2">
-                                    Comenzar <ArrowRight className="w-4 h-4" />
-                                </a>
-                                <a href="#configuracion" className="btn-secondary text-base px-8 py-3 flex items-center gap-2">
-                                    Ver Configuración <Book className="w-4 h-4" />
-                                </a>
+                            <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
+                                <motion.a 
+                                    href="#fundamentos" 
+                                    className="btn-primary text-sm px-10 py-4 flex items-center gap-3"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    Comenzar <ArrowRight className="w-5 h-5" />
+                                </motion.a>
+                                <motion.a 
+                                    href="#configuracion" 
+                                    className="btn-secondary text-sm px-10 py-4 flex items-center gap-3"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    Ver Configuración <Book className="w-5 h-5" />
+                                </motion.a>
                             </div>
 
-                            {/* Feature Pills with stagger animation */}
+                            {/* Feature Pills - Accenture style */}
                             <motion.div 
-                                className="flex flex-wrap items-center justify-center gap-3"
+                                className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.8 }}
                             >
                                 {[
-                                    { icon: <FileText className="w-4 h-4" />, text: 'Instrucciones a Medida' },
-                                    { icon: <Bot className="w-4 h-4" />, text: 'Agentes Personalizados' },
-                                    { icon: <Zap className="w-4 h-4" />, text: 'Flujos Automatizados' },
-                                    { icon: <Code2 className="w-4 h-4" />, text: 'Contexto Específico' }
+                                    { icon: <FileText className="w-5 h-5" />, text: 'Instrucciones a Medida' },
+                                    { icon: <Bot className="w-5 h-5" />, text: 'Agentes Personalizados' },
+                                    { icon: <Zap className="w-5 h-5" />, text: 'Flujos Automatizados' },
+                                    { icon: <Code2 className="w-5 h-5" />, text: 'Contexto Específico' }
                                 ].map((item, index) => (
                                     <motion.div 
                                         key={index} 
-                                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-canvas-subtle border border-border-default text-sm hover:border-accent-muted hover:bg-accent-subtle/20 transition-all duration-300 cursor-default"
+                                        className="flex flex-col items-center gap-3 p-6 bg-white border-2 border-[#E5E5E5] text-center hover:border-[#A100FF] hover:bg-[#F3F2F1] transition-all duration-300 cursor-default group"
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.8 + (index * 0.1) }}
-                                        whileHover={{ scale: 1.05, y: -2 }}
+                                        whileHover={{ y: -4 }}
                                     >
-                                        {item.icon}
-                                        <span>{item.text}</span>
+                                        <div className="text-[#A100FF] group-hover:scale-110 transition-transform duration-300">
+                                            {item.icon}
+                                        </div>
+                                        <span className="text-xs font-bold uppercase tracking-wide text-[#323232]">{item.text}</span>
                                     </motion.div>
                                 ))}
                             </motion.div>
@@ -222,16 +226,28 @@ const LandingPage: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Transformation Section */}
-                <section id="fundamentos" className="py-20 border-y border-border-default bg-canvas-subtle/30">
+                {/* Transformation Section - Accenture style */}
+                <section id="fundamentos" className="section-spacing bg-[#F3F2F1] relative overflow-hidden">
+                    {/* Diagonal accent */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#A100FF] opacity-5 accenture-diagonal"></div>
+                    
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                De Asistente Genérico a Compañero de Equipo Experto
-                            </h2>
-                            <p className="text-fg-muted max-w-2xl mx-auto text-lg">
-                                Descubre cómo la personalización convierte a Copilot en un verdadero multiplicador de productividad
-                            </p>
+                        <div className="text-center mb-20">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#323232]">
+                                    De Asistente Genérico a
+                                    <br />
+                                    <span className="text-[#A100FF]">Compañero de Equipo Experto</span>
+                                </h2>
+                                <p className="text-[#666666] max-w-3xl mx-auto text-xl font-light">
+                                    Descubre cómo la personalización convierte a Copilot en un verdadero multiplicador de productividad
+                                </p>
+                            </motion.div>
                         </div>
 
                         <motion.div
@@ -263,22 +279,24 @@ const LandingPage: React.FC = () => {
                             />
                         </motion.div>
 
-                        {/* Transformation Image with enhanced reveal */}
+                        {/* Transformation Image - Accenture style with clean design */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 60 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-                            className="max-w-4xl mx-auto mb-12"
-                            whileHover={{ scale: 1.02 }}
+                            className="max-w-4xl mx-auto mb-20"
+                            whileHover={{ scale: 1.01 }}
                         >
                             <div className="relative group">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-accent-fg to-success-fg rounded-xl opacity-20 group-hover:opacity-30 blur transition duration-500"></div>
-                                <img
-                                    src={`${import.meta.env.BASE_URL}copilot-transformation.png`}
-                                    alt="Transformación de Copilot de asistente genérico a compañero experto"
-                                    className="relative w-full rounded-xl shadow-2xl border border-border-default"
-                                />
+                                <div className="absolute -inset-4 bg-[#A100FF] opacity-10 group-hover:opacity-20 blur-2xl transition duration-500"></div>
+                                <div className="relative border-4 border-[#A100FF] overflow-hidden">
+                                    <img
+                                        src={`${import.meta.env.BASE_URL}copilot-transformation.png`}
+                                        alt="Transformación de Copilot de asistente genérico a compañero experto"
+                                        className="relative w-full"
+                                    />
+                                </div>
                             </div>
                         </motion.div>
 
@@ -944,20 +962,31 @@ Evita excepciones genéricas como except Exception:`
                     </div>
                 </motion.section>
 
-                {/* Footer */}
-                <footer className="py-12 border-t border-border-default bg-canvas-subtle text-center">
+                {/* Footer - Accenture style */}
+                <footer className="py-16 border-t-2 border-[#E5E5E5] bg-[#F3F2F1]">
                     <div className="max-w-7xl mx-auto px-4">
-                        <Github className="w-8 h-8 mx-auto text-fg-muted mb-4" />
-                        <p className="text-fg-muted text-sm mb-2">
-                            Guía Completa de GitHub Copilot Custom Agents e Instructions
-                        </p>
-                        <p className="text-fg-muted text-xs">
-                            <a href="https://docs.github.com/en/copilot" className="text-accent-fg hover:underline" target="_blank" rel="noopener noreferrer">Documentación Oficial</a>
-                            {' · '}
-                            <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents" className="text-accent-fg hover:underline" target="_blank" rel="noopener noreferrer">Custom Agents</a>
-                            {' · '}
-                            <a href="https://docs.github.com/en/copilot/customizing-copilot" className="text-accent-fg hover:underline" target="_blank" rel="noopener noreferrer">Personalización</a>
-                        </p>
+                        <div className="flex flex-col items-center gap-6">
+                            <Github className="w-10 h-10 text-[#A100FF]" />
+                            <p className="text-[#323232] text-base font-bold uppercase tracking-wider">
+                                Guía Completa de GitHub Copilot
+                            </p>
+                            <p className="text-[#666666] text-sm font-light max-w-2xl text-center">
+                                Custom Agents e Instructions
+                            </p>
+                            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+                                <a href="https://docs.github.com/en/copilot" className="text-[#323232] hover:text-[#A100FF] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
+                                    Documentación Oficial
+                                </a>
+                                <span className="text-[#E5E5E5]">•</span>
+                                <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents" className="text-[#323232] hover:text-[#A100FF] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
+                                    Custom Agents
+                                </a>
+                                <span className="text-[#E5E5E5]">•</span>
+                                <a href="https://docs.github.com/en/copilot/customizing-copilot" className="text-[#323232] hover:text-[#A100FF] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
+                                    Personalización
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </footer>
             </main>
