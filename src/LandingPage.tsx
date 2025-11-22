@@ -211,7 +211,7 @@ const LandingPage: React.FC = () => {
                             className="max-w-4xl mx-auto mb-12"
                         >
                             <img
-                                src="/copilot-transformation.png"
+                                src={`${import.meta.env.BASE_URL}copilot-transformation.png`}
                                 alt="Transformación de Copilot de asistente genérico a compañero experto"
                                 className="w-full rounded-xl shadow-2xl border border-border-default"
                             />
