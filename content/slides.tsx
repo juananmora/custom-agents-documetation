@@ -304,73 +304,106 @@ const BestPracticesSlide: React.FC<{isActive: boolean}> = () => (
 );
 
 const AgentsIntroSlide: React.FC<{isActive: boolean}> = () => (
-  <SlideFrame pageNumber={8} title="Agentes Personalizados" subtitle="Especialistas bajo demanda" layout="cover">
+  <SlideFrame pageNumber={8} title="Agentes Personalizados" subtitle="Especialistas bajo demanda con contexto y expertise" layout="cover">
     <div className="flex flex-col items-center justify-center text-center h-full">
        <div className="grid grid-cols-3 gap-8 w-full max-w-5xl mb-12">
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-colors">
              <IconShield className="w-12 h-12 text-bbva-aqua mx-auto mb-4" />
              <h3 className="text-xl font-bold text-white mb-2">Seguridad</h3>
-             <p className="text-sm text-gray-300">Agente experto en OWASP y sanitización.</p>
+             <p className="text-sm text-gray-300">Auditor experto en OWASP Top 10 2021, sanitización de inputs y mejores prácticas de seguridad.</p>
+             <div className="mt-4 text-xs text-bbva-aqua font-mono">@SecurityAuditor</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-colors transform scale-110 shadow-2xl relative z-10 bg-bbva-blue">
              <IconBuilding className="w-12 h-12 text-white mx-auto mb-4" />
              <h3 className="text-xl font-bold text-white mb-2">Arquitectura</h3>
-             <p className="text-sm text-gray-200">Experto en Hexagonal y DDD.</p>
+             <p className="text-sm text-gray-200">Especialista en arquitectura hexagonal, DDD, SOLID y patrones de diseño enterprise.</p>
+             <div className="mt-4 text-xs text-white font-mono">@ArchitectGuru</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 hover:bg-white/20 transition-colors">
              <IconFile className="w-12 h-12 text-bbva-aqua mx-auto mb-4" />
              <h3 className="text-xl font-bold text-white mb-2">Testing</h3>
-             <p className="text-sm text-gray-300">Generador de specs y mocks.</p>
+             <p className="text-sm text-gray-300">Experto en TDD, generación de tests unitarios, mocks e integración con Jest/Playwright.</p>
+             <div className="mt-4 text-xs text-bbva-aqua font-mono">@QAGuru</div>
           </div>
        </div>
        
-       <p className="text-2xl text-white font-light max-w-2xl">
-         Los Agentes son versiones de Copilot con <span className="text-bbva-aqua font-bold">propósito</span>, <span className="text-bbva-aqua font-bold">personalidad</span> y <span className="text-bbva-aqua font-bold">habilidades</span> específicas.
+       <p className="text-2xl text-white font-light max-w-3xl leading-relaxed">
+         Los Agentes son <span className="text-bbva-aqua font-bold">versiones especializadas de Copilot</span> que actúan como miembros senior del equipo, cada uno con <span className="text-bbva-aqua font-bold">rol definido</span>, <span className="text-bbva-aqua font-bold">conocimiento experto</span> y <span className="text-bbva-aqua font-bold">herramientas específicas</span>.
+       </p>
+       <p className="text-lg text-gray-300 mt-6 max-w-2xl">
+         A diferencia de las instrucciones (contexto pasivo), los agentes son <strong className="text-white">activos e interactivos</strong>, respondiendo a menciones directas.
        </p>
     </div>
   </SlideFrame>
 );
 
 const AgentAnatomySlide: React.FC<{isActive: boolean}> = () => (
-  <SlideFrame pageNumber={9} title="Anatomía de un Agente" subtitle="Definición en Markdown">
+  <SlideFrame pageNumber={9} title="Anatomía de un Agente" subtitle="Estructura completa de definición en Markdown">
     <div className="flex gap-8 mt-4 h-full">
       <div className="w-2/3 h-full">
          <div className="bg-bbva-navy rounded-lg shadow-xl overflow-hidden h-full flex flex-col border border-gray-700">
             <div className="bg-black/30 px-4 py-2 flex justify-between items-center border-b border-gray-700">
                <span className="text-xs text-gray-400 font-mono">.github/agents/qa-guru.md</span>
+               <span className="text-xs text-green-400">✓ Activo</span>
             </div>
             <div className="p-6 font-mono text-sm text-gray-300 overflow-y-auto">
                <span className="text-gray-500">---</span><br/>
                <span className="text-bbva-light-blue">name:</span> <span className="text-white">QA Guru</span><br/>
-               <span className="text-bbva-light-blue">description:</span> <span className="text-white">Experto en pruebas unitarias y de integración.</span><br/>
+               <span className="text-bbva-light-blue">description:</span> <span className="text-white">Experto en pruebas unitarias y de integración con Jest y Playwright.</span><br/>
                <span className="text-gray-500">---</span><br/><br/>
                
                <span className="text-bbva-aqua"># Role</span><br/>
-               <span className="text-white">Eres un ingeniero QA Senior obsesionado con el coverage.</span><br/><br/>
+               <span className="text-white">Eres un ingeniero QA Senior con 10+ años de experiencia.</span><br/>
+               <span className="text-white">Tu misión: garantizar 100% de coverage y tests confiables.</span><br/><br/>
+               
+               <span className="text-bbva-aqua"># Context</span><br/>
+               <span className="text-white">Trabajas en proyectos TypeScript con arquitectura hexagonal.</span><br/>
+               <span className="text-white">El equipo valora: AAA pattern, mocks limpios, tests legibles.</span><br/><br/>
                
                <span className="text-bbva-aqua"># Skills</span><br/>
-               <span className="text-white">- Jest, Playwright.</span><br/>
-               <span className="text-white">- Mock Service Worker (MSW).</span><br/><br/>
+               <span className="text-white">- Jest: Unit testing, mocking, spies</span><br/>
+               <span className="text-white">- Playwright: E2E testing, visual regression</span><br/>
+               <span className="text-white">- MSW: API mocking</span><br/>
+               <span className="text-white">- Istanbul: Coverage analysis</span><br/><br/>
                
                <span className="text-bbva-aqua"># Rules</span><br/>
-               <span className="text-white">1. No apruebes código sin tests.</span><br/>
-               <span className="text-white">2. Usa siempre `describe` y `it`.</span>
+               <span className="text-white">1. Cada función debe tener al menos 1 test</span><br/>
+               <span className="text-white">2. Usa siempre `describe`, `it`, `expect`</span><br/>
+               <span className="text-white">3. Mock dependencias externas (APIs, DB)</span><br/>
+               <span className="text-white">4. Tests deben ser independientes</span><br/><br/>
+               
+               <span className="text-bbva-aqua"># Examples</span><br/>
+               <span className="text-white">```typescript</span><br/>
+               <span className="text-white">describe('UserService', () =&gt; {'{'}</span><br/>
+               <span className="text-white">  it('should create user', async () =&gt; {'{'}</span><br/>
+               <span className="text-white">    // Arrange, Act, Assert</span><br/>
+               <span className="text-white">  {'}'});</span><br/>
+               <span className="text-white">{'}'});</span><br/>
+               <span className="text-white">```</span>
             </div>
          </div>
       </div>
       
-      <div className="w-1/3 flex flex-col justify-center gap-6">
-         <div className="p-4 border-l-4 border-bbva-light-blue bg-gray-50">
-            <h4 className="font-bold text-bbva-navy">Frontmatter</h4>
-            <p className="text-xs text-gray-600">Define identidad en la UI (Nombre y Descripción).</p>
+      <div className="w-1/3 flex flex-col justify-center gap-4">
+         <div className="p-4 border-l-4 border-bbva-light-blue bg-gray-50 rounded">
+            <h4 className="font-bold text-bbva-navy mb-1">1. Frontmatter</h4>
+            <p className="text-xs text-gray-600">Metadatos YAML: nombre visible y descripción breve para el selector de agentes.</p>
          </div>
-         <div className="p-4 border-l-4 border-bbva-aqua bg-gray-50">
-            <h4 className="font-bold text-bbva-navy">Role & Context</h4>
-            <p className="text-xs text-gray-600">Define la "persona" del modelo.</p>
+         <div className="p-4 border-l-4 border-purple-400 bg-gray-50 rounded">
+            <h4 className="font-bold text-bbva-navy mb-1">2. Role & Context</h4>
+            <p className="text-xs text-gray-600">Define la "personalidad" y experiencia del agente. Cuanto más específico, mejor.</p>
          </div>
-         <div className="p-4 border-l-4 border-bbva-blue bg-gray-50">
-            <h4 className="font-bold text-bbva-navy">Skills & Tools</h4>
-            <p className="text-xs text-gray-600">Limita el conocimiento a herramientas permitidas.</p>
+         <div className="p-4 border-l-4 border-bbva-aqua bg-gray-50 rounded">
+            <h4 className="font-bold text-bbva-navy mb-1">3. Skills & Tools</h4>
+            <p className="text-xs text-gray-600">Lista herramientas y tecnologías que el agente domina. Limita el scope.</p>
+         </div>
+         <div className="p-4 border-l-4 border-bbva-blue bg-gray-50 rounded">
+            <h4 className="font-bold text-bbva-navy mb-1">4. Rules</h4>
+            <p className="text-xs text-gray-600">Reglas específicas y accionables. Usa imperativos claros.</p>
+         </div>
+         <div className="p-4 border-l-4 border-green-500 bg-gray-50 rounded">
+            <h4 className="font-bold text-bbva-navy mb-1">5. Examples (Opcional)</h4>
+            <p className="text-xs text-gray-600">Ejemplos de código que el agente debe generar. Muy útil para consistencia.</p>
          </div>
       </div>
     </div>
@@ -568,48 +601,104 @@ const ConfigRepoSlide: React.FC<{isActive: boolean}> = () => (
 );
 
 const ConfigAgentRepoSlide: React.FC<{isActive: boolean}> = () => (
-  <SlideFrame pageNumber={15} title="Desplegando Agentes" subtitle="Cómo crear tu primer agente">
+  <SlideFrame pageNumber={15} title="Desplegando Agentes" subtitle="Guía paso a paso para crear tu primer agente">
     <div className="bg-white rounded-xl border border-bbva-blue/20 overflow-hidden shadow-lg mt-6 flex">
        <div className="w-1/3 bg-bbva-navy p-8 text-white">
-          <h3 className="text-2xl font-bold mb-6">Checklist</h3>
-          <ul className="space-y-4 text-sm">
-             <li className="flex items-center gap-3 opacity-80">
-                <span className="w-4 h-4 rounded-full border border-bbva-aqua flex items-center justify-center text-[8px]">1</span>
-                Crear carpeta `agents/`
+          <h3 className="text-2xl font-bold mb-6">Checklist Detallado</h3>
+          <ul className="space-y-5 text-sm">
+             <li className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-full border-2 border-bbva-aqua flex items-center justify-center text-xs shrink-0 mt-1">1</span>
+                <div>
+                   <p className="font-bold mb-1">Crear carpeta `.github/agents/`</p>
+                   <p className="text-xs text-gray-400">En la raíz del repositorio</p>
+                </div>
              </li>
-             <li className="flex items-center gap-3 opacity-80">
-                <span className="w-4 h-4 rounded-full border border-bbva-aqua flex items-center justify-center text-[8px]">2</span>
-                Crear archivo `.md`
+             <li className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-full border-2 border-bbva-aqua flex items-center justify-center text-xs shrink-0 mt-1">2</span>
+                <div>
+                   <p className="font-bold mb-1">Crear archivo `.md` descriptivo</p>
+                   <p className="text-xs text-gray-400">Ej: security-auditor.md</p>
+                </div>
              </li>
-             <li className="flex items-center gap-3 opacity-80">
-                <span className="w-4 h-4 rounded-full border border-bbva-aqua flex items-center justify-center text-[8px]">3</span>
-                Definir Frontmatter
+             <li className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-full border-2 border-bbva-aqua flex items-center justify-center text-xs shrink-0 mt-1">3</span>
+                <div>
+                   <p className="font-bold mb-1">Definir Frontmatter YAML</p>
+                   <p className="text-xs text-gray-400">name + description obligatorios</p>
+                </div>
              </li>
-             <li className="flex items-center gap-3 font-bold text-bbva-aqua">
-                <span className="w-4 h-4 rounded-full bg-bbva-aqua text-bbva-navy flex items-center justify-center text-[8px]">4</span>
-                Commit & Push
+             <li className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-full border-2 border-bbva-aqua flex items-center justify-center text-xs shrink-0 mt-1">4</span>
+                <div>
+                   <p className="font-bold mb-1">Escribir Role, Skills, Rules</p>
+                   <p className="text-xs text-gray-400">Secciones en Markdown</p>
+                </div>
+             </li>
+             <li className="flex items-start gap-3 font-bold text-bbva-aqua">
+                <span className="w-6 h-6 rounded-full bg-bbva-aqua text-bbva-navy flex items-center justify-center text-xs shrink-0 mt-1">5</span>
+                <div>
+                   <p>Commit & Push al repo</p>
+                   <p className="text-xs text-gray-400 font-normal">Disponible en ~30 segundos</p>
+                </div>
              </li>
           </ul>
+          <div className="mt-6 pt-6 border-t border-gray-600">
+             <p className="text-xs text-gray-400">
+                💡 Los agentes se activan automáticamente tras el push. No requiere configuración adicional.
+             </p>
+          </div>
        </div>
        <div className="w-2/3 p-8 bg-gray-50">
-          <div className="bg-white border border-gray-200 rounded shadow-sm p-4">
-             <code className="text-sm text-purple-600 block mb-2">.github/agents/security.md</code>
-             <pre className="text-xs font-mono text-gray-600">
+          <div className="bg-bbva-navy border border-gray-700 rounded shadow-xl p-5 mb-4">
+             <div className="flex items-center justify-between mb-3">
+                <code className="text-sm text-bbva-aqua font-bold">.github/agents/security-auditor.md</code>
+                <span className="text-xs text-green-400 flex items-center gap-1">
+                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> Live
+                </span>
+             </div>
+             <pre className="text-xs font-mono text-gray-300 leading-relaxed whitespace-pre-wrap">
 {`---
 name: Security Auditor
-description: Verifica vulnerabilidades comunes.
+description: Experto en OWASP Top 10 2021 y seguridad web
 ---
 
-# Mission
-Audit code for OWASP Top 10 vulnerabilities.
+# Role
+Eres un Security Engineer especializado en vulnerabilidades web.
+
+# Context
+Auditas código TypeScript/Node.js en aplicaciones bancarias.
+
+# Skills
+- OWASP Top 10 (2021)
+- SQL Injection detection
+- XSS prevention
+- Authentication flows
+- Cryptography best practices
 
 # Rules
-- Flag SQL Injection risks immediately.
-- Suggest sanitized inputs.`}
+1. Señala hardcoded credentials inmediatamente
+2. Valida sanitización de inputs del usuario
+3. Revisa configuraciones de CORS y CSP
+4. Recomienda librerías seguras y actualizadas
+
+# Examples
+\`\`\`typescript
+// ❌ INSEGURO
+const query = "SELECT * FROM users WHERE id=" + userId;
+
+// ✅ SEGURO
+const query = db.prepare("SELECT * FROM users WHERE id=?");
+\`\`\`
+`}
              </pre>
           </div>
-          <div className="mt-6 flex items-center gap-2 text-sm text-green-600 bg-green-50 p-2 rounded border border-green-200">
-             <span className="font-bold">✓</span> Disponible instantáneamente tras el push.
+          <div className="flex gap-3">
+             <div className="flex-1 bg-green-50 p-3 rounded border border-green-200 text-sm text-green-800">
+                <strong>✓ Ventajas:</strong> Especialización profunda, respuestas consistentes
+             </div>
+             <div className="flex-1 bg-blue-50 p-3 rounded border border-blue-200 text-sm text-blue-800">
+                <strong>🎯 Uso:</strong> @SecurityAuditor revisa LoginController.ts
+             </div>
           </div>
        </div>
     </div>
@@ -652,46 +741,78 @@ const CentralizeAgentsSlide: React.FC<{isActive: boolean}> = () => (
 );
 
 const UsingAgentsSlide: React.FC<{isActive: boolean}> = () => (
-  <SlideFrame pageNumber={17} title="Usando los Agentes" subtitle="Integración en el flujo de trabajo">
+  <SlideFrame pageNumber={17} title="Usando los Agentes" subtitle="Integración práctica en el flujo de trabajo">
      <div className="flex gap-12 h-full items-center">
         <div className="flex-1">
-           <h3 className="text-2xl font-bold text-bbva-navy mb-6">Dos formas de invocación</h3>
+           <h3 className="text-2xl font-bold text-bbva-navy mb-6">Formas de Invocación</h3>
            
            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                 <div className="bg-bbva-blue text-white px-3 py-1 rounded font-mono text-sm">@mentions</div>
-                 <div>
-                    <h4 className="font-bold text-gray-800">En Chat</h4>
-                    <p className="text-sm text-gray-600">"Hola @SecurityAuditor, revisa este bloque."</p>
+              <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                 <div className="flex items-start gap-4 mb-3">
+                    <div className="bg-bbva-blue text-white px-3 py-1 rounded font-mono text-sm">@mentions</div>
+                    <div className="flex-1">
+                       <h4 className="font-bold text-gray-800">En GitHub Copilot Chat</h4>
+                       <p className="text-sm text-gray-600">Mención directa en conversación</p>
+                    </div>
                  </div>
+                 <div className="bg-gray-50 p-3 rounded border border-gray-100 font-mono text-sm text-gray-700">
+                    "@SecurityAuditor revisa esta función para vulnerabilidades SQL"
+                 </div>
+                 <p className="text-xs text-gray-500 mt-2">El agente responderá con contexto específico de seguridad</p>
               </div>
               
-              <div className="flex items-start gap-4">
-                 <div className="bg-bbva-blue text-white px-3 py-1 rounded font-mono text-sm">UI Picker</div>
-                 <div>
-                    <h4 className="font-bold text-gray-800">En Copilot Window</h4>
-                    <p className="text-sm text-gray-600">Selecciona el agente del menú desplegable superior.</p>
+              <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                 <div className="flex items-start gap-4 mb-3">
+                    <div className="bg-bbva-blue text-white px-3 py-1 rounded font-mono text-sm">UI Picker</div>
+                    <div className="flex-1">
+                       <h4 className="font-bold text-gray-800">Selector de Agentes</h4>
+                       <p className="text-sm text-gray-600">Menú desplegable en Copilot</p>
+                    </div>
                  </div>
+                 <div className="bg-gray-50 p-3 rounded border border-gray-100">
+                    <p className="text-sm text-gray-700">1. Abre el panel de Copilot</p>
+                    <p className="text-sm text-gray-700">2. Haz clic en el selector superior</p>
+                    <p className="text-sm text-gray-700">3. Elige el agente apropiado</p>
+                    <p className="text-sm text-gray-700">4. Escribe tu pregunta normalmente</p>
+                 </div>
+              </div>
+
+              <div className="bg-bbva-navy/5 border border-bbva-blue/20 rounded-lg p-4">
+                 <p className="text-sm text-bbva-blue">
+                    <strong>💡 Pro Tip:</strong> Los agentes heredan instrucciones del repositorio automáticamente, combinando contexto general con expertise específico.
+                 </p>
               </div>
            </div>
         </div>
 
-        <div className="flex-1 bg-white border border-gray-200 rounded-xl shadow-2xl p-2 rotate-2 transform hover:rotate-0 transition-transform duration-500">
-           <div className="bg-gray-50 border-b p-2 rounded-t flex items-center gap-2">
-              <div className="w-20 h-4 bg-gray-200 rounded"></div>
-           </div>
-           <div className="p-4 space-y-3">
-              <div className="flex gap-2 items-end justify-end">
-                 <div className="bg-bbva-blue text-white p-2 rounded-l-lg rounded-tr-lg text-xs max-w-[80%]">
-                    @DokuDroid documéntame esta función.
-                 </div>
-                 <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+        <div className="flex-1 bg-white border-2 border-gray-200 rounded-xl shadow-2xl p-2 rotate-2 transform hover:rotate-0 transition-transform duration-500">
+           <div className="bg-gray-800 border-b p-3 rounded-t flex items-center gap-2">
+              <div className="flex gap-1">
+                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <div className="flex gap-2 items-end">
-                 <div className="w-6 h-6 bg-bbva-aqua rounded-full"></div>
-                 <div className="bg-gray-100 text-gray-800 p-2 rounded-r-lg rounded-tl-lg text-xs max-w-[80%] border border-gray-200">
-                    <p className="font-bold text-bbva-blue mb-1 flex items-center gap-1"><IconFile className="w-3 h-3"/> Doku Droid</p>
-                    Claro. Aquí tienes el JSDoc basado en tus estándares...
+              <span className="text-white text-xs font-mono ml-2">GitHub Copilot Chat</span>
+           </div>
+           <div className="p-4 space-y-4 bg-gray-50 min-h-[300px]">
+              <div className="flex gap-2 items-end justify-end">
+                 <div className="bg-bbva-blue text-white p-3 rounded-l-lg rounded-tr-lg text-sm max-w-[80%] shadow">
+                    @QAGuru genera tests para PaymentService.ts con mocks de las APIs externas
+                 </div>
+                 <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-xs">👤</div>
+              </div>
+              <div className="flex gap-2 items-start">
+                 <div className="w-8 h-8 bg-bbva-aqua rounded-full flex items-center justify-center text-white font-bold text-xs">QA</div>
+                 <div className="bg-white text-gray-800 p-3 rounded-r-lg rounded-tl-lg text-sm max-w-[80%] border-2 border-bbva-aqua/20 shadow">
+                    <p className="font-bold text-bbva-blue mb-2 flex items-center gap-1">
+                       <IconFile className="w-4 h-4"/> QA Guru está escribiendo...
+                    </p>
+                    <div className="space-y-1 text-xs text-gray-600">
+                       <p>✓ Analizando PaymentService.ts</p>
+                       <p>✓ Detectando dependencias externas</p>
+                       <p>✓ Generando suite con Jest + MSW</p>
+                       <p>✓ Aplicando pattern AAA</p>
+                    </div>
                  </div>
               </div>
            </div>
@@ -705,28 +826,59 @@ const SummarySlide: React.FC<{isActive: boolean}> = () => (
     <div className="grid grid-cols-2 gap-8 mt-6">
        <div className="bg-white p-8 rounded-xl border-t-4 border-bbva-blue shadow-md">
           <h3 className="text-xl font-bold text-bbva-navy mb-4 flex items-center gap-2">
-             <IconCode /> Instrucciones
+             <IconCode /> Instrucciones Personalizadas
           </h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-             Son el contexto pasivo. Úsalas para reglas que aplican siempre (estilo, arquitectura, prohibiciones). Evita sobrecargar; sé específico con reglas por ruta.
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+             Son el <strong>contexto pasivo</strong> que Copilot siempre conoce. Úsalas para reglas universales: estilo de código, arquitectura, librerías permitidas, prohibiciones.
           </p>
+          <ul className="text-xs text-gray-500 space-y-2">
+             <li>✓ Aplican automáticamente a todo el código</li>
+             <li>✓ Ideales para estándares y convenciones</li>
+             <li>✓ Se pueden hacer específicas por ruta</li>
+          </ul>
        </div>
 
        <div className="bg-white p-8 rounded-xl border-t-4 border-bbva-aqua shadow-md">
           <h3 className="text-xl font-bold text-bbva-navy mb-4 flex items-center gap-2">
-             <IconBrain /> Agentes
+             <IconBrain /> Agentes Personalizados
           </h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-             Son expertos activos. Úsalos para tareas complejas y específicas (migraciones, testing, documentación) que requieren un "rol" definido.
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+             Son <strong>expertos activos</strong> que se invocan bajo demanda. Úsalos para tareas específicas que requieren expertise: migraciones, testing, security audits, documentación técnica.
           </p>
+          <ul className="text-xs text-gray-500 space-y-2">
+             <li>✓ Se activan con @mention o selector</li>
+             <li>✓ Combinan contexto + especialización</li>
+             <li>✓ Ideales para flujos complejos</li>
+          </ul>
        </div>
 
-       <div className="col-span-2 bg-bbva-navy text-white p-6 rounded-xl flex items-center justify-between">
-          <div>
-             <h4 className="font-bold text-lg">Principio de Oro</h4>
-             <p className="text-sm opacity-80">La personalización es iterativa. Empieza pequeño, observa el impacto y refina.</p>
+       <div className="col-span-2 bg-gradient-to-r from-bbva-navy to-bbva-blue text-white p-8 rounded-xl shadow-xl">
+          <div className="flex items-start justify-between">
+             <div className="flex-1">
+                <h4 className="font-bold text-2xl mb-3 flex items-center gap-3">
+                   <span className="text-3xl">💎</span> Principios de Oro
+                </h4>
+                <div className="grid grid-cols-2 gap-6">
+                   <div>
+                      <p className="text-sm font-semibold text-bbva-aqua mb-1">1. Empieza Simple</p>
+                      <p className="text-xs opacity-90">2-3 agentes bien definidos &gt; 10 agentes genéricos</p>
+                   </div>
+                   <div>
+                      <p className="text-sm font-semibold text-bbva-aqua mb-1">2. Itera Basándote en Uso Real</p>
+                      <p className="text-xs opacity-90">Observa qué preguntas se repiten en el equipo</p>
+                   </div>
+                   <div>
+                      <p className="text-sm font-semibold text-bbva-aqua mb-1">3. Sé Específico, No Vago</p>
+                      <p className="text-xs opacity-90">"Usa Jest con AAA pattern" &gt; "Escribe buenos tests"</p>
+                   </div>
+                   <div>
+                      <p className="text-sm font-semibold text-bbva-aqua mb-1">4. Combina Ambos Sistemas</p>
+                      <p className="text-xs opacity-90">Instrucciones (contexto) + Agentes (expertise) = Máxima potencia</p>
+                   </div>
+                </div>
+             </div>
+             <IconBBVA className="w-20 h-auto text-white opacity-20 ml-8" />
           </div>
-          <IconBBVA className="w-16 h-auto text-white opacity-50" />
        </div>
     </div>
   </SlideFrame>
@@ -736,19 +888,31 @@ const IdeasSlide: React.FC<{isActive: boolean}> = () => (
   <SlideFrame pageNumber={19} title="Ideas para Empezar" subtitle="Catálogo de Agentes Potenciales">
     <div className="grid grid-cols-2 gap-6 mt-6">
        {[
-          { icon: "🧹", title: "Refactor Agent", desc: "Limpia deuda técnica y moderniza sintaxis." },
-          { icon: "🧪", title: "Test Writer", desc: "Escribe tests unitarios siguiendo patrones AAA." },
-          { icon: "📝", title: "Docu Mate", desc: "Documenta APIs en formato OpenAPI/Swagger." },
-          { icon: "🔐", title: "SecOps Guard", desc: "Valida commits contra políticas de seguridad." }
+          { icon: "🧹", title: "Refactor Agent", desc: "Limpia deuda técnica, moderniza sintaxis y aplica patrones de diseño.", example: "@RefactorMaster optimiza esta clase legacy" },
+          { icon: "🧪", title: "Test Writer", desc: "Escribe tests unitarios siguiendo patrones AAA con alto coverage.", example: "@TestWriter crea suite completo para UserService" },
+          { icon: "📝", title: "Documentation Agent", desc: "Documenta APIs en formato OpenAPI/Swagger y genera READMEs.", example: "@DocuMaster documenta esta API REST" },
+          { icon: "🔐", title: "Security Guard", desc: "Audita código contra OWASP Top 10 2021 y valida inputs/outputs.", example: "@SecurityGuard escanea vulnerabilidades aquí" },
+          { icon: "🏗️", title: "Migration Agent", desc: "Asiste en migraciones de versiones, frameworks o arquitecturas.", example: "@MigrationExpert migra de Angular 15 a 17" },
+          { icon: "🎨", title: "UI/UX Expert", desc: "Optimiza componentes para accesibilidad y responsive design.", example: "@UIExpert mejora la accesibilidad del form" }
        ].map((item, idx) => (
-          <div key={idx} className="flex items-start gap-4 p-4 bg-white border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
-             <div className="text-2xl bg-gray-50 p-3 rounded-lg">{item.icon}</div>
-             <div>
-                <h4 className="font-bold text-bbva-navy">{item.title}</h4>
-                <p className="text-sm text-gray-600">{item.desc}</p>
+          <div key={idx} className="flex flex-col gap-3 p-5 bg-white border border-gray-100 rounded-lg hover:shadow-lg hover:border-bbva-aqua transition-all group">
+             <div className="flex items-start gap-4">
+                <div className="text-3xl bg-gray-50 p-3 rounded-lg group-hover:scale-110 transition-transform">{item.icon}</div>
+                <div className="flex-1">
+                   <h4 className="font-bold text-bbva-navy mb-1">{item.title}</h4>
+                   <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+             </div>
+             <div className="bg-bbva-navy/5 border border-bbva-blue/20 rounded p-2 font-mono text-xs text-bbva-blue">
+                {item.example}
              </div>
           </div>
        ))}
+    </div>
+    <div className="mt-8 bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+       <p className="text-sm text-gray-700">
+          <strong className="text-yellow-800">⚠️ Consejo:</strong> Empieza con 2-3 agentes bien definidos. La calidad supera a la cantidad. Itera basándote en feedback real del equipo.
+       </p>
     </div>
   </SlideFrame>
 );
