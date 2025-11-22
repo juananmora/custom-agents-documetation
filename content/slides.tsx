@@ -431,7 +431,7 @@ const AgentScopeSlide: React.FC<{isActive: boolean}> = () => (
          </div>
          <h3 className="font-bold text-lg text-bbva-navy mb-2">Nivel Organización</h3>
          <p className="text-sm text-gray-500 mb-4">Compartido por todos los equipos.</p>
-         <code className="text-xs bg-gray-100 p-1 rounded text-bbva-blue">.github repo -> agents/</code>
+         <code className="text-xs bg-gray-100 p-1 rounded text-bbva-blue">.github repo -&gt; agents/</code>
       </div>
 
       {/* Enterprise Level */}
@@ -441,7 +441,7 @@ const AgentScopeSlide: React.FC<{isActive: boolean}> = () => (
          </div>
          <h3 className="font-bold text-lg text-bbva-navy mb-2">Nivel Enterprise</h3>
          <p className="text-sm text-gray-500 mb-4">Gobernanza global.</p>
-         <code className="text-xs bg-gray-100 p-1 rounded text-green-700">.github-private -> agents/</code>
+         <code className="text-xs bg-gray-100 p-1 rounded text-green-700">.github-private -&gt; agents/</code>
       </div>
     </div>
   </SlideFrame>
