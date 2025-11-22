@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-    Github, Book, Code2, ArrowRight, CheckCircle2, Bot, FileText,
+    Book, Code2, ArrowRight, CheckCircle2, Bot, FileText,
     Building, User, Shield, Layers, Zap, Target, Lightbulb, Rocket, Menu, X
 } from 'lucide-react';
 import PriorityVisualizer from './components/PriorityVisualizer';
@@ -50,7 +50,7 @@ const LandingPage: React.FC = () => {
             <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-2 flex-shrink-0">
-                        <Github className="w-7 h-7 text-[#A100FF]" />
+                        <img src={`${import.meta.env.BASE_URL}copilot-logo.svg`} alt="GitHub Copilot" className="w-8 h-8 text-[#A100FF]" style={{ filter: 'none' }} />
                         <span className="font-bold text-lg tracking-tight text-[#323232] whitespace-nowrap">GitHub Copilot</span>
                     </div>
 
@@ -973,7 +973,7 @@ Evita excepciones genéricas como except Exception:`
                 <footer className="py-16 border-t-2 border-[#E5E5E5] bg-[#F3F2F1]">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex flex-col items-center gap-6">
-                            <Github className="w-10 h-10 text-[#A100FF]" />
+                            <img src={`${import.meta.env.BASE_URL}copilot-logo.svg`} alt="GitHub Copilot" className="w-12 h-12" style={{ filter: 'none' }} />
                             <p className="text-[#323232] text-base font-bold uppercase tracking-wider">
                                 Guía Completa de GitHub Copilot
                             </p>
