@@ -175,12 +175,12 @@ const LandingPage: React.FC = () => {
                             >
                                 Domina GitHub Copilot con
                                 <br />
-                                <span className="text-[#A100FF]">Agentes e Instrucciones</span>
+                                <span className="text-[#A100FF]">Agentes Personalizados</span>
                                 <br />
-                                a Medida
+                                e Instrucciones a Medida
                             </motion.h1>
                             <p className="text-xl md:text-2xl text-[#666666] max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                                Descubre cómo transformar GitHub Copilot de un asistente genérico en un equipo de expertos especializados para tu proyecto
+                                Transforma GitHub Copilot en un equipo de especialistas virtuales que comprenden tu proyecto, siguen tus estándares y automatizan tareas complejas
                             </p>
                             <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
                                 <motion.a 
