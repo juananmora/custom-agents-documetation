@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Code2, FileText, Shield, Book as BookIcon } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 interface ComparisonCardProps {
     title: string;
