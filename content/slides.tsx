@@ -12,10 +12,10 @@ const TitleSlide: React.FC<{isActive: boolean}> = () => (
       <h1 className="text-6xl font-bold leading-tight mb-8 text-white">
         Más Allá de las Sugerencias
       </h1>
-      <p className="text-2xl text-gray-200 font-light leading-relaxed border-l-4 border-bbva-aqua pl-6">
-        Domina GitHub Copilot con <strong className="text-bbva-aqua">Agentes</strong> e <strong className="text-bbva-aqua">Instrucciones a Medida</strong>.
+      <p className="text-2xl text-white font-light leading-relaxed border-l-4 border-bbva-aqua pl-6">
+        Domina GitHub Copilot con <strong className="text-bbva-aqua font-bold">Agentes</strong> e <strong className="text-bbva-aqua font-bold">Instrucciones a Medida</strong>.
       </p>
-      <div className="mt-12 flex items-center gap-4 text-sm text-gray-400">
+      <div className="mt-12 flex items-center gap-4 text-sm text-gray-300">
          <span>BBVA Engineering</span>
          <span className="w-1 h-1 bg-gray-500 rounded-full"></span>
          <span>2024</span>
@@ -31,26 +31,26 @@ const ComparisonSlide: React.FC<{isActive: boolean}> = () => (
       <div className="flex-1 bg-gray-50 rounded-xl p-8 border border-gray-200 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
         <div className="absolute top-0 left-0 w-full h-1 bg-gray-300"></div>
         <div className="flex items-center gap-4 mb-6">
-          <div className="p-3 bg-gray-200 rounded-lg text-gray-600">
+          <div className="p-3 bg-gray-200 rounded-lg text-gray-700">
              <IconMessage className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-gray-700">Copilot Estándar</h3>
+          <h3 className="text-xl font-bold text-gray-800">Copilot Estándar</h3>
         </div>
-        <ul className="space-y-4 text-gray-600 flex-1">
+        <ul className="space-y-4 text-gray-700 flex-1">
           <li className="flex gap-3">
-            <span className="text-red-400 font-bold">✕</span>
+            <span className="text-red-500 font-bold">✕</span>
             <span>Desconoce estándares internos.</span>
           </li>
           <li className="flex gap-3">
-            <span className="text-red-400 font-bold">✕</span>
+            <span className="text-red-500 font-bold">✕</span>
             <span>Ignora la arquitectura del proyecto.</span>
           </li>
           <li className="flex gap-3">
-            <span className="text-red-400 font-bold">✕</span>
+            <span className="text-red-500 font-bold">✕</span>
             <span>Requiere contexto repetitivo.</span>
           </li>
         </ul>
-        <p className="text-xs text-gray-400 uppercase tracking-widest font-semibold mt-4">Generic AI</p>
+        <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mt-4">Generic AI</p>
       </div>
 
       {/* Customized Card */}
@@ -65,17 +65,17 @@ const ComparisonSlide: React.FC<{isActive: boolean}> = () => (
             <span className="text-xs font-bold text-bbva-aqua uppercase">Optimizado</span>
           </div>
         </div>
-        <ul className="space-y-4 text-bbva-navy flex-1">
+        <ul className="space-y-4 text-gray-800 flex-1 font-medium">
           <li className="flex gap-3">
-            <span className="text-bbva-aqua font-bold">✓</span>
+            <span className="text-green-600 font-bold text-xl">✓</span>
             <span>Conoce tus librerías y guías.</span>
           </li>
           <li className="flex gap-3">
-            <span className="text-bbva-aqua font-bold">✓</span>
+            <span className="text-green-600 font-bold text-xl">✓</span>
             <span>Automatiza flujos complejos.</span>
           </li>
           <li className="flex gap-3">
-            <span className="text-bbva-aqua font-bold">✓</span>
+            <span className="text-green-600 font-bold text-xl">✓</span>
             <span>Actúa como un miembro Senior.</span>
           </li>
         </ul>
@@ -101,12 +101,12 @@ const RoadmapSlide: React.FC<{isActive: boolean}> = () => {
     <SlideFrame pageNumber={3} title="Hoja de Ruta" subtitle="Agenda de la sesión">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
         {steps.map((step) => (
-          <div key={step.id} className="group p-6 bg-white border border-gray-200 rounded-lg hover:border-bbva-aqua hover:shadow-lg transition-all duration-300">
-             <div className="text-5xl font-bold text-gray-100 group-hover:text-bbva-blue/10 mb-2 absolute top-4 right-4 transition-colors">0{step.id}</div>
+          <div key={step.id} className="relative group p-6 bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 rounded-xl hover:border-bbva-aqua hover:shadow-2xl hover:scale-105 transition-all duration-300">
+             <div className="text-6xl font-black text-gray-200 group-hover:text-bbva-aqua/30 mb-2 absolute top-2 right-2 transition-colors leading-none">0{step.id}</div>
              <div className="relative z-10">
-               <div className="w-10 h-1 bg-bbva-aqua mb-4 group-hover:w-16 transition-all"></div>
-               <h4 className="text-lg font-bold text-bbva-navy mb-2">{step.title}</h4>
-               <p className="text-sm text-gray-500">{step.desc}</p>
+               <div className="w-12 h-2 bg-gradient-to-r from-bbva-aqua to-bbva-light-blue mb-4 group-hover:w-20 transition-all rounded-full"></div>
+               <h4 className="text-xl font-bold text-bbva-navy mb-2 group-hover:text-bbva-blue transition-colors">{step.title}</h4>
+               <p className="text-base text-gray-700 font-medium">{step.desc}</p>
              </div>
           </div>
         ))}
@@ -124,35 +124,35 @@ const DNASlide: React.FC<{isActive: boolean}> = () => (
           </p>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-bbva-aqua/20 flex items-center justify-center text-bbva-blue shrink-0">1</div>
+              <div className="w-8 h-8 rounded-full bg-bbva-aqua/20 flex items-center justify-center text-bbva-blue shrink-0 font-bold">1</div>
               <div>
-                <h4 className="font-bold text-bbva-navy">Elimina la Repetición</h4>
-                <p className="text-sm text-gray-600">No necesitas repetir "Usa TypeScript" en cada prompt.</p>
+                <h4 className="font-bold text-bbva-navy text-base">Elimina la Repetición</h4>
+                <p className="text-sm text-gray-700">No necesitas repetir "Usa TypeScript" en cada prompt.</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-bbva-aqua/20 flex items-center justify-center text-bbva-blue shrink-0">2</div>
+              <div className="w-8 h-8 rounded-full bg-bbva-aqua/20 flex items-center justify-center text-bbva-blue shrink-0 font-bold">2</div>
               <div>
-                <h4 className="font-bold text-bbva-navy">Conocimiento Integrado</h4>
-                <p className="text-sm text-gray-600">Copilot entiende la arquitectura hexagonal de BBVA por defecto.</p>
+                <h4 className="font-bold text-bbva-navy text-base">Conocimiento Integrado</h4>
+                <p className="text-sm text-gray-700">Copilot entiende la arquitectura hexagonal de BBVA por defecto.</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-bbva-aqua/20 flex items-center justify-center text-bbva-blue shrink-0">3</div>
+              <div className="w-8 h-8 rounded-full bg-bbva-aqua/20 flex items-center justify-center text-bbva-blue shrink-0 font-bold">3</div>
               <div>
-                <h4 className="font-bold text-bbva-navy">Alta Precisión</h4>
-                <p className="text-sm text-gray-600">Menos alucinaciones, código más alineado con producción.</p>
+                <h4 className="font-bold text-bbva-navy text-base">Alta Precisión</h4>
+                <p className="text-sm text-gray-700">Menos alucinaciones, código más alineado con producción.</p>
               </div>
             </div>
           </div>
        </div>
        
-       <div className="flex-1 h-full bg-bbva-navy rounded-2xl p-8 relative overflow-hidden text-white font-mono text-sm shadow-2xl">
-          <div className="absolute top-0 right-0 p-4 opacity-20">
+       <div className="flex-1 h-full bg-gray-900 rounded-2xl p-8 relative overflow-hidden text-white font-mono text-sm shadow-2xl border-2 border-bbva-aqua/30">
+          <div className="absolute top-0 right-0 p-4 opacity-10">
             <IconCode className="w-32 h-32" />
           </div>
-          <div className="text-bbva-aqua mb-4">.github/copilot-instructions.md</div>
-          <div className="space-y-2 opacity-80">
+          <div className="text-bbva-aqua mb-4 font-bold text-base">.github/copilot-instructions.md</div>
+          <div className="space-y-2 opacity-90 text-gray-200">
              <p><span className="text-purple-400"># Tech Stack</span></p>
              <p>- Language: <span className="text-yellow-300">TypeScript</span></p>
              <p>- Framework: <span className="text-yellow-300">Angular + BBVA Cells</span></p>
@@ -431,7 +431,7 @@ const AgentScopeSlide: React.FC<{isActive: boolean}> = () => (
          </div>
          <h3 className="font-bold text-lg text-bbva-navy mb-2">Nivel Organización</h3>
          <p className="text-sm text-gray-500 mb-4">Compartido por todos los equipos.</p>
-         <code className="text-xs bg-gray-100 p-1 rounded text-bbva-blue">.github repo -> agents/</code>
+         <code className="text-xs bg-gray-100 p-1 rounded text-bbva-blue">.github repo -&gt; agents/</code>
       </div>
 
       {/* Enterprise Level */}
@@ -441,7 +441,7 @@ const AgentScopeSlide: React.FC<{isActive: boolean}> = () => (
          </div>
          <h3 className="font-bold text-lg text-bbva-navy mb-2">Nivel Enterprise</h3>
          <p className="text-sm text-gray-500 mb-4">Gobernanza global.</p>
-         <code className="text-xs bg-gray-100 p-1 rounded text-green-700">.github-private -> agents/</code>
+         <code className="text-xs bg-gray-100 p-1 rounded text-green-700">.github-private -&gt; agents/</code>
       </div>
     </div>
   </SlideFrame>

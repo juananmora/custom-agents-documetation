@@ -4,41 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>BBVA GitHub Copilot Presentation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              mono: ['Fira Code', 'monospace'],
-            },
-            colors: {
-              'bbva-navy': '#072146',
-              'bbva-blue': '#004481',
-              'bbva-medium-blue': '#1973B8',
-              'bbva-aqua': '#2DCCCD',
-              'bbva-light-blue': '#5BBEFF',
-              'bbva-core-blue': '#004481',
-              'bbva-white': '#FFFFFF',
-              'bbva-gray': '#F4F4F4',
-            },
-            backgroundImage: {
-              'bbva-gradient': 'linear-gradient(135deg, #072146 0%, #004481 100%)',
-              'bbva-subtle': 'linear-gradient(to right, #F4F4F4, #FFFFFF)',
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      body { margin: 0; overflow: hidden; background-color: #072146; }
-      /* Custom scrollbar if needed */
-      ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: #f1f1f1; }
-      ::-webkit-scrollbar-thumb { background: #004481; }
-    </style>
     <script type="importmap">
       {
         "imports": {
@@ -51,5 +19,6 @@
   </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
