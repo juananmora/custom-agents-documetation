@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-canvas-default text-fg-default antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  code {
+    @apply font-mono text-[85%];
+  }
+}
+
+@layer utilities {
+  .btn-primary {
+    @apply bg-success-emphasis text-white px-4 py-2 rounded-md font-medium hover:bg-[#2ea043] transition-colors border border-[rgba(240,246,252,0.1)];
+  }
+  
+  .btn-secondary {
+    @apply bg-canvas-subtle text-fg-default px-4 py-2 rounded-md font-medium hover:bg-[#30363d] transition-colors border border-border-default;
+  }
+
+  .card {
+    @apply bg-canvas-default border border-border-default rounded-md overflow-hidden;
+  }
+}

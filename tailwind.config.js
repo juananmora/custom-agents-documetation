@@ -1,32 +1,52 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./*.tsx",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./content/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
-      },
-      colors: {
-        'bbva-navy': '#072146',
-        'bbva-blue': '#004481',
-        'bbva-medium-blue': '#1973B8',
-        'bbva-aqua': '#2DCCCD',
-        'bbva-light-blue': '#5BBEFF',
-        'bbva-core-blue': '#004481',
-        'bbva-white': '#FFFFFF',
-        'bbva-gray': '#F4F4F4',
-      },
-      backgroundImage: {
-        'bbva-gradient': 'linear-gradient(135deg, #072146 0%, #004481 100%)',
-        'bbva-subtle': 'linear-gradient(to right, #F4F4F4, #FFFFFF)',
-      }
-    }
-  },
-  plugins: [],
+    content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+        extend: {
+            colors: {
+                canvas: {
+                    default: '#0d1117',
+                    subtle: '#161b22',
+                    overlay: '#161b22',
+                },
+                border: {
+                    default: '#30363d',
+                    muted: '#21262d',
+                },
+                fg: {
+                    default: '#c9d1d9',
+                    muted: '#8b949e',
+                    subtle: '#6e7681',
+                },
+                accent: {
+                    fg: '#58a6ff',
+                    emphasis: '#1f6feb',
+                    muted: 'rgba(56,139,253,0.4)',
+                    subtle: 'rgba(56,139,253,0.15)',
+                },
+                success: {
+                    fg: '#3fb950',
+                    emphasis: '#238636',
+                },
+                attention: {
+                    fg: '#d29922',
+                    subtle: 'rgba(187,128,9,0.15)',
+                },
+                danger: {
+                    fg: '#f85149',
+                },
+                neutral: {
+                    muted: 'rgba(110,118,129,0.4)',
+                }
+            },
+            fontFamily: {
+                sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Noto Sans', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji'],
+                mono: ['ui-monospace', 'SFMono-Regular', 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace'],
+            }
+        },
+    },
+    plugins: [],
 }

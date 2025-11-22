@@ -1,69 +1,73 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# React + TypeScript + Vite
 
-# GitHub Copilot Mastery Presentation
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Una presentación interactiva sobre GitHub Copilot, instrucciones personalizadas y agentes personalizados.
+Currently, two official plugins are available:
 
-## 🚀 Ver en Vivo
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-La aplicación está desplegada automáticamente en GitHub Pages:
-**[Ver Presentación](https://juananmora.github.io/custom-agents-documetation/)**
+## React Compiler
 
-## 🏃 Ejecutar Localmente
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-**Prerequisitos:** Node.js 20+
+## Expanding the ESLint configuration
 
-1. Instalar dependencias:
-   ```bash
-   npm install
-   ```
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-2. Ejecutar en modo desarrollo:
-   ```bash
-   npm run dev
-   ```
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-3. Abrir [http://localhost:3000](http://localhost:3000) en tu navegador
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-## 🏗️ Construir para Producción
-
-```bash
-npm run build
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-Los archivos de producción se generarán en el directorio `dist/`.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## 🚢 Despliegue Automático
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-El proyecto está configurado para desplegarse automáticamente a GitHub Pages cuando se hace push a la rama `main`:
-
-1. Los cambios se pushean a `main`
-2. GitHub Actions ejecuta el workflow de build
-3. Los archivos se despliegan automáticamente a GitHub Pages
-4. La aplicación estará disponible en: `https://juananmora.github.io/custom-agents-documetation/`
-
-### Configuración de GitHub Pages
-
-Para habilitar GitHub Pages en tu repositorio:
-
-1. Ve a **Settings** > **Pages**
-2. En **Source**, selecciona **GitHub Actions**
-3. El workflow `.github/workflows/deploy.yml` se encargará del resto
-
-## 📋 Contenido de la Presentación
-
-La presentación cubre:
-- Instrucciones personalizadas de GitHub Copilot
-- Creación y configuración de agentes personalizados
-- Mejores prácticas y ejemplos prácticos
-- Guías paso a paso para implementación
-
-## 🛠️ Tecnologías
-
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS (integrado)
-- GitHub Actions para CI/CD
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
