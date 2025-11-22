@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-    Github, Book, Code2, ArrowRight, CheckCircle2, Bot, FileText,
+    Book, Code2, ArrowRight, CheckCircle2, Bot, FileText,
     Building, User, Shield, Layers, Zap, Target, Lightbulb, Rocket, Menu, X
 } from 'lucide-react';
 import PriorityVisualizer from './components/PriorityVisualizer';
@@ -48,19 +48,19 @@ const LandingPage: React.FC = () => {
             </div>
             {/* Header - Accenture style */}
             <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <Github className="w-8 h-8 text-[#A100FF]" />
-                        <span className="font-bold text-xl tracking-tight text-[#323232] whitespace-nowrap">GitHub Copilot</span>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                        <img src={`${import.meta.env.BASE_URL}copilot-logo.svg`} alt="GitHub Copilot" className="w-8 h-8 text-[#A100FF]" style={{ filter: 'none' }} />
+                        <span className="font-bold text-lg tracking-tight text-[#323232] whitespace-nowrap">GitHub Copilot</span>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#323232] uppercase tracking-wide">
+                    <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs font-semibold text-[#323232] uppercase tracking-wide flex-shrink-0">
                         {navItems.map((item) => (
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className="hover:text-[#A100FF] transition-colors relative group"
+                                className="hover:text-[#A100FF] transition-colors relative group whitespace-nowrap"
                             >
                                 {item.label}
                                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#A100FF] group-hover:w-full transition-all duration-300"></span>
@@ -71,16 +71,13 @@ const LandingPage: React.FC = () => {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="lg:hidden p-2 text-[#323232] hover:text-[#A100FF]"
+                        className="lg:hidden p-2 text-[#323232] hover:text-[#A100FF] flex-shrink-0"
                     >
                         {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
 
-                    <div className="hidden lg:flex items-center gap-4">
-                        <a href="https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents" target="_blank" rel="noopener noreferrer" className="text-[#323232] hover:text-[#A100FF] font-semibold uppercase tracking-wide text-xs transition-colors">
-                            Explorar Agentes
-                        </a>
-                        <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener noreferrer" className="btn-primary text-xs">
+                    <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+                        <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener noreferrer" className="btn-primary text-xs px-4 py-2 whitespace-nowrap">
                             Documentación
                         </a>
                     </div>
@@ -104,6 +101,16 @@ const LandingPage: React.FC = () => {
                                     {item.label}
                                 </a>
                             ))}
+                            <div className="border-t border-[#E5E5E5] my-2"></div>
+                            <a
+                                href="https://docs.github.com/en/copilot"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="px-3 py-3 bg-[#A100FF] text-white hover:bg-[#7000B8] transition-colors font-semibold uppercase text-sm tracking-wide text-center"
+                            >
+                                Documentación
+                            </a>
                         </nav>
                     </motion.div>
                 )}
@@ -168,12 +175,12 @@ const LandingPage: React.FC = () => {
                             >
                                 Domina GitHub Copilot con
                                 <br />
-                                <span className="text-[#A100FF]">Agentes e Instrucciones</span>
+                                <span className="text-[#A100FF]">Agentes Personalizados</span>
                                 <br />
-                                a Medida
+                                e Instrucciones a Medida
                             </motion.h1>
                             <p className="text-xl md:text-2xl text-[#666666] max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                                Descubre cómo transformar GitHub Copilot de un asistente genérico en un equipo de expertos especializados para tu proyecto
+                                Transforma GitHub Copilot en un equipo de especialistas virtuales que comprenden tu proyecto, siguen tus estándares y automatizan tareas complejas
                             </p>
                             <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
                                 <motion.a 
@@ -309,19 +316,19 @@ const LandingPage: React.FC = () => {
                             transition={{ duration: 0.6, staggerChildren: 0.2 }}
                         >
                             <FeatureCard
-                                icon={<Book className="w-6 h-6 text-[#58a6ff]" />}
+                                icon={<Book className="w-6 h-6 text-[#A100FF]" />}
                                 title="Contexto de Librerías"
                                 description="Copilot comprende las librerías y frameworks específicos de tu proyecto para generar código compatible"
-                                color="blue"
+                                color="purple"
                             />
                             <FeatureCard
-                                icon={<FileText className="w-6 h-6 text-[#3fb950]" />}
+                                icon={<FileText className="w-6 h-6 text-[#A100FF]" />}
                                 title="Estándares de Código"
                                 description="Aplica automáticamente las convenciones de código y mejores prácticas de tu equipo"
-                                color="green"
+                                color="purple"
                             />
                             <FeatureCard
-                                icon={<Zap className="w-6 h-6 text-[#bc8cff]" />}
+                                icon={<Zap className="w-6 h-6 text-[#A100FF]" />}
                                 title="Automatización"
                                 description="Crea agentes especializados que ejecutan tareas complejas y repetitivas de forma consistente"
                                 color="purple"
@@ -554,19 +561,19 @@ Evita excepciones genéricas como except Exception:`
                                 name="Arquitecto de Soluciones"
                                 description="Diseña la estructura y arquitectura de nuevas funcionalidades"
                                 icon={<Building className="w-6 h-6 text-white" />}
-                                color="from-[#58a6ff] to-[#1f6feb]"
+                                color="from-[#A100FF] to-[#7000B8]"
                             />
                             <AgentCard
                                 name="Auditor de Seguridad"
                                 description="Revisa el código en busca de vulnerabilidades y mejores prácticas"
                                 icon={<Shield className="w-6 h-6 text-white" />}
-                                color="from-[#f85149] to-[#da3633]"
+                                color="from-[#7000B8] to-[#5a009e]"
                             />
                             <AgentCard
                                 name="Experto en Documentación"
                                 description="Genera documentación clara y completa para tu código"
                                 icon={<Book className="w-6 h-6 text-white" />}
-                                color="from-[#3fb950] to-[#2ea043]"
+                                color="from-[#C866FF] to-[#A100FF]"
                             />
                         </div>
 
@@ -676,8 +683,8 @@ Evita excepciones genéricas como except Exception:`
                                 </div>
 
                                 <div className="text-center">
-                                    <div className="w-16 h-16 rounded-full bg-purple-500/20 border-2 border-purple-500/30 flex items-center justify-center mx-auto mb-3">
-                                        <CheckCircle2 className="w-8 h-8 text-purple-400" />
+                                    <div className="w-16 h-16 rounded-full bg-[#A100FF]/20 border-2 border-[#A100FF]/30 flex items-center justify-center mx-auto mb-3">
+                                        <CheckCircle2 className="w-8 h-8 text-[#A100FF]" />
                                     </div>
                                     <h4 className="font-semibold mb-2">Output Relevante</h4>
                                     <p className="text-sm text-fg-muted max-w-md mx-auto">
@@ -884,8 +891,8 @@ Evita excepciones genéricas como except Exception:`
                         </div>
 
                         <div className="max-w-4xl mx-auto mb-16">
-                            <div className="card p-8 bg-gradient-to-r from-accent-subtle/20 to-purple-500/10 border-accent-muted text-center">
-                                <Lightbulb className="w-12 h-12 text-accent-fg mx-auto mb-4" />
+                            <div className="card p-8 bg-gradient-to-r from-[#A100FF]/10 to-[#C866FF]/10 border-[#A100FF]/30 text-center">
+                                <Lightbulb className="w-12 h-12 text-[#A100FF] mx-auto mb-4" />
                                 <h3 className="text-2xl font-bold mb-3">Principio General</h3>
                                 <p className="text-lg mb-6">
                                     <strong>Itera y Refina:</strong> Comienza con instrucciones y agentes simples. Observa los resultados, analiza su efectividad y ajústalos continuamente. La personalización es un proceso iterativo, no un evento único.
@@ -905,33 +912,33 @@ Evita excepciones genéricas como except Exception:`
                                     name="Especialista en Limpieza"
                                     description="Refactorizar código, eliminar duplicación y mejorar legibilidad"
                                     icon={<Code2 className="w-6 h-6 text-white" />}
-                                    color="from-[#58a6ff] to-[#1f6feb]"
+                                    color="from-[#A100FF] to-[#7000B8]"
                                 />
                                 <AgentCard
                                     name="Auditor de Accesibilidad"
                                     description="Revisar componentes UI para cumplimiento WCAG"
                                     icon={<Shield className="w-6 h-6 text-white" />}
-                                    color="from-[#f85149] to-[#da3633]"
+                                    color="from-[#7000B8] to-[#5a009e]"
                                 />
                                 <AgentCard
                                     name="Planificador de Implementación"
                                     description="Desglosar features en tareas técnicas accionables"
                                     icon={<Target className="w-6 h-6 text-white" />}
-                                    color="from-[#3fb950] to-[#2ea043]"
+                                    color="from-[#C866FF] to-[#A100FF]"
                                 />
                                 <AgentCard
                                     name="Compañero de Bugs"
                                     description="Analizar reportes e implementar soluciones específicas"
                                     icon={<Zap className="w-6 h-6 text-white" />}
-                                    color="from-[#bc8cff] to-[#8957e5]"
+                                    color="from-[#A100FF] to-[#8957e5]"
                                 />
                             </div>
                         </div>
 
                         {/* Call to Action */}
                         <div className="max-w-3xl mx-auto">
-                            <div className="card p-8 bg-gradient-to-br from-accent-subtle to-purple-500/20 border-accent-muted text-center">
-                                <Rocket className="w-16 h-16 text-accent-fg mx-auto mb-6" />
+                            <div className="card p-8 bg-gradient-to-br from-[#A100FF]/15 to-[#C866FF]/15 border-[#A100FF]/30 text-center">
+                                <Rocket className="w-16 h-16 text-[#A100FF] mx-auto mb-6" />
                                 <h3 className="text-2xl font-bold mb-4">Tu Primer Paso Hacia la Maestría</h3>
                                 <p className="text-lg mb-6">
                                     No esperes a tener el sistema perfecto. La mejor manera de empezar es con un pequeño experimento.
@@ -966,7 +973,7 @@ Evita excepciones genéricas como except Exception:`
                 <footer className="py-16 border-t-2 border-[#E5E5E5] bg-[#F3F2F1]">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex flex-col items-center gap-6">
-                            <Github className="w-10 h-10 text-[#A100FF]" />
+                            <img src={`${import.meta.env.BASE_URL}copilot-logo.svg`} alt="GitHub Copilot" className="w-12 h-12" style={{ filter: 'none' }} />
                             <p className="text-[#323232] text-base font-bold uppercase tracking-wider">
                                 Guía Completa de GitHub Copilot
                             </p>
