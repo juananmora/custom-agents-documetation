@@ -50,7 +50,7 @@ const LandingPage: React.FC = () => {
             <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-2 flex-shrink-0">
-                        <img src={`${import.meta.env.BASE_URL}copilot-logo.svg`} alt="GitHub Copilot" className="w-8 h-8 text-[#A100FF]" style={{ filter: 'none' }} />
+                        <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="w-8 h-8 text-[#A100FF]" style={{ filter: 'none' }} />
                         <span className="font-bold text-lg tracking-tight text-[#323232] whitespace-nowrap">GitHub Copilot</span>
                     </div>
 
@@ -340,49 +340,50 @@ const LandingPage: React.FC = () => {
                 {/* Instructions Base Section */}
                 <motion.section
                     id="instrucciones"
-                    className="py-20 bg-canvas-default relative overflow-hidden"
+                    className="section-spacing bg-white relative overflow-hidden"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, margin: "-150px" }}
                     transition={{ duration: 1 }}
                 >
-                    {/* Subtle background gradient for section separation */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-canvas-subtle/20 to-transparent pointer-events-none"></div>
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Subtle background gradient for section separation - Accenture style */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#F3F2F1]/30 to-transparent pointer-events-none"></div>
+                    <div className="absolute top-0 left-0 w-64 h-64 bg-[#A100FF] opacity-5 accenture-diagonal"></div>
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#323232]">
                                 La Base: Instrucciones Personalizadas
                             </h2>
-                            <p className="text-fg-muted max-w-3xl mx-auto text-lg">
+                            <p className="text-[#666666] max-w-3xl mx-auto text-lg font-light">
                                 El ADN de tu Proyecto
                             </p>
                         </div>
 
                         <div className="max-w-4xl mx-auto mb-16">
-                            <div className="card p-8 bg-gradient-to-br from-accent-subtle/20 to-canvas-subtle">
-                                <p className="text-lg mb-6">
-                                    Las <strong className="text-accent-fg">Instrucciones Personalizadas</strong> son directivas en lenguaje natural que proporcionan contexto persistente a GitHub Copilot. Puedes definirlas a nivel personal, de repositorio o de organización.
+                            <div className="card p-8 bg-gradient-to-br from-[#F3F2F1] to-white border-2 border-[#E5E5E5]">
+                                <p className="text-lg mb-6 text-[#323232]">
+                                    Las <strong className="text-[#A100FF]">Instrucciones Personalizadas</strong> son directivas en lenguaje natural que proporcionan contexto persistente a GitHub Copilot. Puedes definirlas a nivel personal, de repositorio o de organización.
                                 </p>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-success-fg mt-1 flex-shrink-0" />
+                                        <CheckCircle2 className="w-5 h-5 text-[#A100FF] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">Contexto Permanente</h4>
-                                            <p className="text-sm text-fg-muted">Evita repetir el mismo contexto en cada interacción</p>
+                                            <h4 className="font-semibold mb-1 text-[#323232]">Contexto Permanente</h4>
+                                            <p className="text-sm text-[#666666]">Evita repetir el mismo contexto en cada interacción</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-success-fg mt-1 flex-shrink-0" />
+                                        <CheckCircle2 className="w-5 h-5 text-[#A100FF] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">Conocimiento Profundo</h4>
-                                            <p className="text-sm text-fg-muted">Copilot comprende las reglas y arquitectura de tu proyecto</p>
+                                            <h4 className="font-semibold mb-1 text-[#323232]">Conocimiento Profundo</h4>
+                                            <p className="text-sm text-[#666666]">Copilot comprende las reglas y arquitectura de tu proyecto</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-success-fg mt-1 flex-shrink-0" />
+                                        <CheckCircle2 className="w-5 h-5 text-[#A100FF] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1">Mayor Precisión</h4>
-                                            <p className="text-sm text-fg-muted">Respuestas más relevantes y alineadas con tu contexto</p>
+                                            <h4 className="font-semibold mb-1 text-[#323232]">Mayor Precisión</h4>
+                                            <p className="text-sm text-[#666666]">Respuestas más relevantes y alineadas con tu contexto</p>
                                         </div>
                                     </div>
                                 </div>
@@ -391,60 +392,60 @@ const LandingPage: React.FC = () => {
 
                         {/* Hierarchy Section */}
                         <div className="mb-16">
-                            <h3 className="text-2xl font-bold text-center mb-8">Jerarquía de Instrucciones</h3>
-                            <p className="text-center text-fg-muted mb-12 max-w-2xl mx-auto">
-                                Las instrucciones se aplican en diferentes ámbitos. Las más específicas tienen prioridad sobre las generales: <strong>Personal → Repositorio → Organización</strong>.
+                            <h3 className="text-2xl font-bold text-center mb-8 text-[#323232]">Jerarquía de Instrucciones</h3>
+                            <p className="text-center text-[#666666] mb-12 max-w-2xl mx-auto">
+                                Las instrucciones se aplican en diferentes ámbitos. Las más específicas tienen prioridad sobre las generales: <strong className="text-[#323232]">Personal → Repositorio → Organización</strong>.
                             </p>
                             <PriorityVisualizer />
                         </div>
 
                         {/* Anatomy of Instructions */}
                         <div className="mb-16">
-                            <h3 className="text-2xl font-bold text-center mb-8">Tipos de Instrucciones en el Repositorio</h3>
-                            <p className="text-center text-fg-muted mb-12 max-w-3xl mx-auto">
+                            <h3 className="text-2xl font-bold text-center mb-8 text-[#323232]">Tipos de Instrucciones en el Repositorio</h3>
+                            <p className="text-center text-[#666666] mb-12 max-w-3xl mx-auto">
                                 Dentro de un repositorio, puedes definir instrucciones con diferentes niveles de especificidad para optimizar el contexto que recibe Copilot
                             </p>
 
                             <div className="grid md:grid-cols-2 gap-8">
-                                <div className="card p-6 bg-canvas-subtle">
+                                <div className="card p-6 bg-[#F3F2F1] border-2 border-[#E5E5E5]">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <div className="w-10 h-10 rounded-lg bg-accent-subtle flex items-center justify-center">
-                                            <FileText className="w-5 h-5 text-accent-fg" />
+                                        <div className="w-10 h-10 rounded-lg bg-[#A100FF]/10 flex items-center justify-center">
+                                            <FileText className="w-5 h-5 text-[#A100FF]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold">Instrucciones para todo el Repositorio</h4>
-                                            <code className="text-xs text-fg-muted">.github/copilot-instructions.md</code>
+                                            <h4 className="font-semibold text-[#323232]">Instrucciones para todo el Repositorio</h4>
+                                            <code className="text-xs text-[#666666]">.github/copilot-instructions.md</code>
                                         </div>
                                     </div>
-                                    <p className="text-sm text-fg-muted mb-3">
+                                    <p className="text-sm text-[#666666] mb-3">
                                         Define estándares y contexto que aplican a todo el repositorio
                                     </p>
-                                    <div className="bg-canvas-default rounded p-3 text-xs font-mono">
-                                        <div className="text-success-fg mb-1"># Ejemplo</div>
-                                        <div className="text-fg-muted">Este proyecto usa React 19 con TypeScript</div>
-                                        <div className="text-fg-muted">Todos los tests deben usar Jest y React Testing Library</div>
+                                    <div className="bg-white rounded p-3 text-xs font-mono border border-[#E5E5E5]">
+                                        <div className="text-[#A100FF] mb-1"># Ejemplo</div>
+                                        <div className="text-[#666666]">Este proyecto usa React 19 con TypeScript</div>
+                                        <div className="text-[#666666]">Todos los tests deben usar Jest y React Testing Library</div>
                                     </div>
                                 </div>
 
-                                <div className="card p-6 bg-canvas-subtle">
+                                <div className="card p-6 bg-[#F3F2F1] border-2 border-[#E5E5E5]">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <div className="w-10 h-10 rounded-lg bg-success-subtle flex items-center justify-center">
-                                            <Code2 className="w-5 h-5 text-success-fg" />
+                                        <div className="w-10 h-10 rounded-lg bg-[#A100FF]/10 flex items-center justify-center">
+                                            <Code2 className="w-5 h-5 text-[#A100FF]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold">Instrucciones Específicas de Ruta</h4>
-                                            <code className="text-xs text-fg-muted">.github/instructions/NAME.instructions.md</code>
+                                            <h4 className="font-semibold text-[#323232]">Instrucciones Específicas de Ruta</h4>
+                                            <code className="text-xs text-[#666666]">.github/instructions/NAME.instructions.md</code>
                                         </div>
                                     </div>
-                                    <p className="text-sm text-fg-muted mb-3">
+                                    <p className="text-sm text-[#666666] mb-3">
                                         Aplica reglas específicas a archivos que coinciden con patrones (glob patterns)
                                     </p>
-                                    <div className="bg-canvas-default rounded p-3 text-xs font-mono">
-                                        <div className="text-success-fg mb-1"># Ejemplo con frontmatter YAML</div>
-                                        <div className="text-fg-muted">---</div>
-                                        <div className="text-fg-muted">applyTo: src/components/**/*.tsx</div>
-                                        <div className="text-fg-muted">---</div>
-                                        <div className="text-fg-muted">Usa siempre React Hooks y TypeScript</div>
+                                    <div className="bg-white rounded p-3 text-xs font-mono border border-[#E5E5E5]">
+                                        <div className="text-[#A100FF] mb-1"># Ejemplo con frontmatter YAML</div>
+                                        <div className="text-[#666666]">---</div>
+                                        <div className="text-[#666666]">applyTo: src/components/**/*.tsx</div>
+                                        <div className="text-[#666666]">---</div>
+                                        <div className="text-[#666666]">Usa siempre React Hooks y TypeScript</div>
                                     </div>
                                 </div>
                             </div>
@@ -452,7 +453,7 @@ const LandingPage: React.FC = () => {
 
                         {/* Best Practices */}
                         <div>
-                            <h3 className="text-2xl font-bold text-center mb-8">Buenas Prácticas para Instrucciones</h3>
+                            <h3 className="text-2xl font-bold text-center mb-8 text-[#323232]">Buenas Prácticas para Instrucciones</h3>
 
                             <div className="max-w-4xl mx-auto space-y-6 mb-12">
                                 {[
@@ -467,14 +468,14 @@ const LandingPage: React.FC = () => {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="flex items-start gap-4 p-4 rounded-lg bg-canvas-subtle"
+                                        className="flex items-start gap-4 p-4 rounded-lg bg-[#F3F2F1] border border-[#E5E5E5]"
                                     >
-                                        <div className="w-10 h-10 rounded-lg bg-accent-subtle flex items-center justify-center flex-shrink-0 text-accent-fg">
+                                        <div className="w-10 h-10 rounded-lg bg-[#A100FF]/10 flex items-center justify-center flex-shrink-0 text-[#A100FF]">
                                             {practice.icon}
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold mb-1">{practice.title}</h4>
-                                            <p className="text-sm text-fg-muted">{practice.desc}</p>
+                                            <h4 className="font-semibold mb-1 text-[#323232]">{practice.title}</h4>
+                                            <p className="text-sm text-[#666666]">{practice.desc}</p>
                                         </div>
                                     </motion.div>
                                 ))}
@@ -973,7 +974,7 @@ Evita excepciones genéricas como except Exception:`
                 <footer className="py-16 border-t-2 border-[#E5E5E5] bg-[#F3F2F1]">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex flex-col items-center gap-6">
-                            <img src={`${import.meta.env.BASE_URL}copilot-logo.svg`} alt="GitHub Copilot" className="w-12 h-12" style={{ filter: 'none' }} />
+                            <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="w-12 h-12" style={{ filter: 'none' }} />
                             <p className="text-[#323232] text-base font-bold uppercase tracking-wider">
                                 Guía Completa de GitHub Copilot
                             </p>
