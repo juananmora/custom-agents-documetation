@@ -202,6 +202,18 @@ const LandingPage: React.FC = () => {
                                 </motion.a>
                             </div>
 
+                            {/* Workflow Video */}
+                            <div className="mb-16 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl border-2 border-[#E5E5E5]">
+                                <video
+                                    src={`${import.meta.env.BASE_URL}workflow2.mp4`}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-full h-auto"
+                                />
+                            </div>
+
                             <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
                                 <motion.div
                                     className="flex flex-wrap items-center justify-center gap-6 w-full"
@@ -452,7 +464,7 @@ const LandingPage: React.FC = () => {
                         </div>
 
                         {/* Best Practices */}
-                        <div>
+                        <div id="practicas">
                             <h3 className="text-2xl font-bold text-center mb-8 text-[#323232]">Mejores Prácticas para Instrucciones</h3>
 
                             <div className="max-w-4xl mx-auto space-y-6 mb-12">
@@ -698,8 +710,9 @@ Evita excepciones genéricas como except Exception:`
                             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#323232]">
                                 El Manual: Configuración e Implementación
                             </h2>
+                            <h3 className="text-2xl font-bold text-center mb-4 text-[#323232]">Gestión y Alcance de Copilot Instructions</h3>
                             <p className="text-[#666666] max-w-3xl mx-auto text-lg font-light">
-                                Guía práctica paso a paso para configurar Instrucciones y Agentes
+                                Define el ADN de tu proyecto directamente en el código
                             </p>
                         </div>
 
@@ -764,6 +777,82 @@ Evita excepciones genéricas como except Exception:`
                                     </div>
                                     <div className="p-3 bg-[#F3F2F1] rounded border border-[#E5E5E5] text-[#323232]">
                                         <strong className="text-[#A100FF]">Gestión:</strong> Centralizada para cumplimiento y gobernanza
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Agent Management Section */}
+                        <div className="mb-16">
+                            <h3 className="text-2xl font-bold text-center mb-4 text-[#323232]">Gestión y Alcance de los Agentes: De tu Repo a toda la Empresa</h3>
+                            <p className="text-center text-[#666666] mb-12 max-w-3xl mx-auto">
+                                Los agentes pueden ser definidos y compartidos en múltiples niveles para adaptarse a las necesidades de tu equipo.
+                            </p>
+
+                            <div className="grid md:grid-cols-3 gap-8 mb-16">
+                                {/* Repository Level */}
+                                <div className="p-6 bg-white border-2 border-[#E5E5E5] hover:border-[#A100FF] transition-colors duration-300">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <Book className="w-6 h-6 text-[#A100FF]" />
+                                        <h4 className="font-semibold text-lg text-[#323232]">Repositorio</h4>
+                                    </div>
+                                    <div className="space-y-3 text-sm">
+                                        <div className="p-3 bg-[#F3F2F1] rounded border border-[#E5E5E5] text-[#323232]">
+                                            <strong className="text-[#A100FF]">Ubicación:</strong>
+                                            <code className="block mt-1 px-2 py-1 bg-white rounded text-xs border border-[#E5E5E5]">
+                                                .github/agents/NOMBRE_AGENTE.md
+                                            </code>
+                                        </div>
+                                        <div className="p-3 bg-[#F3F2F1] rounded border border-[#E5E5E5] text-[#323232]">
+                                            <strong className="text-[#A100FF]">Alcance:</strong>
+                                            <p className="mt-1 text-[#666666]">
+                                                Disponible solo para el repositorio donde se define. Ideal para agentes muy específicos del proyecto.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Organization Level */}
+                                <div className="p-6 bg-white border-2 border-[#E5E5E5] hover:border-[#A100FF] transition-colors duration-300">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <Building className="w-6 h-6 text-[#A100FF]" />
+                                        <h4 className="font-semibold text-lg text-[#323232]">Organización</h4>
+                                    </div>
+                                    <div className="space-y-3 text-sm">
+                                        <div className="p-3 bg-[#F3F2F1] rounded border border-[#E5E5E5] text-[#323232]">
+                                            <strong className="text-[#A100FF]">Ubicación:</strong>
+                                            <p className="mt-1 text-[#666666]">
+                                                En un repositorio especial llamado <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#E5E5E5]">.github</code>, dentro de un directorio <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#E5E5E5]">agents/</code>.
+                                            </p>
+                                        </div>
+                                        <div className="p-3 bg-[#F3F2F1] rounded border border-[#E5E5E5] text-[#323232]">
+                                            <strong className="text-[#A100FF]">Alcance:</strong>
+                                            <p className="mt-1 text-[#666666]">
+                                                Disponible para todos los repositorios dentro de esa organización. Perfecto para agentes que aplican estándares de equipo (ej. "Experto en C#").
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Enterprise Level */}
+                                <div className="p-6 bg-white border-2 border-[#E5E5E5] hover:border-[#A100FF] transition-colors duration-300">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <Shield className="w-6 h-6 text-[#A100FF]" />
+                                        <h4 className="font-semibold text-lg text-[#323232]">Empresa ('Enterprise')</h4>
+                                    </div>
+                                    <div className="space-y-3 text-sm">
+                                        <div className="p-3 bg-[#F3F2F1] rounded border border-[#E5E5E5] text-[#323232]">
+                                            <strong className="text-[#A100FF]">Ubicación:</strong>
+                                            <p className="mt-1 text-[#666666]">
+                                                En un repositorio especial llamado <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#E5E5E5]">.github-private</code>, dentro de un directorio <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#E5E5E5]">agents/</code>.
+                                            </p>
+                                        </div>
+                                        <div className="p-3 bg-[#F3F2F1] rounded border border-[#E5E5E5] text-[#323232]">
+                                            <strong className="text-[#A100FF]">Alcance:</strong>
+                                            <p className="mt-1 text-[#666666]">
+                                                Compartido entre todas las organizaciones de la empresa, gestionado centralmente desde la sección "AI Controls" de la configuración de la empresa.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
