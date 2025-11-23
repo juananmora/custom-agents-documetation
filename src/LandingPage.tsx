@@ -50,7 +50,9 @@ const LandingPage: React.FC = () => {
             {/* Header - Accenture style */}
             <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-2 flex-shrink-0">
+                    <div className="flex items-center gap-4 flex-shrink-0">
+                        <img src={`${import.meta.env.BASE_URL}accenture.png`} alt="Accenture" className="h-6 w-auto" />
+                        <div className="h-8 w-px bg-[#E5E5E5]"></div>
                         <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="h-8 w-auto text-[#A100FF]" style={{ filter: 'none' }} />
                         <span className="font-bold text-lg tracking-tight text-[#323232] whitespace-nowrap">GitHub Copilot</span>
                     </div>
@@ -930,7 +932,11 @@ Evita excepciones genéricas como except Exception:`
                 <footer className="py-16 border-t-2 border-[#E5E5E5] bg-[#F3F2F1]">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex flex-col items-center gap-6">
-                            <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="h-12 w-auto" style={{ filter: 'none' }} />
+                            <div className="flex items-center gap-4">
+                                <img src={`${import.meta.env.BASE_URL}accenture.png`} alt="Accenture" className="h-8 w-auto" />
+                                <div className="h-10 w-px bg-[#E5E5E5]"></div>
+                                <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="h-12 w-auto" style={{ filter: 'none' }} />
+                            </div>
                             <p className="text-[#323232] text-base font-bold uppercase tracking-wider">
                                 Guía Completa de GitHub Copilot
                             </p>
