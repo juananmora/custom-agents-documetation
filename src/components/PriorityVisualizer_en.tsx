@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { User, Book, Building, ArrowDown, Layers } from 'lucide-react';
 
-const PriorityVisualizer: React.FC = () => {
+const PriorityVisualizerEn: React.FC = () => {
     const [activeLayers, setActiveLayers] = useState({
         personal: true,
         repo: true,
@@ -129,4 +129,4 @@ const PriorityVisualizer: React.FC = () => {
     );
 };
 
-export default PriorityVisualizer;
+export default PriorityVisualizerEn;
