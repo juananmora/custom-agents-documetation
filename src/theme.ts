@@ -27,15 +27,15 @@ export const themes: Record<ThemeVersion, ThemeColors> = {
     border: '#E5E5E5',
   },
   bbva: {
-    primary: '#004481',
-    primaryDark: '#003366',
-    primaryLight: '#1973B8',
-    secondary: '#00A1E0',
-    text: '#2C3E50',
-    textLight: '#5A6872',
+    primary: '#1464A5',
+    primaryDark: '#14549C',
+    primaryLight: '#5C9FD4',
+    secondary: '#000000',
+    text: '#000000',
+    textLight: '#666666',
     background: '#FFFFFF',
-    backgroundAlt: '#F4F8FB',
-    border: '#D3DCE6',
+    backgroundAlt: '#D4EDFC',
+    border: '#E0E0E0',
   },
 };
 

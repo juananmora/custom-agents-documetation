@@ -17,9 +17,9 @@ const ComparisonCard: React.FC<ComparisonCardProps> = ({ title, items, type }) =
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            className={`p-8 ${isCustom ? 'bg-[#004481] text-white' : 'bg-white text-[#2C3E50]'} border-none shadow-lg transition-all duration-300`}
+            className={`p-8 ${isCustom ? 'bg-[#1464A5] text-white' : 'bg-white text-[#000000]'} border-none shadow-lg transition-all duration-300`}
         >
-            <h3 className={`text-2xl font-bold mb-6 uppercase tracking-tight ${isCustom ? 'text-white' : 'text-[#2C3E50]'}`}>
+            <h3 className={`text-2xl font-bold mb-6 uppercase tracking-tight ${isCustom ? 'text-white' : 'text-[#000000]'}`}>
                 {title}
             </h3>
             <ul className="space-y-4">
@@ -47,9 +47,9 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, color }) => {
     const colorClasses = {
-        blue: 'bg-white border-2 border-[#D3DCE6] hover:border-[#004481]',
-        green: 'bg-white border-2 border-[#D3DCE6] hover:border-[#004481]',
-        purple: 'bg-white border-2 border-[#D3DCE6] hover:border-[#004481]'
+        blue: 'bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5]',
+        green: 'bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5]',
+        purple: 'bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5]'
     };
 
     return (
@@ -61,10 +61,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, col
             className={`p-8 ${colorClasses[color]} cursor-default transition-all duration-300 shadow-md hover:shadow-xl`}
         >
             <div className="flex items-start gap-4 mb-4">
-                <div className="text-[#004481]">
+                <div className="text-[#1464A5]">
                     {icon}
                 </div>
-                <h3 className="font-bold text-xl text-[#2C3E50] uppercase tracking-tight">{title}</h3>
+                <h3 className="font-bold text-xl text-[#000000] uppercase tracking-tight">{title}</h3>
             </div>
             <p className="text-[#5A6872] font-light leading-relaxed">{description}</p>
         </motion.div>
@@ -85,7 +85,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ name, description, icon, color })
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
-            className="p-8 bg-white border-2 border-[#D3DCE6] hover:border-[#004481] transition-all duration-300 shadow-md hover:shadow-xl cursor-default"
+            className="p-8 bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5] transition-all duration-300 shadow-md hover:shadow-xl cursor-default"
         >
             <motion.div 
                 className={`w-16 h-16 bg-gradient-to-br ${color} flex items-center justify-center mb-6`}
@@ -93,7 +93,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ name, description, icon, color })
             >
                 {icon}
             </motion.div>
-            <h4 className="font-bold text-xl mb-3 text-[#2C3E50] uppercase tracking-tight">{name}</h4>
+            <h4 className="font-bold text-xl mb-3 text-[#000000] uppercase tracking-tight">{name}</h4>
             <p className="text-[#5A6872] font-light leading-relaxed">{description}</p>
         </motion.div>
     );
@@ -125,10 +125,10 @@ const CodeComparison: React.FC<CodeComparisonProps> = ({ bad, good }) => {
             </div>
 
             {/* Good Example */}
-            <div className="bg-[#1a1a1a] border-2 border-[#004481] overflow-hidden">
-                <div className="px-6 py-4 bg-[#004481]/20 border-b-2 border-[#004481] flex items-center gap-3">
-                    <div className="w-4 h-4 bg-[#004481]"></div>
-                    <span className="text-sm font-bold text-[#004481] uppercase tracking-wide">{good.title}</span>
+            <div className="bg-[#1a1a1a] border-2 border-[#1464A5] overflow-hidden">
+                <div className="px-6 py-4 bg-[#1464A5]/20 border-b-2 border-[#1464A5] flex items-center gap-3">
+                    <div className="w-4 h-4 bg-[#1464A5]"></div>
+                    <span className="text-sm font-bold text-[#1464A5] uppercase tracking-wide">{good.title}</span>
                 </div>
                 <pre className="p-6 text-sm text-gray-100 font-mono overflow-x-auto">
                     <code>{good.code}</code>

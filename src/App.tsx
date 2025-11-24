@@ -50,7 +50,7 @@ function App() {
           className={`${
             theme === 'accenture' 
               ? 'bg-[#A100FF] hover:bg-[#7000B8]' 
-              : 'bg-[#004481] hover:bg-[#003366]'
+              : 'bg-[#1464A5] hover:bg-[#14549C]'
           } text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 flex items-center gap-2`}
           title={theme === 'accenture' ? 'Switch to BBVA' : 'Switch to Accenture'}
         >
@@ -66,7 +66,7 @@ function App() {
           className={`${
             theme === 'accenture' 
               ? 'bg-[#A100FF] hover:bg-[#7000B8]' 
-              : 'bg-[#004481] hover:bg-[#003366]'
+              : 'bg-[#1464A5] hover:bg-[#14549C]'
           } text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 flex items-center gap-2`}
           title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
         >

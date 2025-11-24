@@ -38,7 +38,7 @@ const LandingPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-white text-[#2C3E50] font-sans selection:bg-[#004481] selection:text-white scroll-smooth">
             {/* Scroll Progress Bar - BBVA style */}
-            <div className="fixed top-0 left-0 w-full h-1 bg-[#F4F8FB] z-[100]">
+            <div className="fixed top-0 left-0 w-full h-1 bg-[#D4EDFC] z-[100]">
                 <motion.div
                     className="h-full bbva-gradient"
                     style={{ width: `${scrollProgress}%` }}
@@ -51,7 +51,7 @@ const LandingPage: React.FC = () => {
             <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-[#D3DCE6]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-4 flex-shrink-0">
-                        <img src={`${import.meta.env.BASE_URL}bbva-logo.jpg`} alt="BBVA" className="h-6 w-auto" />
+                        <img src={`${import.meta.env.BASE_URL}bbva-logo.png`} alt="BBVA" className="h-10 w-auto" />
                         <div className="h-8 w-px bg-[#D3DCE6]"></div>
                         <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="h-8 w-auto text-[#004481]" style={{ filter: 'none' }} />
                         <span className="font-bold text-lg tracking-tight text-[#2C3E50] whitespace-nowrap">GitHub Copilot</span>
@@ -99,7 +99,7 @@ const LandingPage: React.FC = () => {
                                     key={item.href}
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="px-3 py-3 hover:bg-[#F4F8FB] text-[#2C3E50] hover:text-[#004481] transition-colors font-semibold uppercase text-sm tracking-wide rounded-sm"
+                                    className="px-3 py-3 hover:bg-[#D4EDFC] text-[#2C3E50] hover:text-[#004481] transition-colors font-semibold uppercase text-sm tracking-wide rounded-sm"
                                 >
                                     {item.label}
                                 </a>
@@ -121,7 +121,7 @@ const LandingPage: React.FC = () => {
 
             <main className="pt-20">
                 {/* Hero Section - BBVA style */}
-                <section id="inicio" className="relative section-spacing overflow-hidden bg-gradient-to-br from-white via-[#F4F8FB] to-white">
+                <section id="inicio" className="relative section-spacing overflow-hidden bg-gradient-to-br from-white via-[#D4EDFC] to-white">
                     {/* BBVA-style diagonal shapes */}
                     <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
                         <div className="absolute top-0 right-0 w-full h-64 bbva-gradient accenture-diagonal"></div>
@@ -229,7 +229,7 @@ const LandingPage: React.FC = () => {
                                         <motion.a
                                             key={index}
                                             href="#fundamentos"
-                                            className="flex flex-col items-center gap-3 p-6 bg-white border-2 border-[#D3DCE6] text-center hover:border-[#004481] hover:bg-[#F4F8FB] transition-all duration-300 cursor-pointer group min-w-[200px] rounded-sm"
+                                            className="flex flex-col items-center gap-3 p-6 bg-white border-2 border-[#D3DCE6] text-center hover:border-[#004481] hover:bg-[#D4EDFC] transition-all duration-300 cursor-pointer group min-w-[200px] rounded-sm"
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 0.8 + (index * 0.1) }}
@@ -248,7 +248,7 @@ const LandingPage: React.FC = () => {
                 </section>
 
                 {/* Transformation Section - BBVA style */}
-                <section id="fundamentos" className="section-spacing bg-[#F4F8FB] relative overflow-hidden">
+                <section id="fundamentos" className="section-spacing bg-[#D4EDFC] relative overflow-hidden">
                     {/* Diagonal accent */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[#004481] opacity-5 accenture-diagonal"></div>
 
@@ -361,7 +361,7 @@ const LandingPage: React.FC = () => {
                     transition={{ duration: 1 }}
                 >
                     {/* Subtle background gradient for section separation - BBVA style */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#F4F8FB]/30 to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#D4EDFC]/30 to-transparent pointer-events-none"></div>
                     <div className="absolute top-0 left-0 w-64 h-64 bg-[#004481] opacity-5 accenture-diagonal"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="text-center mb-16">
@@ -374,7 +374,7 @@ const LandingPage: React.FC = () => {
                         </div>
 
                         <div className="max-w-4xl mx-auto mb-16">
-                            <div className="card p-8 bg-gradient-to-br from-[#F4F8FB] to-white border-2 border-[#D3DCE6]">
+                            <div className="card p-8 bg-gradient-to-br from-[#D4EDFC] to-white border-2 border-[#D3DCE6]">
                                 <p className="text-lg mb-6 text-[#2C3E50]">
                                     Las <strong className="text-[#004481]">Instrucciones Personalizadas</strong> son directivas en lenguaje natural que proporcionan contexto persistente a GitHub Copilot. Puedes definirlas a nivel personal, de repositorio o de organización.
                                 </p>
@@ -421,7 +421,7 @@ const LandingPage: React.FC = () => {
                             </p>
 
                             <div className="grid md:grid-cols-2 gap-8">
-                                <div className="card p-6 bg-[#F4F8FB] border-2 border-[#D3DCE6]">
+                                <div className="card p-6 bg-[#D4EDFC] border-2 border-[#D3DCE6]">
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="w-10 h-10 rounded-lg bg-[#004481]/10 flex items-center justify-center">
                                             <FileText className="w-5 h-5 text-[#004481]" />
@@ -441,7 +441,7 @@ const LandingPage: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="card p-6 bg-[#F4F8FB] border-2 border-[#D3DCE6]">
+                                <div className="card p-6 bg-[#D4EDFC] border-2 border-[#D3DCE6]">
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="w-10 h-10 rounded-lg bg-[#004481]/10 flex items-center justify-center">
                                             <Code2 className="w-5 h-5 text-[#004481]" />
@@ -482,7 +482,7 @@ const LandingPage: React.FC = () => {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="flex items-start gap-4 p-4 rounded-lg bg-[#F4F8FB] border border-[#D3DCE6]"
+                                        className="flex items-start gap-4 p-4 rounded-lg bg-[#D4EDFC] border border-[#D3DCE6]"
                                     >
                                         <div className="w-10 h-10 rounded-lg bg-[#004481]/10 flex items-center justify-center flex-shrink-0 text-[#004481]">
                                             {practice.icon}
@@ -520,7 +520,7 @@ Evita excepciones genéricas como except Exception:`
                 {/* Custom Agents Section */}
                 <motion.section
                     id="agentes"
-                    className="py-20 bg-[#F4F8FB] border-y border-[#D3DCE6] relative overflow-hidden"
+                    className="py-20 bg-[#D4EDFC] border-y border-[#D3DCE6] relative overflow-hidden"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, margin: "-150px" }}
@@ -588,7 +588,7 @@ Evita excepciones genéricas como except Exception:`
                                 name="Experto en Documentación"
                                 description="Genera documentación clara y completa para tu código"
                                 icon={<Book className="w-6 h-6 text-white" />}
-                                color="from-[#1973B8] to-[#004481]"
+                                color="from-[#5C9FD4] to-[#004481]"
                             />
                         </div>
 
@@ -649,7 +649,7 @@ Evita excepciones genéricas como except Exception:`
                     viewport={{ once: true, margin: "-150px" }}
                     transition={{ duration: 1 }}
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#F4F8FB] to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D4EDFC] to-transparent pointer-events-none"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#2C3E50]">
@@ -661,7 +661,7 @@ Evita excepciones genéricas como except Exception:`
                         </div>
 
                         <div className="max-w-5xl mx-auto">
-                            <div className="p-8 bg-[#F4F8FB] border-2 border-[#D3DCE6] mb-12">
+                            <div className="p-8 bg-[#D4EDFC] border-2 border-[#D3DCE6] mb-12">
                                 <p className="text-lg text-center mb-8 text-[#2C3E50]">
                                     Cuando invocas un Agente Personalizado, GitHub Copilot combina inteligentemente su prompt específico con todas las Instrucciones Personalizadas relevantes (personales, de repositorio, específicas de ruta y de organización) para crear un contexto rico y preciso.
                                 </p>
@@ -701,7 +701,7 @@ Evita excepciones genéricas como except Exception:`
                 {/* Configuration Section */}
                 <motion.section
                     id="configuracion"
-                    className="py-20 bg-[#F4F8FB] border-y border-[#D3DCE6]"
+                    className="py-20 bg-[#D4EDFC] border-y border-[#D3DCE6]"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, margin: "-200px" }}
@@ -730,10 +730,10 @@ Evita excepciones genéricas como except Exception:`
                                     Aplica a todas tus interacciones con Copilot en cualquier proyecto
                                 </p>
                                 <div className="space-y-2 text-sm">
-                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                         <strong className="text-[#004481]">Web:</strong> github.com → Settings → Copilot → Personal Instructions
                                     </div>
-                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                         <strong className="text-[#004481]">VS Code:</strong> Settings → GitHub Copilot → Custom Instructions
                                     </div>
                                 </div>
@@ -749,13 +749,13 @@ Evita excepciones genéricas como except Exception:`
                                     Específico del proyecto, compartido con todos los colaboradores del repositorio
                                 </p>
                                 <div className="space-y-2 text-sm">
-                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                         <strong className="text-[#004481]">Archivo:</strong>
                                         <code className="block mt-1 px-2 py-1 bg-white rounded text-xs border border-[#D3DCE6]">
                                             .github/copilot-instructions.md
                                         </code>
                                     </div>
-                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                         <strong className="text-[#004481]">Específico por ruta:</strong>
                                         <code className="block mt-1 px-2 py-1 bg-white rounded text-xs border border-[#D3DCE6]">
                                             .github/instructions/NAME.instructions.md
@@ -774,10 +774,10 @@ Evita excepciones genéricas como except Exception:`
                                     Políticas y estándares globales para toda la organización
                                 </p>
                                 <div className="space-y-2 text-sm">
-                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                         <strong className="text-[#004481]">Admin:</strong> Organization Settings → Copilot → Policies
                                     </div>
-                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                         <strong className="text-[#004481]">Gestión:</strong> Centralizada para cumplimiento y gobernanza
                                     </div>
                                 </div>
@@ -799,13 +799,13 @@ Evita excepciones genéricas como except Exception:`
                                         <h4 className="font-semibold text-lg text-[#2C3E50]">Repositorio</h4>
                                     </div>
                                     <div className="space-y-3 text-sm">
-                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                             <strong className="text-[#004481]">Ubicación:</strong>
                                             <code className="block mt-1 px-2 py-1 bg-white rounded text-xs border border-[#D3DCE6]">
                                                 .github/agents/NOMBRE_AGENTE.md
                                             </code>
                                         </div>
-                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                             <strong className="text-[#004481]">Alcance:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 Disponible solo para el repositorio donde se define. Ideal para agentes muy específicos del proyecto.
@@ -821,13 +821,13 @@ Evita excepciones genéricas como except Exception:`
                                         <h4 className="font-semibold text-lg text-[#2C3E50]">Organización</h4>
                                     </div>
                                     <div className="space-y-3 text-sm">
-                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                             <strong className="text-[#004481]">Ubicación:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 En un repositorio especial llamado <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#D3DCE6]">.github</code>, dentro de un directorio <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#D3DCE6]">agents/</code>.
                                             </p>
                                         </div>
-                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                             <strong className="text-[#004481]">Alcance:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 Disponible para todos los repositorios dentro de esa organización. Perfecto para agentes que aplican estándares de equipo (ej. "Experto en C#").
@@ -843,13 +843,13 @@ Evita excepciones genéricas como except Exception:`
                                         <h4 className="font-semibold text-lg text-[#2C3E50]">Empresa ('Enterprise')</h4>
                                     </div>
                                     <div className="space-y-3 text-sm">
-                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                             <strong className="text-[#004481]">Ubicación:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 En un repositorio especial llamado <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#D3DCE6]">.github-private</code>, dentro de un directorio <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#D3DCE6]">agents/</code>.
                                             </p>
                                         </div>
-                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#2C3E50]">
+                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
                                             <strong className="text-[#004481]">Alcance:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 Compartido entre todas las organizaciones de la empresa, gestionado centralmente desde la sección "AI Controls" de la configuración de la empresa.
@@ -883,7 +883,7 @@ Evita excepciones genéricas como except Exception:`
                                     name="Planificador de Implementación"
                                     description="Desglosar features en tareas técnicas accionables"
                                     icon={<Target className="w-6 h-6 text-white" />}
-                                    color="from-[#1973B8] to-[#004481]"
+                                    color="from-[#5C9FD4] to-[#004481]"
                                 />
                                 <AgentCard
                                     name="Compañero de Bugs"
@@ -896,7 +896,7 @@ Evita excepciones genéricas como except Exception:`
 
                         {/* Call to Action */}
                         <div className="max-w-3xl mx-auto">
-                            <div className="p-8 bg-[#F4F8FB] border-2 border-[#D3DCE6] rounded-lg text-center">
+                            <div className="p-8 bg-[#D4EDFC] border-2 border-[#D3DCE6] rounded-lg text-center">
                                 <Rocket className="w-16 h-16 text-[#004481] mx-auto mb-6" />
                                 <h3 className="text-2xl font-bold mb-4 text-[#2C3E50]">Tu Primer Paso Hacia la Maestría</h3>
                                 <p className="text-lg mb-6 text-[#5A6872]">
@@ -907,7 +907,7 @@ Evita excepciones genéricas como except Exception:`
                                     <ul className="space-y-2 text-sm text-[#5A6872]">
                                         <li className="flex items-start gap-2">
                                             <CheckCircle2 className="w-4 h-4 text-[#004481] mt-0.5 flex-shrink-0" />
-                                            <span><strong className="text-[#2C3E50]">Hoy mismo:</strong> Ve a uno de tus repositorios y crea tu primer archivo <code className="px-1 py-0.5 bg-[#F4F8FB] border border-[#D3DCE6] rounded text-[#2C3E50]">.github/copilot-instructions.md</code></span>
+                                            <span><strong className="text-[#2C3E50]">Hoy mismo:</strong> Ve a uno de tus repositorios y crea tu primer archivo <code className="px-1 py-0.5 bg-[#D4EDFC] border border-[#D3DCE6] rounded text-[#2C3E50]">.github/copilot-instructions.md</code></span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle2 className="w-4 h-4 text-[#004481] mt-0.5 flex-shrink-0" />
@@ -929,11 +929,11 @@ Evita excepciones genéricas como except Exception:`
                 </motion.section>
 
                 {/* Footer - BBVA style */}
-                <footer className="py-16 border-t-2 border-[#D3DCE6] bg-[#F4F8FB]">
+                <footer className="py-16 border-t-2 border-[#D3DCE6] bg-[#D4EDFC]">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex flex-col items-center gap-6">
                             <div className="flex items-center gap-4">
-                                <img src={`${import.meta.env.BASE_URL}bbva-logo.jpg`} alt="BBVA" className="h-8 w-auto" />
+                                <img src={`${import.meta.env.BASE_URL}bbva-logo.png`} alt="BBVA" className="h-8 w-auto" />
                                 <div className="h-10 w-px bg-[#D3DCE6]"></div>
                                 <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="h-12 w-auto" style={{ filter: 'none' }} />
                             </div>
