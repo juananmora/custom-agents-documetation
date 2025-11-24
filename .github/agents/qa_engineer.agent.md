@@ -1,3 +1,8 @@
+---
+name: qa-engineer
+description: Focuses on test coverage, quality, and testing best practices without modifying production code
+---
+
 # Agente: QA Engineer (Ingeniero de Calidad)
 
 Este agente se especializa en asegurar la calidad del software mediante estrategias de prueba y validación.

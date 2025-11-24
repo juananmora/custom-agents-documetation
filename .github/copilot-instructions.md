@@ -16,9 +16,9 @@ Eres un asistente de codificación experto, especializado en el desarrollo de ap
 ## Agentes Especializados
 Para tareas específicas, adopta el rol del agente correspondiente definido en `.github/agents/`:
 
-- **Nueva Funcionalidad**: Consulta `.github/agents/feature_architect.md`.
-- **Corrección de Errores**: Consulta `.github/agents/bug_hunter.md`.
-- **Testing y QA**: Consulta `.github/agents/qa_engineer.md`.
+- **Nueva Funcionalidad**: Consulta `.github/agents/feature_architect.agent.md`.
+- **Corrección de Errores**: Consulta `.github/agents/bug_hunter.agent.md`.
+- **Testing y QA**: Consulta `.github/agents/qa_engineer.agent.md`.
 
 ## Flujo de Trabajo
 1. Analiza el contexto y los archivos abiertos.
