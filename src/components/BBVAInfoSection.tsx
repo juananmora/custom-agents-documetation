@@ -30,9 +30,9 @@ const BBVAInfoSection: React.FC<BBVAInfoSectionProps> = ({
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-4xl mx-auto">
-                    <div className="groupInfo_sph col-md-12 col-sm-12 col-12">
-                        <div className="noticia_InfoHeader_sph mb-6">
-                            <p className="notSeccion_sph mb-4">
+                    <div className="w-full">
+                        <div className="mb-6">
+                            <p className="mb-4">
                                 <a
                                     href={categoryLink}
                                     target="_blank"
@@ -43,7 +43,7 @@ const BBVAInfoSection: React.FC<BBVAInfoSectionProps> = ({
                                     <ExternalLink className="w-4 h-4" />
                                 </a>
                             </p>
-                            <h2 className="notTituloDest text-4xl md:text-5xl font-bold mb-8 text-[#2C3E50]">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#2C3E50]">
                                 <a
                                     href={titleLink}
                                     target="_blank"
@@ -54,8 +54,8 @@ const BBVAInfoSection: React.FC<BBVAInfoSectionProps> = ({
                                 </a>
                             </h2>
                         </div>
-                        <div className="noticia_InfoTexto">
-                            <p className="notTexto text-xl md:text-2xl text-[#5A6872] leading-relaxed font-light">
+                        <div>
+                            <p className="text-xl md:text-2xl text-[#5A6872] leading-relaxed font-light">
                                 {description}
                             </p>
                         </div>
