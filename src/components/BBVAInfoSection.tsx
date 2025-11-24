@@ -26,7 +26,7 @@ const BBVAInfoSection: React.FC<BBVAInfoSectionProps> = ({
             transition={{ duration: 1 }}
         >
             {/* Background decorative element */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#004481] rounded-full mix-blend-multiply filter blur-3xl opacity-5 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#1464A5] rounded-full mix-blend-multiply filter blur-3xl opacity-5 pointer-events-none"></div>
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-4xl mx-auto">
@@ -37,18 +37,18 @@ const BBVAInfoSection: React.FC<BBVAInfoSectionProps> = ({
                                     href={categoryLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#004481] hover:text-[#003366] transition-colors duration-300"
+                                    className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#1464A5] hover:text-[#003366] transition-colors duration-300"
                                 >
                                     {category}
                                     <ExternalLink className="w-4 h-4" />
                                 </a>
                             </p>
-                            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#2C3E50]">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#070e46]">
                                 <a
                                     href={titleLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hover:text-[#004481] transition-colors duration-300"
+                                    className="hover:text-[#1464A5] transition-colors duration-300"
                                 >
                                     {title}
                                 </a>

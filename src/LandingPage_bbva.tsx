@@ -37,9 +37,9 @@ const LandingPage: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white text-[#2C3E50] font-sans selection:bg-[#004481] selection:text-white scroll-smooth">
+        <div className="min-h-screen bg-white text-[#070e46] font-sans selection:bg-[#1464A5] selection:text-white scroll-smooth">
             {/* Scroll Progress Bar - BBVA style */}
-            <div className="fixed top-0 left-0 w-full h-1 bg-[#D4EDFC] z-[100]">
+            <div className="fixed top-0 left-0 w-full h-1 bg-[#F4F8FB] z-[100]">
                 <motion.div
                     className="h-full bbva-gradient"
                     style={{ width: `${scrollProgress}%` }}
@@ -54,20 +54,20 @@ const LandingPage: React.FC = () => {
                     <div className="flex items-center gap-4 flex-shrink-0">
                         <img src={`${import.meta.env.BASE_URL}bbva-logo.png`} alt="BBVA" className="h-10 w-auto" />
                         <div className="h-8 w-px bg-[#D3DCE6]"></div>
-                        <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="h-8 w-auto text-[#004481]" style={{ filter: 'none' }} />
-                        <span className="font-bold text-lg tracking-tight text-[#2C3E50] whitespace-nowrap">GitHub Copilot</span>
+                        <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="h-8 w-auto text-[#1464A5]" style={{ filter: 'none' }} />
+                        <span className="font-bold text-lg tracking-tight text-[#070e46] whitespace-nowrap">GitHub Copilot</span>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs font-semibold text-[#2C3E50] uppercase tracking-wide flex-shrink-0">
+                    <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs font-semibold text-[#070e46] uppercase tracking-wide flex-shrink-0">
                         {navItems.map((item) => (
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className="hover:text-[#004481] transition-colors relative group whitespace-nowrap"
+                                className="hover:text-[#1464A5] transition-colors relative group whitespace-nowrap"
                             >
                                 {item.label}
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#004481] group-hover:w-full transition-all duration-300"></span>
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1464A5] group-hover:w-full transition-all duration-300"></span>
                             </a>
                         ))}
                     </nav>
@@ -75,7 +75,7 @@ const LandingPage: React.FC = () => {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="lg:hidden p-2 text-[#2C3E50] hover:text-[#004481] flex-shrink-0"
+                        className="lg:hidden p-2 text-[#070e46] hover:text-[#1464A5] flex-shrink-0"
                     >
                         {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
@@ -100,7 +100,7 @@ const LandingPage: React.FC = () => {
                                     key={item.href}
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="px-3 py-3 hover:bg-[#D4EDFC] text-[#2C3E50] hover:text-[#004481] transition-colors font-semibold uppercase text-sm tracking-wide rounded-sm"
+                                    className="px-3 py-3 hover:bg-[#F4F8FB] text-[#070e46] hover:text-[#1464A5] transition-colors font-semibold uppercase text-sm tracking-wide rounded-sm"
                                 >
                                     {item.label}
                                 </a>
@@ -111,7 +111,7 @@ const LandingPage: React.FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="px-3 py-3 bg-[#004481] text-white hover:bg-[#003366] transition-colors font-semibold uppercase text-sm tracking-wide text-center rounded-sm"
+                                className="px-3 py-3 bg-[#1464A5] text-white hover:bg-[#003366] transition-colors font-semibold uppercase text-sm tracking-wide text-center rounded-sm"
                             >
                                 Documentation
                             </a>
@@ -122,16 +122,16 @@ const LandingPage: React.FC = () => {
 
             <main className="pt-20">
                 {/* Hero Section - BBVA style */}
-                <section id="inicio" className="relative section-spacing overflow-hidden bg-gradient-to-br from-white via-[#D4EDFC] to-white">
+                <section id="inicio" className="relative section-spacing overflow-hidden bg-gradient-to-br from-white via-[#F4F8FB] to-white">
                     {/* BBVA-style diagonal shapes */}
                     <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
                         <div className="absolute top-0 right-0 w-full h-64 bbva-gradient accenture-diagonal"></div>
                     </div>
-                    <div className="absolute bottom-0 left-0 w-1/3 h-48 bg-[#004481] opacity-5 accenture-diagonal"></div>
+                    <div className="absolute bottom-0 left-0 w-1/3 h-48 bg-[#1464A5] opacity-5 accenture-diagonal"></div>
 
                     {/* Subtle animated elements */}
                     <motion.div
-                        className="absolute top-1/3 right-1/4 w-2 h-2 bg-[#004481] rounded-full"
+                        className="absolute top-1/3 right-1/4 w-2 h-2 bg-[#1464A5] rounded-full"
                         animate={{
                             scale: [1, 1.5, 1],
                             opacity: [0.3, 0.6, 0.3],
@@ -143,7 +143,7 @@ const LandingPage: React.FC = () => {
                         }}
                     />
                     <motion.div
-                        className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-[#004481] rounded-full"
+                        className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-[#1464A5] rounded-full"
                         animate={{
                             scale: [1, 1.3, 1],
                             opacity: [0.2, 0.5, 0.2],
@@ -163,23 +163,23 @@ const LandingPage: React.FC = () => {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-center max-w-5xl mx-auto"
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-[#004481] text-xs font-bold text-[#004481] mb-8 uppercase tracking-wider rounded-sm">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-[#1464A5] text-xs font-bold text-[#1464A5] mb-8 uppercase tracking-wider rounded-sm">
                                 <motion.span
-                                    className="w-2 h-2 bg-[#004481]"
+                                    className="w-2 h-2 bg-[#1464A5]"
                                     animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
                                     transition={{ duration: 2, repeat: Infinity }}
                                 />
                                 Innovación en Desarrollo
                             </div>
                             <motion.h1
-                                className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-[#2C3E50]"
+                                className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-[#070e46]"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
                             >
                                 Domina GitHub Copilot con
                                 <br />
-                                <span className="text-[#004481]">Agentes Personalizados</span>
+                                <span className="text-[#1464A5]">Agentes Personalizados</span>
                                 <br />
                                 e Instrucciones a Medida
                             </motion.h1>
@@ -230,16 +230,16 @@ const LandingPage: React.FC = () => {
                                         <motion.a
                                             key={index}
                                             href="#fundamentos"
-                                            className="flex flex-col items-center gap-3 p-6 bg-white border-2 border-[#D3DCE6] text-center hover:border-[#004481] hover:bg-[#D4EDFC] transition-all duration-300 cursor-pointer group min-w-[200px] rounded-sm"
+                                            className="flex flex-col items-center gap-3 p-6 bg-white border-2 border-[#D3DCE6] text-center hover:border-[#1464A5] hover:bg-[#F4F8FB] transition-all duration-300 cursor-pointer group min-w-[200px] rounded-sm"
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 0.8 + (index * 0.1) }}
                                             whileHover={{ y: -4 }}
                                         >
-                                            <div className="text-[#004481] group-hover:scale-110 transition-transform duration-300">
+                                            <div className="text-[#1464A5] group-hover:scale-110 transition-transform duration-300">
                                                 {item.icon}
                                             </div>
-                                            <span className="text-xs font-bold uppercase tracking-wide text-[#2C3E50]">{item.text}</span>
+                                            <span className="text-xs font-bold uppercase tracking-wide text-[#070e46]">{item.text}</span>
                                         </motion.a>
                                     ))}
                                 </motion.div>
@@ -258,9 +258,9 @@ const LandingPage: React.FC = () => {
                 />
 
                 {/* Transformation Section - BBVA style */}
-                <section id="fundamentos" className="section-spacing bg-[#D4EDFC] relative overflow-hidden">
+                <section id="fundamentos" className="section-spacing bg-[#F4F8FB] relative overflow-hidden">
                     {/* Diagonal accent */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#004481] opacity-5 accenture-diagonal"></div>
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#1464A5] opacity-5 accenture-diagonal"></div>
 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-20">
@@ -270,10 +270,10 @@ const LandingPage: React.FC = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6 }}
                             >
-                                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#2C3E50]">
+                                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#070e46]">
                                     De Asistente Genérico a
                                     <br />
-                                    <span className="text-[#004481]">Compañero Experto</span>
+                                    <span className="text-[#1464A5]">Compañero Experto</span>
                                 </h2>
                                 <p className="text-[#5A6872] max-w-3xl mx-auto text-xl font-light">
                                     Descubre cómo la personalización convierte a Copilot en un verdadero multiplicador de productividad
@@ -320,8 +320,8 @@ const LandingPage: React.FC = () => {
                             whileHover={{ scale: 1.01 }}
                         >
                             <div className="relative group">
-                                <div className="absolute -inset-4 bg-[#004481] opacity-10 group-hover:opacity-20 blur-2xl transition duration-500"></div>
-                                <div className="relative border-4 border-[#004481] overflow-hidden">
+                                <div className="absolute -inset-4 bg-[#1464A5] opacity-10 group-hover:opacity-20 blur-2xl transition duration-500"></div>
+                                <div className="relative border-4 border-[#1464A5] overflow-hidden">
                                     <img
                                         src={`${import.meta.env.BASE_URL}copilot-transformation.png`}
                                         alt="Copilot transformation from generic assistant to expert teammate"
@@ -340,19 +340,19 @@ const LandingPage: React.FC = () => {
                             transition={{ duration: 0.6, staggerChildren: 0.2 }}
                         >
                             <FeatureCard
-                                icon={<Book className="w-6 h-6 text-[#004481]" />}
+                                icon={<Book className="w-6 h-6 text-[#1464A5]" />}
                                 title="Contexto de Librerías"
                                 description="Copilot entiende las librerías y frameworks específicos de tu proyecto para generar código compatible"
                                 color="purple"
                             />
                             <FeatureCard
-                                icon={<FileText className="w-6 h-6 text-[#004481]" />}
+                                icon={<FileText className="w-6 h-6 text-[#1464A5]" />}
                                 title="Estándares de Código"
                                 description="Aplica automáticamente las convenciones y mejores prácticas de tu equipo"
                                 color="purple"
                             />
                             <FeatureCard
-                                icon={<Zap className="w-6 h-6 text-[#004481]" />}
+                                icon={<Zap className="w-6 h-6 text-[#1464A5]" />}
                                 title="Automatización"
                                 description="Crea agentes especializados que ejecutan tareas complejas y repetitivas consistentemente"
                                 color="purple"
@@ -371,11 +371,11 @@ const LandingPage: React.FC = () => {
                     transition={{ duration: 1 }}
                 >
                     {/* Subtle background gradient for section separation - BBVA style */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#D4EDFC]/30 to-transparent pointer-events-none"></div>
-                    <div className="absolute top-0 left-0 w-64 h-64 bg-[#004481] opacity-5 accenture-diagonal"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#F4F8FB]/30 to-transparent pointer-events-none"></div>
+                    <div className="absolute top-0 left-0 w-64 h-64 bg-[#1464A5] opacity-5 accenture-diagonal"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#2C3E50]">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#070e46]">
                                 La Base: Instrucciones Personalizadas
                             </h2>
                             <p className="text-[#5A6872] max-w-3xl mx-auto text-lg font-light">
@@ -384,29 +384,29 @@ const LandingPage: React.FC = () => {
                         </div>
 
                         <div className="max-w-4xl mx-auto mb-16">
-                            <div className="card p-8 bg-gradient-to-br from-[#D4EDFC] to-white border-2 border-[#D3DCE6]">
-                                <p className="text-lg mb-6 text-[#2C3E50]">
-                                    Las <strong className="text-[#004481]">Instrucciones Personalizadas</strong> son directivas en lenguaje natural que proporcionan contexto persistente a GitHub Copilot. Puedes definirlas a nivel personal, de repositorio o de organización.
+                            <div className="card p-8 bg-gradient-to-br from-[#F4F8FB] to-white border-2 border-[#D3DCE6]">
+                                <p className="text-lg mb-6 text-[#070e46]">
+                                    Las <strong className="text-[#1464A5]">Instrucciones Personalizadas</strong> son directivas en lenguaje natural que proporcionan contexto persistente a GitHub Copilot. Puedes definirlas a nivel personal, de repositorio o de organización.
                                 </p>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#004481] mt-1 flex-shrink-0" />
+                                        <CheckCircle2 className="w-5 h-5 text-[#1464A5] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1 text-[#2C3E50]">Contexto Permanente</h4>
+                                            <h4 className="font-semibold mb-1 text-[#070e46]">Contexto Permanente</h4>
                                             <p className="text-sm text-[#5A6872]">Evita repetir el mismo contexto en cada interacción</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#004481] mt-1 flex-shrink-0" />
+                                        <CheckCircle2 className="w-5 h-5 text-[#1464A5] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1 text-[#2C3E50]">Conocimiento Profundo</h4>
+                                            <h4 className="font-semibold mb-1 text-[#070e46]">Conocimiento Profundo</h4>
                                             <p className="text-sm text-[#5A6872]">Copilot comprende las reglas y arquitectura de tu proyecto</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#004481] mt-1 flex-shrink-0" />
+                                        <CheckCircle2 className="w-5 h-5 text-[#1464A5] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1 text-[#2C3E50]">Mayor Precisión</h4>
+                                            <h4 className="font-semibold mb-1 text-[#070e46]">Mayor Precisión</h4>
                                             <p className="text-sm text-[#5A6872]">Respuestas más relevantes y alineadas con tu contexto</p>
                                         </div>
                                     </div>
@@ -416,28 +416,28 @@ const LandingPage: React.FC = () => {
 
                         {/* Hierarchy Section */}
                         <div className="mb-16">
-                            <h3 className="text-2xl font-bold text-center mb-8 text-[#2C3E50]">Jerarquía de Instrucciones</h3>
+                            <h3 className="text-2xl font-bold text-center mb-8 text-[#070e46]">Jerarquía de Instrucciones</h3>
                             <p className="text-center text-[#5A6872] mb-12 max-w-2xl mx-auto">
-                                Las instrucciones se aplican en diferentes ámbitos. Las más específicas tienen prioridad sobre las generales: <strong className="text-[#2C3E50]">Personal → Repositorio → Organización</strong>.
+                                Las instrucciones se aplican en diferentes ámbitos. Las más específicas tienen prioridad sobre las generales: <strong className="text-[#070e46]">Personal → Repositorio → Organización</strong>.
                             </p>
                             <PriorityVisualizer />
                         </div>
 
                         {/* Anatomy of Instructions */}
                         <div className="mb-16">
-                            <h3 className="text-2xl font-bold text-center mb-8 text-[#2C3E50]">Tipos de Instrucciones en el Repositorio</h3>
+                            <h3 className="text-2xl font-bold text-center mb-8 text-[#070e46]">Tipos de Instrucciones en el Repositorio</h3>
                             <p className="text-center text-[#5A6872] mb-12 max-w-3xl mx-auto">
                                 Dentro de un repositorio, puedes definir instrucciones con diferentes niveles de especificidad para optimizar el contexto que recibe Copilot
                             </p>
 
                             <div className="grid md:grid-cols-2 gap-8">
-                                <div className="card p-6 bg-[#D4EDFC] border-2 border-[#D3DCE6]">
+                                <div className="card p-6 bg-[#F4F8FB] border-2 border-[#D3DCE6]">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <div className="w-10 h-10 rounded-lg bg-[#004481]/10 flex items-center justify-center">
-                                            <FileText className="w-5 h-5 text-[#004481]" />
+                                        <div className="w-10 h-10 rounded-lg bg-[#1464A5]/10 flex items-center justify-center">
+                                            <FileText className="w-5 h-5 text-[#1464A5]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-[#2C3E50]">Instrucciones para todo el Repositorio</h4>
+                                            <h4 className="font-semibold text-[#070e46]">Instrucciones para todo el Repositorio</h4>
                                             <code className="text-xs text-[#5A6872]">.github/copilot-instructions.md</code>
                                         </div>
                                     </div>
@@ -445,19 +445,19 @@ const LandingPage: React.FC = () => {
                                         Define estándares y contexto que aplican a todo el repositorio
                                     </p>
                                     <div className="bg-white rounded p-3 text-xs font-mono border border-[#D3DCE6]">
-                                        <div className="text-[#004481] mb-1"># Ejemplo</div>
+                                        <div className="text-[#1464A5] mb-1"># Ejemplo</div>
                                         <div className="text-[#5A6872]">Este proyecto usa React 19 con TypeScript</div>
                                         <div className="text-[#5A6872]">Todos los tests deben usar Jest y React Testing Library</div>
                                     </div>
                                 </div>
 
-                                <div className="card p-6 bg-[#D4EDFC] border-2 border-[#D3DCE6]">
+                                <div className="card p-6 bg-[#F4F8FB] border-2 border-[#D3DCE6]">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <div className="w-10 h-10 rounded-lg bg-[#004481]/10 flex items-center justify-center">
-                                            <Code2 className="w-5 h-5 text-[#004481]" />
+                                        <div className="w-10 h-10 rounded-lg bg-[#1464A5]/10 flex items-center justify-center">
+                                            <Code2 className="w-5 h-5 text-[#1464A5]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-[#2C3E50]">Instrucciones Específicas de Ruta</h4>
+                                            <h4 className="font-semibold text-[#070e46]">Instrucciones Específicas de Ruta</h4>
                                             <code className="text-xs text-[#5A6872]">.github/instructions/NAME.instructions.md</code>
                                         </div>
                                     </div>
@@ -465,7 +465,7 @@ const LandingPage: React.FC = () => {
                                         Aplica reglas específicas a archivos que coinciden con patrones (glob patterns)
                                     </p>
                                     <div className="bg-white rounded p-3 text-xs font-mono border border-[#D3DCE6]">
-                                        <div className="text-[#004481] mb-1"># Ejemplo con frontmatter YAML</div>
+                                        <div className="text-[#1464A5] mb-1"># Ejemplo con frontmatter YAML</div>
                                         <div className="text-[#5A6872]">---</div>
                                         <div className="text-[#5A6872]">applyTo: src/components/**/*.tsx</div>
                                         <div className="text-[#5A6872]">---</div>
@@ -477,7 +477,7 @@ const LandingPage: React.FC = () => {
 
                         {/* Best Practices */}
                         <div id="practicas">
-                            <h3 className="text-2xl font-bold text-center mb-8 text-[#2C3E50]">Mejores Prácticas para Instrucciones</h3>
+                            <h3 className="text-2xl font-bold text-center mb-8 text-[#070e46]">Mejores Prácticas para Instrucciones</h3>
 
                             <div className="max-w-4xl mx-auto space-y-6 mb-12">
                                 {[
@@ -492,13 +492,13 @@ const LandingPage: React.FC = () => {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="flex items-start gap-4 p-4 rounded-lg bg-[#D4EDFC] border border-[#D3DCE6]"
+                                        className="flex items-start gap-4 p-4 rounded-lg bg-[#F4F8FB] border border-[#D3DCE6]"
                                     >
-                                        <div className="w-10 h-10 rounded-lg bg-[#004481]/10 flex items-center justify-center flex-shrink-0 text-[#004481]">
+                                        <div className="w-10 h-10 rounded-lg bg-[#1464A5]/10 flex items-center justify-center flex-shrink-0 text-[#1464A5]">
                                             {practice.icon}
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold mb-1 text-[#2C3E50]">{practice.title}</h4>
+                                            <h4 className="font-semibold mb-1 text-[#070e46]">{practice.title}</h4>
                                             <p className="text-sm text-[#5A6872]">{practice.desc}</p>
                                         </div>
                                     </motion.div>
@@ -530,18 +530,18 @@ Evita excepciones genéricas como except Exception:`
                 {/* Custom Agents Section */}
                 <motion.section
                     id="agentes"
-                    className="py-20 bg-[#D4EDFC] border-y border-[#D3DCE6] relative overflow-hidden"
+                    className="py-20 bg-[#F4F8FB] border-y border-[#D3DCE6] relative overflow-hidden"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, margin: "-150px" }}
                     transition={{ duration: 1 }}
                 >
                     {/* Decorative elements */}
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-[#004481] rounded-full mix-blend-multiply filter blur-3xl opacity-5 pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#004481] rounded-full mix-blend-multiply filter blur-3xl opacity-5 pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-[#1464A5] rounded-full mix-blend-multiply filter blur-3xl opacity-5 pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#1464A5] rounded-full mix-blend-multiply filter blur-3xl opacity-5 pointer-events-none"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#2C3E50]">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#070e46]">
                                 El Especialista: Agentes Personalizados
                             </h2>
                             <p className="text-[#5A6872] max-w-3xl mx-auto text-lg font-light">
@@ -551,28 +551,28 @@ Evita excepciones genéricas como except Exception:`
 
                         <div className="max-w-4xl mx-auto mb-16">
                             <div className="p-8 bg-white border-2 border-[#D3DCE6]">
-                                <p className="text-lg mb-6 text-[#2C3E50]">
-                                    Los <strong className="text-[#004481]">Agentes Personalizados</strong> son versiones especializadas del agente de codificación de Copilot. Se definen mediante archivos Markdown con frontmatter YAML que especifican su personalidad, herramientas disponibles e instrucciones específicas para tareas recurrentes.
+                                <p className="text-lg mb-6 text-[#070e46]">
+                                    Los <strong className="text-[#1464A5]">Agentes Personalizados</strong> son versiones especializadas del agente de codificación de Copilot. Se definen mediante archivos Markdown con frontmatter YAML que especifican su personalidad, herramientas disponibles e instrucciones específicas para tareas recurrentes.
                                 </p>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="flex items-start gap-3">
-                                        <Bot className="w-5 h-5 text-[#004481] mt-1 flex-shrink-0" />
+                                        <Bot className="w-5 h-5 text-[#1464A5] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1 text-[#2C3E50]">Especialistas Definidos</h4>
+                                            <h4 className="font-semibold mb-1 text-[#070e46]">Especialistas Definidos</h4>
                                             <p className="text-sm text-[#5A6872]">Cada agente tiene una personalidad, habilidades y un propósito específico</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <Zap className="w-5 h-5 text-[#004481] mt-1 flex-shrink-0" />
+                                        <Zap className="w-5 h-5 text-[#1464A5] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1 text-[#2C3E50]">Invocación Bajo Demanda</h4>
+                                            <h4 className="font-semibold mb-1 text-[#070e46]">Invocación Bajo Demanda</h4>
                                             <p className="text-sm text-[#5A6872]">Llama a agentes específicos cuando los necesites para tareas concretas</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <Layers className="w-5 h-5 text-[#004481] mt-1 flex-shrink-0" />
+                                        <Layers className="w-5 h-5 text-[#1464A5] mt-1 flex-shrink-0" />
                                         <div>
-                                            <h4 className="font-semibold mb-1 text-[#2C3E50]">Compartibles y Reutilizables</h4>
+                                            <h4 className="font-semibold mb-1 text-[#070e46]">Compartibles y Reutilizables</h4>
                                             <p className="text-sm text-[#5A6872]">Disponibles a nivel de repositorio, organización o empresa</p>
                                         </div>
                                     </div>
@@ -586,7 +586,7 @@ Evita excepciones genéricas como except Exception:`
                                 name="Arquitecto de Soluciones"
                                 description="Diseña estructura y arquitectura para nuevas funcionalidades"
                                 icon={<Building className="w-6 h-6 text-white" />}
-                                color="from-[#004481] to-[#003366]"
+                                color="from-[#1464A5] to-[#003366]"
                             />
                             <AgentCard
                                 name="Auditor de Seguridad"
@@ -598,20 +598,20 @@ Evita excepciones genéricas como except Exception:`
                                 name="Experto en Documentación"
                                 description="Genera documentación clara y completa para tu código"
                                 icon={<Book className="w-6 h-6 text-white" />}
-                                color="from-[#5C9FD4] to-[#004481]"
+                                color="from-[#5C9FD4] to-[#1464A5]"
                             />
                         </div>
 
                         {/* Agent Anatomy */}
                         <div>
-                            <h3 className="text-2xl font-bold text-center mb-8 text-[#2C3E50]">Anatomía de un Agente Personalizado</h3>
+                            <h3 className="text-2xl font-bold text-center mb-8 text-[#070e46]">Anatomía de un Agente Personalizado</h3>
                             <p className="text-center text-[#5A6872] mb-12 max-w-2xl mx-auto font-light">
                                 Los agentes se definen con archivos Markdown que incluyen frontmatter YAML con configuración y el prompt personalizado en el cuerpo del archivo.
                             </p>
 
-                            <div className="max-w-4xl mx-auto bg-[#1a1a1a] border-2 border-[#004481] shadow-2xl overflow-hidden">
-                                <div className="flex items-center justify-between px-6 py-4 bg-[#004481]/20 border-b-2 border-[#004481]">
-                                    <span className="text-sm font-bold text-[#004481] uppercase tracking-wide">.github/agents/nextjs-agent.md</span>
+                            <div className="max-w-4xl mx-auto bg-[#1a1a1a] border-2 border-[#1464A5] shadow-2xl overflow-hidden">
+                                <div className="flex items-center justify-between px-6 py-4 bg-[#1464A5]/20 border-b-2 border-[#1464A5]">
+                                    <span className="text-sm font-bold text-[#1464A5] uppercase tracking-wide">.github/agents/nextjs-agent.md</span>
                                     <div className="flex gap-1.5">
                                         <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
                                         <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
@@ -621,11 +621,11 @@ Evita excepciones genéricas como except Exception:`
                                 <div className="p-8 overflow-x-auto">
                                     <pre className="font-mono text-sm leading-relaxed text-gray-100">
                                         <code>
-                                            <span className="text-[#004481]">---</span>{'\n'}
+                                            <span className="text-[#1464A5]">---</span>{'\n'}
                                             <span className="text-[#3fb950]">name:</span> nextjs-expert{'\n'}
                                             <span className="text-[#3fb950]">description:</span> Next.js and React Server Components Expert{'\n'}
                                             <span className="text-[#3fb950]">tools:</span> ['read', 'search', 'edit', 'bash']{'\n'}
-                                            <span className="text-[#004481]">---</span>{'\n'}
+                                            <span className="text-[#1464A5]">---</span>{'\n'}
                                             {'\n'}
                                             <span className="text-[#79c0ff]"># Context</span>{'\n'}
                                             You are a senior Next.js 15 expert with deep knowledge of{'\n'}
@@ -659,10 +659,10 @@ Evita excepciones genéricas como except Exception:`
                     viewport={{ once: true, margin: "-150px" }}
                     transition={{ duration: 1 }}
                 >
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#D4EDFC] to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#F4F8FB] to-transparent pointer-events-none"></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#2C3E50]">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#070e46]">
                                 La Sinergia: Instrucciones y Agentes Trabajando Juntos
                             </h2>
                             <p className="text-[#5A6872] max-w-3xl mx-auto text-lg font-light">
@@ -671,8 +671,8 @@ Evita excepciones genéricas como except Exception:`
                         </div>
 
                         <div className="max-w-5xl mx-auto">
-                            <div className="p-8 bg-[#D4EDFC] border-2 border-[#D3DCE6] mb-12">
-                                <p className="text-lg text-center mb-8 text-[#2C3E50]">
+                            <div className="p-8 bg-[#F4F8FB] border-2 border-[#D3DCE6] mb-12">
+                                <p className="text-lg text-center mb-8 text-[#070e46]">
                                     Cuando invocas un Agente Personalizado, GitHub Copilot combina inteligentemente su prompt específico con todas las Instrucciones Personalizadas relevantes (personales, de repositorio, específicas de ruta y de organización) para crear un contexto rico y preciso.
                                 </p>
 
@@ -689,13 +689,13 @@ Evita excepciones genéricas como except Exception:`
                                 {/* Usage Example */}
                                 <div className="card p-6 bg-white border-2 border-[#D3DCE6] max-w-3xl mx-auto">
                                     <div className="flex items-start gap-4">
-                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#004481]/10 flex items-center justify-center">
-                                            <Bot className="w-6 h-6 text-[#004481]" />
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#1464A5]/10 flex items-center justify-center">
+                                            <Bot className="w-6 h-6 text-[#1464A5]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-lg mb-2 text-[#2C3E50]">Ejemplo de Uso</h4>
+                                            <h4 className="font-semibold text-lg mb-2 text-[#070e46]">Ejemplo de Uso</h4>
                                             <p className="text-[#5A6872] mb-4">
-                                                <strong className="text-[#2C3E50]">Entrada de Usuario:</strong> "Hey @nextjs-expert, refactoriza este componente para usar Server Components."
+                                                <strong className="text-[#070e46]">Entrada de Usuario:</strong> "Hey @nextjs-expert, refactoriza este componente para usar Server Components."
                                             </p>
                                             <p className="text-[#5A6872]">
                                                 Copilot combinará las instrucciones del agente nextjs-expert con tus instrucciones personales, de repositorio, específicas de ruta y de organización para generar una refactorización que cumpla con todos los estándares establecidos.
@@ -711,7 +711,7 @@ Evita excepciones genéricas como except Exception:`
                 {/* Configuration Section */}
                 <motion.section
                     id="configuracion"
-                    className="py-20 bg-[#D4EDFC] border-y border-[#D3DCE6]"
+                    className="py-20 bg-[#F4F8FB] border-y border-[#D3DCE6]"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, margin: "-200px" }}
@@ -719,10 +719,10 @@ Evita excepciones genéricas como except Exception:`
                 >
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#2C3E50]">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#070e46]">
                                 El Manual: Configuración e Implementación
                             </h2>
-                            <h3 className="text-2xl font-bold text-center mb-4 text-[#2C3E50]">Gestión y Alcance de Copilot Instructions</h3>
+                            <h3 className="text-2xl font-bold text-center mb-4 text-[#070e46]">Gestión y Alcance de Copilot Instructions</h3>
                             <p className="text-[#5A6872] max-w-3xl mx-auto text-lg font-light">
                                 Define el ADN de tu proyecto directamente en el código
                             </p>
@@ -731,42 +731,42 @@ Evita excepciones genéricas como except Exception:`
                         {/* Configuration Cards */}
                         <div className="grid md:grid-cols-3 gap-8 mb-16">
                             {/* Personal Level */}
-                            <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#004481] transition-colors duration-300">
+                            <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5] transition-colors duration-300">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <User className="w-6 h-6 text-[#004481]" />
-                                    <h3 className="font-semibold text-lg text-[#2C3E50]">Nivel Personal</h3>
+                                    <User className="w-6 h-6 text-[#1464A5]" />
+                                    <h3 className="font-semibold text-lg text-[#070e46]">Nivel Personal</h3>
                                 </div>
                                 <p className="text-[#5A6872] text-sm mb-4">
                                     Aplica a todas tus interacciones con Copilot en cualquier proyecto
                                 </p>
                                 <div className="space-y-2 text-sm">
-                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                        <strong className="text-[#004481]">Web:</strong> github.com → Settings → Copilot → Personal Instructions
+                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                        <strong className="text-[#1464A5]">Web:</strong> github.com → Settings → Copilot → Personal Instructions
                                     </div>
-                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                        <strong className="text-[#004481]">VS Code:</strong> Settings → GitHub Copilot → Custom Instructions
+                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                        <strong className="text-[#1464A5]">VS Code:</strong> Settings → GitHub Copilot → Custom Instructions
                                     </div>
                                 </div>
                             </div>
 
                             {/* Repository Level */}
-                            <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#004481] transition-colors duration-300">
+                            <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5] transition-colors duration-300">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <Book className="w-6 h-6 text-[#004481]" />
-                                    <h3 className="font-semibold text-lg text-[#2C3E50]">Nivel Repositorio</h3>
+                                    <Book className="w-6 h-6 text-[#1464A5]" />
+                                    <h3 className="font-semibold text-lg text-[#070e46]">Nivel Repositorio</h3>
                                 </div>
                                 <p className="text-[#5A6872] text-sm mb-4">
                                     Específico del proyecto, compartido con todos los colaboradores del repositorio
                                 </p>
                                 <div className="space-y-2 text-sm">
-                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                        <strong className="text-[#004481]">Archivo:</strong>
+                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                        <strong className="text-[#1464A5]">Archivo:</strong>
                                         <code className="block mt-1 px-2 py-1 bg-white rounded text-xs border border-[#D3DCE6]">
                                             .github/copilot-instructions.md
                                         </code>
                                     </div>
-                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                        <strong className="text-[#004481]">Específico por ruta:</strong>
+                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                        <strong className="text-[#1464A5]">Específico por ruta:</strong>
                                         <code className="block mt-1 px-2 py-1 bg-white rounded text-xs border border-[#D3DCE6]">
                                             .github/instructions/NAME.instructions.md
                                         </code>
@@ -775,20 +775,20 @@ Evita excepciones genéricas como except Exception:`
                             </div>
 
                             {/* Org/Enterprise Level */}
-                            <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#004481] transition-colors duration-300">
+                            <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5] transition-colors duration-300">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <Building className="w-6 h-6 text-[#004481]" />
-                                    <h3 className="font-semibold text-lg text-[#2C3E50]">Org/Empresa</h3>
+                                    <Building className="w-6 h-6 text-[#1464A5]" />
+                                    <h3 className="font-semibold text-lg text-[#070e46]">Org/Empresa</h3>
                                 </div>
                                 <p className="text-[#5A6872] text-sm mb-4">
                                     Políticas y estándares globales para toda la organización
                                 </p>
                                 <div className="space-y-2 text-sm">
-                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                        <strong className="text-[#004481]">Admin:</strong> Organization Settings → Copilot → Policies
+                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                        <strong className="text-[#1464A5]">Admin:</strong> Organization Settings → Copilot → Policies
                                     </div>
-                                    <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                        <strong className="text-[#004481]">Gestión:</strong> Centralizada para cumplimiento y gobernanza
+                                    <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                        <strong className="text-[#1464A5]">Gestión:</strong> Centralizada para cumplimiento y gobernanza
                                     </div>
                                 </div>
                             </div>
@@ -796,27 +796,27 @@ Evita excepciones genéricas como except Exception:`
 
                         {/* Agent Management Section */}
                         <div className="mb-16">
-                            <h3 className="text-2xl font-bold text-center mb-4 text-[#2C3E50]">Gestión y Alcance de los Agentes: De tu Repo a toda la Empresa</h3>
+                            <h3 className="text-2xl font-bold text-center mb-4 text-[#070e46]">Gestión y Alcance de los Agentes: De tu Repo a toda la Empresa</h3>
                             <p className="text-center text-[#5A6872] mb-12 max-w-3xl mx-auto">
                                 Los agentes pueden ser definidos y compartidos en múltiples niveles para adaptarse a las necesidades de tu equipo.
                             </p>
 
                             <div className="grid md:grid-cols-3 gap-8 mb-16">
                                 {/* Repository Level */}
-                                <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#004481] transition-colors duration-300">
+                                <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5] transition-colors duration-300">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <Book className="w-6 h-6 text-[#004481]" />
-                                        <h4 className="font-semibold text-lg text-[#2C3E50]">Repositorio</h4>
+                                        <Book className="w-6 h-6 text-[#1464A5]" />
+                                        <h4 className="font-semibold text-lg text-[#070e46]">Repositorio</h4>
                                     </div>
                                     <div className="space-y-3 text-sm">
-                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                            <strong className="text-[#004481]">Ubicación:</strong>
+                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                            <strong className="text-[#1464A5]">Ubicación:</strong>
                                             <code className="block mt-1 px-2 py-1 bg-white rounded text-xs border border-[#D3DCE6]">
                                                 .github/agents/NOMBRE_AGENTE.md
                                             </code>
                                         </div>
-                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                            <strong className="text-[#004481]">Alcance:</strong>
+                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                            <strong className="text-[#1464A5]">Alcance:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 Disponible solo para el repositorio donde se define. Ideal para agentes muy específicos del proyecto.
                                             </p>
@@ -825,20 +825,20 @@ Evita excepciones genéricas como except Exception:`
                                 </div>
 
                                 {/* Organization Level */}
-                                <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#004481] transition-colors duration-300">
+                                <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5] transition-colors duration-300">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <Building className="w-6 h-6 text-[#004481]" />
-                                        <h4 className="font-semibold text-lg text-[#2C3E50]">Organización</h4>
+                                        <Building className="w-6 h-6 text-[#1464A5]" />
+                                        <h4 className="font-semibold text-lg text-[#070e46]">Organización</h4>
                                     </div>
                                     <div className="space-y-3 text-sm">
-                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                            <strong className="text-[#004481]">Ubicación:</strong>
+                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                            <strong className="text-[#1464A5]">Ubicación:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 En un repositorio especial llamado <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#D3DCE6]">.github</code>, dentro de un directorio <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#D3DCE6]">agents/</code>.
                                             </p>
                                         </div>
-                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                            <strong className="text-[#004481]">Alcance:</strong>
+                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                            <strong className="text-[#1464A5]">Alcance:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 Disponible para todos los repositorios dentro de esa organización. Perfecto para agentes que aplican estándares de equipo (ej. "Experto en C#").
                                             </p>
@@ -847,20 +847,20 @@ Evita excepciones genéricas como except Exception:`
                                 </div>
 
                                 {/* Enterprise Level */}
-                                <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#004481] transition-colors duration-300">
+                                <div className="p-6 bg-white border-2 border-[#D3DCE6] hover:border-[#1464A5] transition-colors duration-300">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <Shield className="w-6 h-6 text-[#004481]" />
-                                        <h4 className="font-semibold text-lg text-[#2C3E50]">Empresa ('Enterprise')</h4>
+                                        <Shield className="w-6 h-6 text-[#1464A5]" />
+                                        <h4 className="font-semibold text-lg text-[#070e46]">Empresa ('Enterprise')</h4>
                                     </div>
                                     <div className="space-y-3 text-sm">
-                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                            <strong className="text-[#004481]">Ubicación:</strong>
+                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                            <strong className="text-[#1464A5]">Ubicación:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 En un repositorio especial llamado <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#D3DCE6]">.github-private</code>, dentro de un directorio <code className="px-1 py-0.5 bg-white rounded text-xs border border-[#D3DCE6]">agents/</code>.
                                             </p>
                                         </div>
-                                        <div className="p-3 bg-[#D4EDFC] rounded border border-[#D3DCE6] text-[#2C3E50]">
-                                            <strong className="text-[#004481]">Alcance:</strong>
+                                        <div className="p-3 bg-[#F4F8FB] rounded border border-[#D3DCE6] text-[#070e46]">
+                                            <strong className="text-[#1464A5]">Alcance:</strong>
                                             <p className="mt-1 text-[#5A6872]">
                                                 Compartido entre todas las organizaciones de la empresa, gestionado centralmente desde la sección "AI Controls" de la configuración de la empresa.
                                             </p>
@@ -871,7 +871,7 @@ Evita excepciones genéricas como except Exception:`
                         </div>
 
                         <div className="mb-16">
-                            <h3 className="text-2xl font-bold text-center mb-8 text-[#2C3E50]">Ideas para tus Agentes</h3>
+                            <h3 className="text-2xl font-bold text-center mb-8 text-[#070e46]">Ideas para tus Agentes</h3>
                             <p className="text-center text-[#5A6872] mb-12 max-w-2xl mx-auto">
                                 Piensa en las tareas repetitivas o especializadas de tu equipo. ¿Puedes crear un agente para ellas?
                             </p>
@@ -881,7 +881,7 @@ Evita excepciones genéricas como except Exception:`
                                     name="Especialista en Limpieza"
                                     description="Refactorizar código, eliminar duplicación y mejorar legibilidad"
                                     icon={<Code2 className="w-6 h-6 text-white" />}
-                                    color="from-[#004481] to-[#003366]"
+                                    color="from-[#1464A5] to-[#003366]"
                                 />
                                 <AgentCard
                                     name="Auditor de Accesibilidad"
@@ -893,35 +893,35 @@ Evita excepciones genéricas como except Exception:`
                                     name="Planificador de Implementación"
                                     description="Desglosar features en tareas técnicas accionables"
                                     icon={<Target className="w-6 h-6 text-white" />}
-                                    color="from-[#5C9FD4] to-[#004481]"
+                                    color="from-[#5C9FD4] to-[#1464A5]"
                                 />
                                 <AgentCard
                                     name="Compañero de Bugs"
                                     description="Analizar reportes e implementar soluciones específicas"
                                     icon={<Zap className="w-6 h-6 text-white" />}
-                                    color="from-[#004481] to-[#8957e5]"
+                                    color="from-[#1464A5] to-[#8957e5]"
                                 />
                             </div>
                         </div>
 
                         {/* Call to Action */}
                         <div className="max-w-3xl mx-auto">
-                            <div className="p-8 bg-[#D4EDFC] border-2 border-[#D3DCE6] rounded-lg text-center">
-                                <Rocket className="w-16 h-16 text-[#004481] mx-auto mb-6" />
-                                <h3 className="text-2xl font-bold mb-4 text-[#2C3E50]">Tu Primer Paso Hacia la Maestría</h3>
+                            <div className="p-8 bg-[#F4F8FB] border-2 border-[#D3DCE6] rounded-lg text-center">
+                                <Rocket className="w-16 h-16 text-[#1464A5] mx-auto mb-6" />
+                                <h3 className="text-2xl font-bold mb-4 text-[#070e46]">Tu Primer Paso Hacia la Maestría</h3>
                                 <p className="text-lg mb-6 text-[#5A6872]">
                                     No esperes a tener el sistema perfecto. La mejor manera de empezar es con un pequeño experimento.
                                 </p>
                                 <div className="bg-white border border-[#D3DCE6] rounded-lg p-6 mb-6 text-left">
-                                    <h4 className="font-semibold mb-3 text-[#2C3E50]">Recomendación:</h4>
+                                    <h4 className="font-semibold mb-3 text-[#070e46]">Recomendación:</h4>
                                     <ul className="space-y-2 text-sm text-[#5A6872]">
                                         <li className="flex items-start gap-2">
-                                            <CheckCircle2 className="w-4 h-4 text-[#004481] mt-0.5 flex-shrink-0" />
-                                            <span><strong className="text-[#2C3E50]">Hoy mismo:</strong> Ve a uno de tus repositorios y crea tu primer archivo <code className="px-1 py-0.5 bg-[#D4EDFC] border border-[#D3DCE6] rounded text-[#2C3E50]">.github/copilot-instructions.md</code></span>
+                                            <CheckCircle2 className="w-4 h-4 text-[#1464A5] mt-0.5 flex-shrink-0" />
+                                            <span><strong className="text-[#070e46]">Hoy mismo:</strong> Ve a uno de tus repositorios y crea tu primer archivo <code className="px-1 py-0.5 bg-[#F4F8FB] border border-[#D3DCE6] rounded text-[#070e46]">.github/copilot-instructions.md</code></span>
                                         </li>
                                         <li className="flex items-start gap-2">
-                                            <CheckCircle2 className="w-4 h-4 text-[#004481] mt-0.5 flex-shrink-0" />
-                                            <span><strong className="text-[#2C3E50]">Añade 2-3 reglas clave:</strong> ¿Qué es lo más importante que Copilot debería saber sobre tu proyecto?</span>
+                                            <CheckCircle2 className="w-4 h-4 text-[#1464A5] mt-0.5 flex-shrink-0" />
+                                            <span><strong className="text-[#070e46]">Añade 2-3 reglas clave:</strong> ¿Qué es lo más importante que Copilot debería saber sobre tu proyecto?</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -939,7 +939,7 @@ Evita excepciones genéricas como except Exception:`
                 </motion.section>
 
                 {/* Footer - BBVA style */}
-                <footer className="py-16 border-t-2 border-[#D3DCE6] bg-[#D4EDFC]">
+                <footer className="py-16 border-t-2 border-[#D3DCE6] bg-[#F4F8FB]">
                     <div className="max-w-7xl mx-auto px-4">
                         <div className="flex flex-col items-center gap-6">
                             <div className="flex items-center gap-4">
@@ -947,22 +947,22 @@ Evita excepciones genéricas como except Exception:`
                                 <div className="h-10 w-px bg-[#D3DCE6]"></div>
                                 <img src={`${import.meta.env.BASE_URL}copilot-icon.png`} alt="GitHub Copilot" className="h-12 w-auto" style={{ filter: 'none' }} />
                             </div>
-                            <p className="text-[#2C3E50] text-base font-bold uppercase tracking-wider">
+                            <p className="text-[#070e46] text-base font-bold uppercase tracking-wider">
                                 Guía Completa de GitHub Copilot
                             </p>
                             <p className="text-[#5A6872] text-sm font-light max-w-2xl text-center">
                                 Agentes Personalizados e Instrucciones
                             </p>
                             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-                                <a href="https://docs.github.com/en/copilot" className="text-[#2C3E50] hover:text-[#004481] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
+                                <a href="https://docs.github.com/en/copilot" className="text-[#070e46] hover:text-[#1464A5] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
                                     Documentación Oficial
                                 </a>
                                 <span className="text-[#D3DCE6]">•</span>
-                                <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents" className="text-[#2C3E50] hover:text-[#004481] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
+                                <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents" className="text-[#070e46] hover:text-[#1464A5] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
                                     Agentes Personalizados
                                 </a>
                                 <span className="text-[#D3DCE6]">•</span>
-                                <a href="https://docs.github.com/en/copilot/customizing-copilot" className="text-[#2C3E50] hover:text-[#004481] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
+                                <a href="https://docs.github.com/en/copilot/customizing-copilot" className="text-[#070e46] hover:text-[#1464A5] font-semibold uppercase tracking-wide transition-colors" target="_blank" rel="noopener noreferrer">
                                     Personalización
                                 </a>
                             </div>
