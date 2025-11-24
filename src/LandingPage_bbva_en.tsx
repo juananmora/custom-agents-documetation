@@ -7,6 +7,7 @@ import {
 
 import { ComparisonCard, FeatureCard, AgentCard, CodeComparison } from './components/ContentComponents_bbva';
 import PriorityVisualizerEn from './components/PriorityVisualizer_bbva_en';
+import BBVAInfoSection from './components/BBVAInfoSection';
 
 const LandingPageEn: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -246,6 +247,15 @@ const LandingPageEn: React.FC = () => {
                         </motion.div>
                     </div>
                 </section>
+
+                {/* BBVA Strategic Partner Section */}
+                <BBVAInfoSection
+                    category="Strategy and Management"
+                    categoryLink="https://www.bbva.com/es/empresas/estrategia-y-gestion/"
+                    title="BBVA, the strategic partner for businesses"
+                    titleLink="https://www.bbva.com/es/empresas/bbva-el-socio-estrategico-de-las-empresas/"
+                    description="The institution accompanies all companies at every stage of their development, offering them accessible solutions adapted to their reality and needs, a global vision (presence in 25 countries), and expert advisory."
+                />
 
                 {/* Transformation Section - BBVA style */}
                 <section id="fundamentos" className="section-spacing bg-[#F4F8FB] relative overflow-hidden">

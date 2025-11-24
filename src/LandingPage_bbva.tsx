@@ -7,6 +7,7 @@ import {
 
 import { ComparisonCard, FeatureCard, AgentCard, CodeComparison } from './components/ContentComponents_bbva';
 import PriorityVisualizer from './components/PriorityVisualizer_bbva';
+import BBVAInfoSection from './components/BBVAInfoSection';
 
 const LandingPage: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -246,6 +247,15 @@ const LandingPage: React.FC = () => {
                         </motion.div>
                     </div>
                 </section>
+
+                {/* BBVA Strategic Partner Section */}
+                <BBVAInfoSection
+                    category="Estrategia y gestión"
+                    categoryLink="https://www.bbva.com/es/empresas/estrategia-y-gestion/"
+                    title="BBVA, el socio estratégico de las empresas"
+                    titleLink="https://www.bbva.com/es/empresas/bbva-el-socio-estrategico-de-las-empresas/"
+                    description="La entidad acompaña a todas las empresas en cada etapa de su desarrollo, ofreciéndoles soluciones accesibles y adaptadas a su realidad y a sus necesidades, una visión global (presencia en 25 países) y asesoramiento experto."
+                />
 
                 {/* Transformation Section - BBVA style */}
                 <section id="fundamentos" className="section-spacing bg-[#D4EDFC] relative overflow-hidden">
