@@ -11,6 +11,15 @@
     --accenture-white: #FFFFFF;
     --accenture-gray: #F3F2F1;
     --accenture-text: #323232;
+
+    /* BBVA Theme Variables */
+    --bbva-blue: #004481;
+    --bbva-blue-dark: #003366;
+    --bbva-blue-light: #1973B8;
+    --bbva-aqua: #00A1E0;
+    --bbva-white: #FFFFFF;
+    --bbva-gray: #F4F8FB;
+    --bbva-text: #2C3E50;
   }
 
   body {
@@ -75,6 +84,33 @@
 
   .accenture-diagonal {
     clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+
+  /* BBVA Theme Utilities */
+  .bbva-gradient {
+    background: linear-gradient(135deg, #004481 0%, #1973B8 100%);
+  }
+
+  .bbva-gradient-alt {
+    background: linear-gradient(135deg, #1973B8 0%, #00A1E0 100%);
+  }
+
+  .btn-primary-bbva {
+    @apply bg-[#004481] text-white px-6 py-3 rounded-sm font-semibold hover:bg-[#003366] transition-all duration-300 border-none uppercase tracking-wide text-sm;
+    box-shadow: 0 2px 8px rgba(0, 68, 129, 0.3);
+  }
+  
+  .btn-primary-bbva:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 68, 129, 0.4);
+  }
+  
+  .btn-secondary-bbva {
+    @apply bg-white text-[#2C3E50] px-6 py-3 rounded-sm font-semibold hover:bg-[#F4F8FB] transition-all duration-300 border-2 border-[#004481] uppercase tracking-wide text-sm;
+  }
+
+  .btn-secondary-bbva:hover {
+    transform: translateY(-2px);
   }
 
   .section-spacing {
