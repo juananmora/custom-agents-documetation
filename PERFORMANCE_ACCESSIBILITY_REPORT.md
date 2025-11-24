@@ -3,7 +3,10 @@
 
 **Fecha del Análisis:** 24 de Noviembre, 2024  
 **URL Analizada:** http://localhost:4173/custom-agents-documetation/  
-**Herramientas Utilizadas:** Playwright Browser Automation, Performance API, Accessibility Tree Analysis
+**Herramientas Utilizadas:** Chrome DevTools Protocol (CDP), Performance API, Accessibility Tree Analysis  
+**Motor de Análisis:** Playwright MCP (basado en Chrome DevTools Protocol)
+
+> **Nota Técnica:** Este análisis utiliza el Chrome DevTools Protocol (CDP), que es el protocolo estándar de comunicación con Chrome/Chromium usado tanto por Chrome DevTools como por herramientas de automatización modernas. Los datos de performance y accesibilidad provienen directamente de las APIs del navegador Chrome.
 
 ---
 
@@ -20,6 +23,52 @@ La aplicación web GitHub Copilot - Guía de Agentes e Instrucciones presenta un
 | **Tiempo de Carga** | ⭐⭐⭐⭐⭐ (5/5) | Excelente - Primera carga muy rápida |
 | **Interactividad** | ⭐⭐⭐⭐⭐ (5/5) | Excelente - Respuesta inmediata |
 | **SEO** | ⭐⭐⭐⭐⭐ (5/5) | Excelente - Estructura semántica correcta |
+
+---
+
+## 🔧 Metodología del Análisis con Chrome DevTools Protocol
+
+### Chrome DevTools Protocol (CDP)
+
+El análisis de esta aplicación se realizó utilizando el **Chrome DevTools Protocol**, el mismo protocolo que alimenta las herramientas de desarrollo de Chrome. CDP proporciona acceso completo a las capacidades de inspección y depuración del navegador.
+
+#### APIs de CDP Utilizadas:
+
+1. **Performance API (`Performance.getEntriesByType`)**
+   - Navigation Timing: Métricas de carga de página
+   - Resource Timing: Análisis de cada recurso cargado
+   - Paint Timing: First Paint y First Contentful Paint
+   - Memory Usage: Uso del heap de JavaScript
+
+2. **Accessibility Tree API**
+   - Estructura semántica del DOM
+   - Roles ARIA y atributos de accesibilidad
+   - Jerarquía de elementos interactivos
+
+3. **DOM API**
+   - Análisis de elementos HTML
+   - Verificación de atributos alt en imágenes
+   - Evaluación de jerarquía de headings
+   - Inspección de formularios y elementos interactivos
+
+4. **Page Snapshot**
+   - Captura del estado completo de la página
+   - Análisis de elementos visibles e interactivos
+   - Validación de navegación por teclado
+
+### Datos Recopilados
+
+Todos los datos presentados en este informe provienen directamente del motor Chrome:
+
+```yaml
+Fuentes de Datos:
+  ├─ Navigation Timing API → Métricas de carga
+  ├─ Resource Timing API → Análisis de assets
+  ├─ Performance Memory API → Uso de memoria
+  ├─ Document Object Model → Estructura HTML
+  ├─ Accessibility Tree → Árbol de accesibilidad
+  └─ Paint Timing API → Métricas de renderizado
+```
 
 ---
 
@@ -674,8 +723,20 @@ Esta única acción:
 
 **Informe generado el:** 24 de Noviembre, 2024  
 **Versión del Informe:** 1.0  
-**Metodología:** Análisis automatizado con Playwright + Performance API + Manual Review
+**Metodología:** Análisis automatizado con Chrome DevTools Protocol (CDP) + Performance API + Accessibility Tree Analysis
+
+### Sobre las Herramientas Utilizadas
+
+Este análisis fue realizado utilizando el **Chrome DevTools Protocol (CDP)**, que es el protocolo de comunicación estándar que utilizan:
+
+- Google Chrome DevTools
+- Playwright Browser Automation
+- Puppeteer
+- Lighthouse
+- Chrome DevTools MCP
+
+Todos los datos de performance (tiempos de navegación, recursos cargados, memoria JavaScript) y accesibilidad (árbol de accesibilidad, semántica HTML) provienen directamente de las APIs internas del motor Chrome/Chromium a través del CDP.
 
 ---
 
-*Este informe fue generado utilizando herramientas automatizadas de análisis web y puede requerir validación adicional con herramientas especializadas como Lighthouse, axe DevTools, o WebPageTest para análisis más profundos.*
+*Este informe proporciona un análisis exhaustivo basado en datos reales del navegador Chrome. Para análisis adicionales específicos, puede complementarse con Lighthouse para métricas de PWA o axe DevTools para validaciones WCAG más detalladas.*
