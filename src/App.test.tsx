@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
+import { ThemeProvider } from './ThemeContext';
 
 // Mock the child components
 vi.mock('./LandingPage', () => ({
@@ -10,6 +11,19 @@ vi.mock('./LandingPage', () => ({
 vi.mock('./LandingPage_en', () => ({
   default: () => <div data-testid="landing-page-en">Landing Page EN</div>
 }));
+
+vi.mock('./LandingPage_bbva', () => ({
+  default: () => <div data-testid="landing-page-bbva-es">Landing Page BBVA ES</div>
+}));
+
+vi.mock('./LandingPage_bbva_en', () => ({
+  default: () => <div data-testid="landing-page-bbva-en">Landing Page BBVA EN</div>
+}));
+
+// Helper to render with ThemeProvider
+const renderWithTheme = (component: React.ReactElement) => {
+  return render(<ThemeProvider>{component}</ThemeProvider>);
+};
 
 describe('App Component', () => {
   beforeEach(() => {
@@ -31,35 +45,45 @@ describe('App Component', () => {
 
   describe('Language Detection', () => {
     it('should render with Spanish by default when no saved language exists', () => {
-      vi.spyOn(Storage.prototype, 'getItem').mockReturnValue(null);
+      vi.spyOn(Storage.prototype, 'getItem').mockImplementation((key) => {
+        if (key === 'theme') return 'accenture';
+        return null;
+      });
       Object.defineProperty(navigator, 'language', {
         value: 'es-ES',
         configurable: true
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       expect(screen.getByTestId('landing-page-es')).toBeInTheDocument();
       expect(screen.queryByTestId('landing-page-en')).not.toBeInTheDocument();
     });
 
     it('should render with English when browser language is English', () => {
-      vi.spyOn(Storage.prototype, 'getItem').mockReturnValue(null);
+      vi.spyOn(Storage.prototype, 'getItem').mockImplementation((key) => {
+        if (key === 'theme') return 'accenture';
+        return null;
+      });
       Object.defineProperty(navigator, 'language', {
         value: 'en-US',
         configurable: true
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       expect(screen.getByTestId('landing-page-en')).toBeInTheDocument();
       expect(screen.queryByTestId('landing-page-es')).not.toBeInTheDocument();
     });
 
     it('should use saved language preference from localStorage', () => {
-      vi.spyOn(Storage.prototype, 'getItem').mockReturnValue('en');
+      vi.spyOn(Storage.prototype, 'getItem').mockImplementation((key) => {
+        if (key === 'theme') return 'accenture';
+        if (key === 'language') return 'en';
+        return null;
+      });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       expect(screen.getByTestId('landing-page-en')).toBeInTheDocument();
       expect(screen.queryByTestId('landing-page-es')).not.toBeInTheDocument();
@@ -68,14 +92,17 @@ describe('App Component', () => {
 
   describe('Language Toggle', () => {
     it('should toggle from Spanish to English when button is clicked', () => {
-      vi.spyOn(Storage.prototype, 'getItem').mockReturnValue(null);
+      vi.spyOn(Storage.prototype, 'getItem').mockImplementation((key) => {
+        if (key === 'theme') return 'accenture';
+        return null;
+      });
       vi.spyOn(Storage.prototype, 'setItem');
       Object.defineProperty(navigator, 'language', {
         value: 'es-ES',
         configurable: true
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       // Initially Spanish
       expect(screen.getByTestId('landing-page-es')).toBeInTheDocument();
@@ -93,13 +120,17 @@ describe('App Component', () => {
     it('should toggle from English to Spanish when button is clicked', () => {
       Object.defineProperty(window, 'localStorage', {
         value: {
-          getItem: vi.fn().mockReturnValue('en'),
+          getItem: vi.fn().mockImplementation((key: string) => {
+            if (key === 'theme') return 'accenture';
+            if (key === 'language') return 'en';
+            return null;
+          }),
           setItem: vi.fn(),
         },
         writable: true,
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       // Initially English
       expect(screen.getByTestId('landing-page-en')).toBeInTheDocument();
@@ -119,7 +150,10 @@ describe('App Component', () => {
     it('should display "EN" text when current language is Spanish', () => {
       Object.defineProperty(window, 'localStorage', {
         value: {
-          getItem: vi.fn().mockReturnValue(null),
+          getItem: vi.fn().mockImplementation((key: string) => {
+            if (key === 'theme') return 'accenture';
+            return null;
+          }),
           setItem: vi.fn(),
         },
         writable: true,
@@ -129,7 +163,7 @@ describe('App Component', () => {
         configurable: true
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       const toggleButton = screen.getByTitle('Switch to English');
       expect(toggleButton).toHaveTextContent('EN');
@@ -138,23 +172,33 @@ describe('App Component', () => {
     it('should display "ES" text when current language is English', () => {
       Object.defineProperty(window, 'localStorage', {
         value: {
-          getItem: vi.fn().mockReturnValue('en'),
+          getItem: vi.fn().mockImplementation((key: string) => {
+            if (key === 'theme') return 'accenture';
+            if (key === 'language') return 'en';
+            return null;
+          }),
           setItem: vi.fn(),
         },
         writable: true,
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       const toggleButton = screen.getByTitle('Cambiar a Español');
       expect(toggleButton).toHaveTextContent('ES');
     });
 
     it('should have proper styling classes', () => {
-      render(<App />);
+      vi.spyOn(Storage.prototype, 'getItem').mockImplementation((key) => {
+        if (key === 'theme') return 'accenture';
+        return null;
+      });
+      
+      renderWithTheme(<App />);
 
-      const toggleButton = screen.getByRole('button');
-      expect(toggleButton).toHaveClass('fixed', 'bottom-8', 'right-8', 'z-50');
+      // Get the language toggle button specifically by title
+      const toggleButton = screen.getByTitle('Switch to English');
+      expect(toggleButton).toHaveClass('rounded-full', 'p-4', 'shadow-2xl');
     });
   });
 
@@ -162,7 +206,10 @@ describe('App Component', () => {
     it('should update document title when language is Spanish', () => {
       Object.defineProperty(window, 'localStorage', {
         value: {
-          getItem: vi.fn().mockReturnValue(null),
+          getItem: vi.fn().mockImplementation((key: string) => {
+            if (key === 'theme') return 'accenture';
+            return null;
+          }),
           setItem: vi.fn(),
         },
         writable: true,
@@ -172,7 +219,7 @@ describe('App Component', () => {
         configurable: true
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       expect(document.title).toBe('GitHub Copilot - Guía de Agentes e Instrucciones');
     });
@@ -180,7 +227,10 @@ describe('App Component', () => {
     it('should update document title when language is English', () => {
       Object.defineProperty(window, 'localStorage', {
         value: {
-          getItem: vi.fn().mockReturnValue(null),
+          getItem: vi.fn().mockImplementation((key: string) => {
+            if (key === 'theme') return 'accenture';
+            return null;
+          }),
           setItem: vi.fn(),
         },
         writable: true,
@@ -190,7 +240,7 @@ describe('App Component', () => {
         configurable: true
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       expect(document.title).toBe('GitHub Copilot - Guide to Agents and Instructions');
     });
@@ -198,7 +248,10 @@ describe('App Component', () => {
     it('should update html lang attribute when language is Spanish', () => {
       Object.defineProperty(window, 'localStorage', {
         value: {
-          getItem: vi.fn().mockReturnValue(null),
+          getItem: vi.fn().mockImplementation((key: string) => {
+            if (key === 'theme') return 'accenture';
+            return null;
+          }),
           setItem: vi.fn(),
         },
         writable: true,
@@ -208,7 +261,7 @@ describe('App Component', () => {
         configurable: true
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       expect(document.documentElement.lang).toBe('es');
     });
@@ -216,7 +269,10 @@ describe('App Component', () => {
     it('should update html lang attribute when language is English', () => {
       Object.defineProperty(window, 'localStorage', {
         value: {
-          getItem: vi.fn().mockReturnValue(null),
+          getItem: vi.fn().mockImplementation((key: string) => {
+            if (key === 'theme') return 'accenture';
+            return null;
+          }),
           setItem: vi.fn(),
         },
         writable: true,
@@ -226,7 +282,7 @@ describe('App Component', () => {
         configurable: true
       });
 
-      render(<App />);
+      renderWithTheme(<App />);
 
       expect(document.documentElement.lang).toBe('en');
     });

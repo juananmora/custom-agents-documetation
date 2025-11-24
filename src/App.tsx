@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
 import LandingPage from './LandingPage';
 import LandingPageEn from './LandingPage_en';
-import { Globe } from 'lucide-react';
+import LandingPageBbva from './LandingPage_bbva';
+import LandingPageBbvaEn from './LandingPage_bbva_en';
+import { Globe, Palette } from 'lucide-react';
+import { useTheme } from './ThemeContext';
 
 function App() {
+  const { theme, toggleTheme } = useTheme();
   const getInitialLanguage = (): 'es' | 'en' => {
     // Check if there's a saved language preference
     const savedLang = localStorage.getItem('language') as 'es' | 'en' | null;
@@ -38,19 +42,45 @@ function App() {
 
   return (
     <div className="relative">
-      {/* Floating Language Switcher */}
-      <button
-        onClick={toggleLanguage}
-        className="fixed bottom-8 right-8 z-50 bg-[#A100FF] hover:bg-[#7000B8] text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 flex items-center gap-2"
-        title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
-      >
-        <Globe className="w-5 h-5" />
-        <span className="font-bold text-sm uppercase tracking-wider">
-          {language === 'es' ? 'EN' : 'ES'}
-        </span>
-      </button>
+      {/* Floating Buttons Container */}
+      <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-3">
+        {/* Theme/Version Switcher */}
+        <button
+          onClick={toggleTheme}
+          className={`${
+            theme === 'accenture' 
+              ? 'bg-[#A100FF] hover:bg-[#7000B8]' 
+              : 'bg-[#1464A5] hover:bg-[#14549C]'
+          } text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 flex items-center gap-2`}
+          title={theme === 'accenture' ? 'Switch to BBVA' : 'Switch to Accenture'}
+        >
+          <Palette className="w-5 h-5" />
+          <span className="font-bold text-sm uppercase tracking-wider">
+            {theme === 'accenture' ? 'BBVA' : 'ACC'}
+          </span>
+        </button>
 
-      {language === 'es' ? <LandingPage /> : <LandingPageEn />}
+        {/* Language Switcher */}
+        <button
+          onClick={toggleLanguage}
+          className={`${
+            theme === 'accenture' 
+              ? 'bg-[#A100FF] hover:bg-[#7000B8]' 
+              : 'bg-[#1464A5] hover:bg-[#14549C]'
+          } text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 flex items-center gap-2`}
+          title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+        >
+          <Globe className="w-5 h-5" />
+          <span className="font-bold text-sm uppercase tracking-wider">
+            {language === 'es' ? 'EN' : 'ES'}
+          </span>
+        </button>
+      </div>
+
+      {theme === 'accenture' 
+        ? (language === 'es' ? <LandingPage /> : <LandingPageEn />)
+        : (language === 'es' ? <LandingPageBbva /> : <LandingPageBbvaEn />)
+      }
     </div>
   );
 }
