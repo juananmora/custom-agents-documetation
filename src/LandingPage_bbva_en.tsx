@@ -926,7 +926,7 @@ Avoid generic exceptions like except Exception:`
                                     </ul>
                                 </div>
                                 <a
-                                    href="https://docs.github.com/en/copilot/customizing-copilot"
+                                    href="https://github.com/BBVA-test/bbva-copilot-instructions.git"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn-primary-bbva text-base px-8 py-3 inline-flex items-center gap-2"

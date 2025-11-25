@@ -926,10 +926,10 @@ Evita excepciones genéricas como except Exception:`
                                     </ul>
                                 </div>
                                 <a
-                                    href="https://docs.github.com/en/copilot/customizing-copilot"
+                                    href="https://github.com/BBVA-test/bbva-copilot-instructions.git"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="btn-primary text-base px-8 py-3 inline-flex items-center gap-2"
+                                    className="btn-primary-bbva text-base px-8 py-3 inline-flex items-center gap-2"
                                 >
                                     Explorar Biblioteca de Personalización <ArrowRight className="w-4 h-4" />
                                 </a>
