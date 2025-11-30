@@ -2,6 +2,8 @@
 
 Esta documentación proporciona una visión técnica profunda de la arquitectura, flujos y conceptos clave del proyecto "Custom Agents Documentation". Este sitio web bilingüe (Español/Inglés) sirve como guía educativa para transformar GitHub Copilot en un equipo de agentes especializados.
 
+![Esencia del Proyecto: Ethereal Intelligence](public/docs/essence_hero.png)
+
 ## 🏗️ Arquitectura del Sistema
 
 El proyecto está construido sobre un stack moderno de React + Vite. La arquitectura se centra en una separación clara entre la lógica de estado global (idioma) y la presentación (componentes bilingües).
@@ -57,6 +59,97 @@ custom-agents-documetation/
 ├── .github/                # Configuraciones de CI/CD y Copilot
 └── ...config files         # Vite, Tailwind, TypeScript
 ```
+
+## 🧩 Diagramas de Secuencia y Estructura
+
+A continuación se detallan los flujos de interacción y la estructura de componentes utilizando tanto diagramas técnicos (Mermaid) como esquemas visuales.
+
+### 1. Diagrama de Secuencia: Inicialización y Cambio de Idioma
+
+Este diagrama ilustra cómo la aplicación decide qué idioma mostrar y cómo maneja la interacción del usuario.
+
+#### Diagrama Técnico (Mermaid)
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Browser
+    participant App
+    participant LocalStorage
+
+    User->>Browser: Abre el sitio web
+    Browser->>App: Monta componente App
+    App->>LocalStorage: getItem('language')
+    
+    alt Preferencia Guardada
+        LocalStorage-->>App: Retorna 'es' o 'en'
+        App->>App: Set Language State
+    else Sin Preferencia
+        LocalStorage-->>App: null
+        App->>Browser: navigator.language
+        Browser-->>App: Retorna idioma sistema
+        App->>App: Calcula idioma inicial
+    end
+
+    App-->>User: Renderiza LandingPage (ES/EN)
+
+    User->>App: Click botón "Cambiar Idioma"
+    App->>App: Toggle Language State
+    App->>LocalStorage: setItem('language', newLang)
+    App-->>User: Re-renderiza en nuevo idioma
+```
+
+#### Versión Visual (Sketch)
+![Diagrama de Secuencia Visual](public/docs/sequence_sketch.png)
+
+---
+
+### 2. Diagrama de Clases (Componentes)
+
+Aunque React utiliza un paradigma funcional, este diagrama representa la jerarquía y composición de los componentes principales como clases para visualizar sus relaciones.
+
+#### Diagrama Técnico (Mermaid)
+
+```mermaid
+classDiagram
+    class App {
+        +state language: 'es' | 'en'
+        +getInitialLanguage()
+        +toggleLanguage()
+        +render()
+    }
+
+    class LandingPage_ES {
+        +render()
+    }
+
+    class LandingPage_EN {
+        +render()
+    }
+
+    class ContentComponents {
+        <<Module>>
+        +FeatureCard()
+        +AgentCard()
+        +ComparisonTable()
+    }
+
+    class PriorityVisualizer {
+        +render()
+    }
+
+    App *-- LandingPage_ES : Renderiza (si es 'es')
+    App *-- LandingPage_EN : Renderiza (si es 'en')
+    LandingPage_ES ..> ContentComponents : Usa
+    LandingPage_EN ..> ContentComponents : Usa
+    LandingPage_ES ..> PriorityVisualizer : Usa
+    LandingPage_EN ..> PriorityVisualizer : Usa
+```
+
+#### Versión Visual (Sketch)
+![Diagrama de Clases Visual](public/docs/class_sketch.png)
+
+---
 
 ## 🚀 Despliegue y Mantenimiento
 
